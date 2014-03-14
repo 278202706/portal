@@ -1,0 +1,43 @@
+<div id="sidebar" class="sidebar">
+
+  <ul class="nav nav-list">
+    <li class="<%= 'active' if (params[:controller]=="adresource"&&params[:action] =="dashboard") %>">
+      <a href="/adresource/dashboard">
+        <i class="icon-dashboard"></i>
+        <span class="menu-text">资源信息</span>
+
+      </a>
+    </li>
+
+    <li class="<%= 'active' if (params[:controller]=="adresource"&&params[:action] =="network") %>">
+      <a href="/adresource/network">
+        <i class="icon-table"></i>
+        <span class="menu-text">网络管理</span>
+
+      </a>
+    </li>
+
+    <li class="<%= 'active' if (params[:controller]=="adresource"&&params[:action] =="software") %>">
+      <a href="/adresource/software">
+        <i class="icon-sort-by-attributes"></i>
+        <span class="menu-text">软件自动化</span>
+
+      </a>
+    </li>
+
+    <li class="<%= 'active' if (params[:controller]=="adresource"&&(params[:action] =="virtualmac"||params[:action] =="business"||params[:action] =="unitvirtualmac"||params[:action] =="unitcontainer")) %>">
+      <a href="/adresource/virtualmac">
+        <i class="icon-sitemap"></i>
+        <span class="menu-text"> 虚拟机管理</span>
+
+      </a>
+    </li>
+
+  </ul>
+  <!--/.nav-list-->
+
+  <div id="sidebar-collapse" class="sidebar-collapse">
+    <i class="icon-double-angle-left"></i>
+  </div>
+</div>
+

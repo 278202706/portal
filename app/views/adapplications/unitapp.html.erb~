@@ -1,0 +1,142 @@
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/adapplications") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          应用托管
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">应用信息</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+     <div class="page-header position-relative">
+        <h1>
+          应用管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>应用详情</span>
+          </small>
+        </h1>
+      </div>
+      <div class="widget-box transparent" id="unitapp-box">
+        <div class="widget-header">
+          <h4 class="lighter smaller">
+            <i class="icon-rss"></i>
+            应用名称
+          </h4>
+        </div>
+				<div class="widget-body">
+          <div class="widget-main padding-4">
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+  <div class="span8">
+
+    <div class="profile-user-info profile-user-info-striped" id="unitappinfo">
+
+      <div class="profile-info-row">
+        <div class="profile-info-name">应用名称</div>
+        <div class="profile-info-value">
+          <span id="unitappname">test</span>
+        </div>
+      </div>
+       <div class="profile-info-row">
+        <div class="profile-info-name">所属厂商</div>
+        <div class="profile-info-value">
+          <span id="unitappinsnum">test</span>
+        </div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-name">所属项目</div>
+        <div class="profile-info-value">
+          <span id="unitappinssize">abc</span>
+        </div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-name">实例个数</div>
+        <div class="profile-info-value">
+          <span id="unitappinsnum">2</span>
+        </div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-name">实例大小</div>
+        <div class="profile-info-value">
+          <span id="unitappinssize">128MB</span>
+        </div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-name">运行状态</div>
+        <div class="profile-info-value">
+          <span id="unitappstatus">未启动</span>
+        </div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-name">创建时间</div>
+        <div class="profile-info-value">
+          <span id="unitappcretime">2013-10-14 9:34:22</span>
+        </div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-name">更新时间</div>
+        <div class="profile-info-value">
+          <span id="unitappupdtime">2013-11-14 19:4:52</span>
+        </div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-name">语言框架</div>
+        <div class="profile-info-value">
+          <span id="unitappframe">Ruby/Rack</span>
+        </div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-name">访问地址</div>
+        <div class="profile-info-value">
+          <span id="unitapproute">test.vcap.com</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="span4 widget-container-span ui-sortable"  >
+    <div class="widget-box transparent">
+      <div class="widget-body">
+        <div class="widget-main padding-16">
+          <div class="row-fluid">
+            <div class="grid3 center">
+              <button class="btn btn-app btn-light btn-mini">
+                <i class="icon-play bigger-140"></i>
+                启动
+              </button>
+
+            </div>
+            <div class="grid3 center">
+              <button class="btn btn-app btn-light btn-mini">
+                <i class="icon-repeat bigger-140"></i>
+                重启
+              </button>
+            </div>
+            <div class="grid3 center">
+              <button class="btn btn-app btn-light btn-mini">
+                <i class="icon-stop bigger-140"></i>
+                停止
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

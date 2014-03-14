@@ -1,0 +1,36 @@
+<div id="sidebar" class="sidebar">
+
+  <ul class="nav nav-list">
+
+    <li class="<%= 'active' if (params[:controller]=="applications"&&params[:action] =="dashboard") %>">
+      <a href="/adaccout/dashboard">
+
+        <span class="menu-text">汇总信息</span>
+
+      </a>
+    </li>
+
+    <li class="<%= 'active' if (params[:controller]=="applications"&&params[:action] =="manage") %>">
+      <a href="/adaccount/manage">
+
+        <span class="menu-text">厂商管理</span>
+
+      </a>
+    </li>
+
+
+
+
+
+
+
+  </ul>
+  <!--/.nav-list-->
+
+  <div id="sidebar-collapse" class="sidebar-collapse">
+    <i class="icon-double-angle-left"></i>
+  </div>
+</div>
+
+
+

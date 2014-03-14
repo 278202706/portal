@@ -1,0 +1,183 @@
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/adservice") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          能力开发
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">申请单</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+			<div class="page-header position-relative">
+        <h1>
+          申请单管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>等待批准的申请</span>
+          </small>
+        </h1>
+      </div>
+
+        <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>服务类型</th>
+          <th>服务名称</th>
+          <th>申请时间</th>
+          <th>申请状态</th>
+          <th>详情</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th>文件存储</th>
+          <th>save-2</th>
+          <th>2013-10-23 13:2:51</th>
+          <th>等待批准</th>
+          <th>
+
+						<span class="btn btn-mini" data-rel="tooltip" title="方案1（基本） 类型：文件存储  版本：1.0  存储空间：2GB  内存：64MB"><i class='icon-hand-up icon-white'></i>详情</span>
+
+          </th>
+          <th>
+            <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>批准</h>"), {:controller => "adapplications", :action => "unitapp"}, :class => "btn btn-success btn-mini" %>
+            <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>拒绝</h>"), {:controller => "adapplications", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+            
+          </th>
+        </tr>
+        </tbody>
+      </table>
+		</div>
+		<div id="content" class="page-content">
+			<div class="page-header position-relative">
+        <h1>
+          申请单管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>已经批准的申请</span>
+          </small>
+        </h1>
+      </div>
+			<table class="table table-striped table-bordered datatable table-hover">
+        <thead>
+        <tr>
+          <th>服务类型</th>
+          <th>服务名称</th>
+          <th>申请时间</th>
+          <th>批准时间</th>
+          <th>绑定应用名称</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th>MySQL</th>
+          <th>mysql-1</th>
+          <th>2013-10-12 8:22:1</th>
+          <th>2013-10-12 14:2:34</th>
+          <th>abcd</th>
+          <th>
+   
+            <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adservice", :action => "viewmysql",:id=>"123"}, :class => "btn btn-success btn-mini" %>
+
+          </th>
+        </tr>
+
+
+        <tr>
+          <th>文件存储</th>
+          <th>save-1</th>
+          <th>2013-10-22 13:2:51</th>
+          <th>2013-10-25 15:27:4</th>
+          <th>暂未绑定应用</th>
+          <th>
+           <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adservice", :action => "viewfilestorage",:id=>"123"}, :class => "btn btn-success btn-mini" %>
+
+          </th>
+        </tr>
+
+
+        <tr>
+          <th>短彩（单发）</th>
+          <th>msg-1</th>
+          <th>2013-11-04 18:2:14</th>
+          <th>2013-11-05 22:21:34</th>
+          <th>暂未绑定应用</th>
+          <th>
+
+             <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adservice", :action => "viewmessage",:id=>"123",:type=>"0"}, :class => "btn btn-success btn-mini" %>
+          </th>
+        </tr>
+
+
+        <tr>
+          <th>短彩（群发）</th>
+          <th>msg-2</th>
+          <th>2013-11-04 19:2:14</th>
+          <th>2013-11-05 22:24:34</th>
+          <th>暂未绑定应用</th>
+          <th>
+            <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adservice", :action => "viewmessage",:id=>"123",:type=>"1"}, :class => "btn btn-success btn-mini" %>
+          </th>
+        </tr>
+
+        </tbody>
+      </table>
+
+		</div>
+ 		<div id="content" class="page-content">
+			<div class="page-header position-relative">
+        <h1>
+          申请单管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>未被等待批准的申请</span>
+          </small>
+        </h1>
+      </div>
+
+      <table class="table table-striped table-bordered datatable table-hover">
+        <thead>
+        <tr>
+          <th>服务类型</th>
+          <th>服务名称</th>
+          <th>申请时间</th>
+          <th>驳回时间</th>
+          <th>备注</th>
+          <th>详情</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th>短彩</th>
+          <th>msg-2</th>
+          <th>2013-11-08 18:2:14</th>
+          <th>2013-11-11 22:21:34</th>
+          <th>接入号有误</th>
+
+						<span class="btn btn-mini" data-rel="tooltip" title="类型：短信（群发）接入号：123456 优先级：5"><i class='icon-hand-up icon-white'></i>详情</span>
+            <!--<%= link_to raw("查看"), {:controller => "resource", :action => "business", :id =>"123",:anchor=>'modal-form-addband'} %>-->
+          </th>
+        </tr>
+        </tbody>
+      </table>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<script>$('[data-rel=tooltip]').tooltip();</script>

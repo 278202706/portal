@@ -1,0 +1,201 @@
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/adresource") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          运行资源
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">软件自动化</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+
+      <div id="nowlist">
+        <h3>正在安装的软件</h3>
+
+        <div class="table-responsive">
+          <div class="table-responsive">
+            <div class="dataTables_wrapper" role="grid">
+              <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="orgslist">
+                <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>开始时间</th>
+                  <th>预计完成时间</th>
+                  <th>模板</th>
+                  <th>业务账号</th>
+                  <th>容器</th>
+                  <th>虚拟机</th>
+                  <th>进度条</th>
+                </tr>
+                </thead>
+                <tbody role="alert" aria-live="polite" aria-relevant="all">
+
+                <tr>
+                  <td><%= 'org.name' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td>
+                  	<span class="btn btn-mini" data-rel="tooltip" title="用户名：11 密码：12334"><i class='icon-hand-up icon-white'></i>详情</span>
+                   
+                  </td>
+                  <td>业务账号1</td>
+                  <td>容器1</td>
+                  <td>虚拟机1</td>
+                  <td>
+                    <div class="progress progress-success progress-striped active span3" style="margin-left: 20px;" data-percent="25%">
+                      <div class="bar" style="width: 10%;"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><%= 'org.name' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td>
+										<span class="btn btn-mini" data-rel="tooltip" title="用户名：11 密码：12334"><i class='icon-hand-up icon-white'></i>详情</span>
+                  </td>
+                  <td>业务账号1</td>
+                  <td>容器1</td>
+                  <td>虚拟机1</td>
+                  <td>
+                    <div class="progress progress-success progress-striped active span3" style="margin-left: 20px;" data-percent="25%">
+                      <div class="bar" style="width: 10%;"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><%= 'org.name' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td>
+                    <span class="btn btn-mini" data-rel="tooltip" title="用户名：11 密码：12334"><i class='icon-hand-up icon-white'></i>详情</span>
+                  </td>
+                  <td>业务账号1</td>
+                  <td>容器1</td>
+                  <td>虚拟机1</td>
+                  <td>
+                    <div class="progress progress-success progress-striped active span3" style="margin-left: 20px;" data-percent="25%">
+                      <div class="bar" style="width: 10%;"></div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><%= 'org.name' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td>
+                    <span class="btn btn-mini" data-rel="tooltip" title="用户名：11 密码：12334"><i class='icon-hand-up icon-white'></i>详情</span>
+                  </td>
+                  <td>业务账号1</td>
+                  <td>容器1</td>
+                  <td>虚拟机1</td>
+                  <td>
+                    <div class="progress progress-success progress-striped active span3" style="margin-left: 20px;" data-percent="25%">
+                      <div class="bar" style="width: 10%;"></div>
+                    </div>
+                  </td>
+                </tr>
+
+
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+        </br>
+
+      </div>
+
+
+      <div id="historylist">
+        <h3>安装完成记录</h3>
+
+        <div class="table-responsive">
+          <div class="table-responsive">
+            <div class="dataTables_wrapper" role="grid">
+              <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="orgslist">
+                <thead>
+                <tr>
+                  <th>名称</th>
+                  <th>开始时间</th>
+                  <th>结束时间</th>
+                  <th>模板</th>
+                  <th>业务账号</th>
+                  <th>容器</th>
+                  <th>虚拟机</th>
+                </tr>
+                </thead>
+                <tbody role="alert" aria-live="polite" aria-relevant="all">
+
+                <tr>
+                  <td><%= 'org.name' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td>
+                    <a title="用户名：11 密码：12334" data-rel="tooltip" href="#">查看</a>
+                  </td>
+                  <td>业务账号1</td>
+                  <td>容器1</td>
+                  <td>虚拟机1</td>
+                </tr>
+                <tr>
+                  <td><%= 'org.name' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td>
+                    <a title="用户名：11 密码：12334" data-rel="tooltip" href="#">查看</a>
+                  </td>
+                  <td>业务账号1</td>
+                  <td>容器1</td>
+                  <td>虚拟机1</td>
+                </tr>
+                <tr>
+                  <td><%= 'org.name' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td>
+                    <a title="用户名：11 密码：12334" data-rel="tooltip" href="#">查看</a>
+                  </td>
+                  <td>业务账号1</td>
+                  <td>容器1</td>
+                  <td>虚拟机1</td>
+                </tr>
+                <tr>
+                  <td><%= 'org.name' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                  <td>
+                    <a title="用户名：11 密码：12334" data-rel="tooltip" href="#">查看</a>
+                  </td>
+                  <td>业务账号1</td>
+                  <td>容器1</td>
+                  <td>虚拟机1</td>
+                </tr>
+
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        </br>
+
+      </div>
+
+    </div>
+  </div>
+</div>

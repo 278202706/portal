@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cloudweb</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="/assets/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+  <!--<link href="/assets/css/bootstrap-cerulean.css" rel="stylesheet"/>-->
+  <link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.custom.min.css" />
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="/assets/css/standard.css"/>
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="/assets/css/font-awesome-ie7.min.css"/>
+  <![endif]-->
+  <link rel="stylesheet" href="/assets/css/ace.min.css"/>
+  <link rel="stylesheet" href="/assets/css/ace-responsive.min.css"/>
+  <link rel="stylesheet" href="/assets/css/ace-skins.min.css"/>
+
+  <link rel="stylesheet" href="/assets/css/daterangepicker.css"/>
+  <!--page specific plugin styles-->
+
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
+
+</head>
+<body class="navbar-fixed" style="padding-top: 80px;">
+
+<%= render "layouts/header" %>
+<div style="min-height: 870px;">
+<%= yield %>
+</div>
+<%= render "layouts/footer" %>
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/fuelux.tree-sampledata.js"></script>
+<script src="/assets/js/fuelux.tree.min.js"></script>
+<script src="/assets/js/daterangepicker.min.js"></script>
+<script src="/assets/js/moment.min.js"></script>
+<!--<script src="/assets/js/jquery-ui-1.10.3.custom.min.js"></script>-->
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/fuelux.spinner.min.js"></script>
+<script src="/assets/js/jquery.flot.js"></script>
+<script src="/assets/js/jquery.flot.pie.min.js"></script>
+<script src="/assets/js/jquery.dataTables.min.js"></script>
+<script src="/assets/js/jquery.dataTables.bootstrap.js"></script>
+<script src="/assets/js/ace-elements.min.js"></script>
+<script src="/assets/js/ace.min.js"></script>
+<!--<script src="/assets/js/bootstrap-dropdown.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,54 @@
+<% mem = @machineinfo["mem"] %>
+
+<div class="box-content">
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> ram空间</div>
+    <div class="profile-info-value">
+      <span><%= mem["ram"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 总空间</div>
+    <div class="profile-info-value">
+      <span><%= mem["total"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 已使用空间</div>
+    <div class="profile-info-value">
+      <span><%= mem["used"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 剩余空间</div>
+    <div class="profile-info-value">
+      <span><%= mem["free"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 实际使用空间</div>
+    <div class="profile-info-value">
+      <span><%= mem["actual_used"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 实际剩余空间</div>
+    <div class="profile-info-value">
+      <span><%= mem["actual_free"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 使用百分比</div>
+    <div class="profile-info-value">
+      <span><%= mem["used_percent"] %></span>
+    </div>
+  </div>
+
+</div>

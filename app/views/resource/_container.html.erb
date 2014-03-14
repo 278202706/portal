@@ -1,0 +1,47 @@
+<div class="row-fluid">
+  <div class="span9">
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>业务容器名称</th>
+    <th>所属子网</th>
+    <th>对应vlanid</th>
+    <th>可申请虚拟机个数</th>
+    <th>现有虚拟机个数</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Test</td>
+      <td>dmz区</td>
+      <td>1102</td>
+      <td>10</td>
+      <td>2</td>
+      <td>
+      <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "resource", :action => "unitcontainer", :id =>"1234"}, :class => "btn btn-info btn-mini" %>
+      <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "resource", :action => "deletecontainer", :id =>"1234"}, :class => "btn btn-danger btn-mini" %>
+      
+      </td>
+    </tr>
+  </tbody>
+</table>
+  </div><div class="span3">
+  容器介绍
+  <div class="hr hr-18 dotted hr-double"></div>
+  <h4 class="pink">
+    <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+    <a href="#modal-form-crecontainer" role="button" class="green" data-toggle="modal"> 申请新容器 </a>
+  </h4>
+  <div class="hr hr-18 dotted hr-double"></div>
+
+</div></div>
+<script type="text/javascript">
+
+
+  //chosen plugin inside a modal will have a zero width because the select element is originally hidden
+  //and its width cannot be determined.
+  //so we set the width after modal is show
+  $('#modal-form-crecontainer').on('show', function () { })
+
+</script>

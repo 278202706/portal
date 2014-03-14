@@ -1,0 +1,10 @@
+class ServiceController < ApplicationController
+  def market
+  end
+
+  def applylist
+  end
+
+  def manage
+  end
+end

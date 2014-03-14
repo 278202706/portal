@@ -1,0 +1,24 @@
+class AdresourceController < ApplicationController
+  def dashboard
+  end
+  def software
+  end
+
+  def virtualmac
+  end
+
+  def network
+  end
+
+  #def business
+  #
+  #end
+  #
+  #def unitcontainer
+  #
+  #end
+  #
+  #def unitvirmac
+  #
+  #end
+end

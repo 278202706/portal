@@ -1,0 +1,2 @@
+module AdserviceHelper
+end

@@ -1,0 +1,208 @@
+2013-12-16 16:47:41 INFO [request::method ]--POST
+2013-12-16 16:47:41 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-16 16:47:41 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-16 16:47:41 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>724d2b934b1a4895b321af3f0920885b</ownerId></createOwnerResponse>
+2013-12-16 16:49:15 INFO [request::method ]--DELETE
+2013-12-16 16:49:15 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner/724d2b934b1a4895b321af3f0920885b
+2013-12-16 16:49:15 INFO [request::body ]--
+2013-12-16 16:49:15 INFO [response::body]--
+2013-12-16 17:03:50 INFO [request::method ]--POST
+2013-12-16 17:03:50 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-16 17:03:50 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-16 17:03:50 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>1603be34e95547ecba08de19d9236471</ownerId></createOwnerResponse>
+2013-12-16 17:08:54 INFO [request::method ]--DELETE
+2013-12-16 17:08:54 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner/1603be34e95547ecba08de19d9236471
+2013-12-16 17:08:54 INFO [request::body ]--
+2013-12-16 17:08:54 INFO [response::body]--
+2013-12-16 17:11:38 INFO [request::method ]--POST
+2013-12-16 17:11:38 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-16 17:11:38 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-16 17:11:38 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>6d7237b034cd42c2a3ae45b226542544</ownerId></createOwnerResponse>
+2013-12-16 17:12:18 INFO [request::method ]--DELETE
+2013-12-16 17:12:18 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner/6d7237b034cd42c2a3ae45b226542544
+2013-12-16 17:12:18 INFO [request::body ]--
+2013-12-16 17:12:18 INFO [response::body]--
+2013-12-16 17:13:51 INFO [request::method ]--POST
+2013-12-16 17:13:51 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-16 17:13:51 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-16 17:13:51 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>3ec4099c2966458c839b4b571bbec415</ownerId></createOwnerResponse>
+2013-12-16 17:14:21 INFO [request::method ]--DELETE
+2013-12-16 17:14:21 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner/3ec4099c2966458c839b4b571bbec415
+2013-12-16 17:14:21 INFO [request::body ]--
+2013-12-16 17:14:21 INFO [response::body]--
+2013-12-16 17:14:27 INFO [request::method ]--POST
+2013-12-16 17:14:27 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-16 17:14:27 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-16 17:14:27 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>0070c557d9724f9cbee2c4b7d68b2a3f</ownerId></createOwnerResponse>
+2013-12-16 17:14:50 INFO [request::method ]--DELETE
+2013-12-16 17:14:50 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner/0070c557d9724f9cbee2c4b7d68b2a3f
+2013-12-16 17:14:50 INFO [request::body ]--
+2013-12-16 17:14:50 INFO [response::body]--
+2013-12-16 18:36:35 INFO [request::method ]--POST
+2013-12-16 18:36:35 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-16 18:36:35 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type>1</type>
+  <ownerName>test</ownerName>
+  <status>1</status>
+  <externalId>abc@ebupt.com</externalId>
+</createOwnerRequest>
+
+2013-12-16 18:36:35 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>5564a2d2b7094891a04f3aca2c67b71b</ownerId></createOwnerResponse>
+2013-12-16 18:39:32 INFO [request::method ]--DELETE
+2013-12-16 18:39:32 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner/5564a2d2b7094891a04f3aca2c67b71b
+2013-12-16 18:39:32 INFO [request::body ]--
+2013-12-16 18:39:32 INFO [response::body]--
+2013-12-16 18:40:38 INFO [request::method ]--POST
+2013-12-16 18:40:38 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-16 18:40:38 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type>1</type>
+  <ownerName>test</ownerName>
+  <status>1</status>
+  <externalId>abc@ebupt.com</externalId>
+</createOwnerRequest>
+
+2013-12-16 18:40:38 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>d18ec0a3d2764fe68d4d9ac13ce94d4d</ownerId></createOwnerResponse>
+2013-12-16 18:43:42 INFO [request::method ]--POST
+2013-12-16 18:43:42 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-16 18:43:42 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type>1</type>
+  <ownerName>test</ownerName>
+  <status>1</status>
+  <externalId>abc@ebupt.com</externalId>
+</createOwnerRequest>
+
+2013-12-16 18:43:42 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><errorMessage><errorcode>0001</errorcode><description>0001:ubable to create owner record by ownername[test], existing record already.</description></errorMessage>
+2013-12-16 18:44:28 INFO [request::method ]--DELETE
+2013-12-16 18:44:28 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner/d18ec0a3d2764fe68d4d9ac13ce94d4d
+2013-12-16 18:44:28 INFO [request::body ]--
+2013-12-16 18:44:28 INFO [response::body]--
+2013-12-16 18:45:37 INFO [request::method ]--POST
+2013-12-16 18:45:37 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-16 18:45:37 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type>1</type>
+  <ownerName>test</ownerName>
+  <status>1</status>
+  <externalId>abc@ebupt.com</externalId>
+</createOwnerRequest>
+
+2013-12-16 18:45:37 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>f32ac12c8c6147398b5926221df8fcf9</ownerId></createOwnerResponse>
+2013-12-16 18:46:15 INFO [request::method ]--DELETE
+2013-12-16 18:46:15 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner/f32ac12c8c6147398b5926221df8fcf9
+2013-12-16 18:46:15 INFO [request::body ]--
+2013-12-16 18:46:15 INFO [response::body]--
+2013-12-18 10:49:40 INFO [request::method ]--POST
+2013-12-18 10:49:40 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-18 10:49:40 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type>1</type>
+  <ownerName>1234</ownerName>
+  <status>0</status>
+  <externalId>abc@ebupt.com</externalId>
+</createOwnerRequest>
+
+2013-12-18 10:49:40 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>2104e32ab6554c8eb0ed058fd4fe86c5</ownerId></createOwnerResponse>
+2013-12-18 13:40:59 INFO [request::method ]--POST
+2013-12-18 13:40:59 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-18 13:40:59 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-18 13:40:59 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><createOwnerResponse><ownerId>c737b92d26d644d58831d6cee4a84a45</ownerId></createOwnerResponse>
+2013-12-18 13:43:42 INFO [request::method ]--POST
+2013-12-18 13:43:42 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-18 13:43:42 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-18 13:43:42 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><errorMessage><errorcode>0001</errorcode><description>0001:ubable to create owner record by ownername[owner-test], existing record already.</description></errorMessage>
+2013-12-18 13:43:55 INFO [request::method ]--POST
+2013-12-18 13:43:55 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-18 13:43:55 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-18 13:43:55 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><errorMessage><errorcode>0001</errorcode><description>0001:ubable to create owner record by ownername[owner-test], existing record already.</description></errorMessage>
+2013-12-18 13:43:58 INFO [request::method ]--POST
+2013-12-18 13:43:58 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-18 13:43:58 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-18 13:43:58 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><errorMessage><errorcode>0001</errorcode><description>0001:ubable to create owner record by ownername[owner-test], existing record already.</description></errorMessage>
+2013-12-18 13:43:59 INFO [request::method ]--POST
+2013-12-18 13:43:59 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-18 13:43:59 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-18 13:43:59 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><errorMessage><errorcode>0001</errorcode><description>0001:ubable to create owner record by ownername[owner-test], existing record already.</description></errorMessage>
+2013-12-18 13:45:36 INFO [request::method ]--POST
+2013-12-18 13:45:36 INFO [request::path ]--/rps-service-api/1.0/cmp/module/common/owner
+2013-12-18 13:45:36 INFO [request::body ]--<?xml version="1.0" encoding="UTF-8"?>
+<createOwnerRequest>
+  <type type="integer">1</type>
+  <ownerName>owner-test</ownerName>
+  <status type="integer">2</status>
+  <externalId>external</externalId>
+</createOwnerRequest>
+
+2013-12-18 13:45:36 INFO [response::body]--<?xml version='1.0' encoding='UTF-8'?><errorMessage><errorcode>0001</errorcode><description>0001:ubable to create owner record by ownername[owner-test], existing record already.</description></errorMessage>

@@ -1,0 +1,40 @@
+ <!--<%= @machineinfo["sys_info"]  %>-->
+ <% os = @machineinfo["sys_info"] %>
+
+<div class="box-content">
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 操作系统</div>
+    <div class="profile-info-value">
+      <span><%= os["name"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 内核</div>
+    <div class="profile-info-value">
+      <span><%= os["version"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 架构</div>
+    <div class="profile-info-value">
+      <span><%= os["machine"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 版本</div>
+    <div class="profile-info-value">
+      <span><%= os["description"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 补丁级别</div>
+    <div class="profile-info-value">
+      <span><%= os["patch_level"] %></span>
+    </div>
+  </div>
+
+</div>

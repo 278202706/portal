@@ -1,0 +1,204 @@
+<script>
+  $('#nav_menu_user_service').addClass('active')
+</script>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/service") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          能力开发
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">能力管理</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+      <div class="page-header position-relative">
+        <h1>
+          能力详情
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>短彩群发任务详情</span>
+          </small>
+        </h1>
+      </div>
+      <div class="widget-box transparent" id="unitapp-box">
+        <div class="widget-header">
+          <h4 class="lighter smaller">
+            <i class="icon-rss"></i>
+            群发任务名称
+          </h4>
+        </div>
+      <div class="row-fluid">
+        <div class="span7">
+           </br>
+          <div class="profile-user-info profile-user-info-striped" id="unitserinfo">
+
+            <div class="profile-info-row">
+              <div class="profile-info-name">任务名称</div>
+              <div class="profile-info-value">
+                <span id="unitsername">msg1</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">开始时间</div>
+              <div class="profile-info-value">
+                <span id="unitseraptime">2013-10-12 8:22:1</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">预计完成时间</div>
+              <div class="profile-info-value">
+                <span id="unitseraprtime">2013-10-12 14:2:34</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">服务优先级</div>
+              <div class="profile-info-value">
+                <span id="unitserspace">2</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">任务优先级</div>
+              <div class="profile-info-value">
+                <span id="unitserapp">3</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">所属项目</div>
+              <div class="profile-info-value">
+                <span id="unitserinf">abc</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">绑定应用</div>
+              <div class="profile-info-value">
+                <span id="unitseraptim">暂未绑定应用</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">预处理</div>
+              <div class="profile-info-value">
+                <span id="unitseraprtie">乱序</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">已发条数</div>
+              <div class="profile-info-value">
+                <span id="unitserspac">230</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">状态</div>
+              <div class="profile-info-value">
+                <span id="unitserap">运行中</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">完成进度</div>
+              <div class="profile-info-value">
+                  <span id="unitserin"><div class="progress progress-success progress-striped active"  data-percent="25%" style="width: 80%;">
+                    <div class="bar" style="width: 25%;"></div>
+                  </div></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span5">
+
+          </br>
+          <div class="widget-box transparent" id="infochange" style="border: 1px solid #DCEBF7;">
+            <div class="widget-header" id="infochangeheader">
+              <h4>信息修改</h4>
+            </div>
+            <div class="widget-body" >
+              <form class="form-horizontal" style="margin-bottom:0">
+                </br>
+            <div class="control-group">
+              <label class="control-label"  for="form-field-select-3">服务优先级</label>
+
+              <div class="controls">
+                <select id="connetwork">
+                  <option value="" > ---选择优先级---</option>
+                  <option value="1" >1 </option>
+                  <option value="2" >2 </option>
+                  <option value="3" >3  </option>
+                  <option value="4" >4  </option>
+                  <option value="5" >5   </option>
+                  <option value="6" >6 </option>
+                  <option value="7" >7 </option>
+                  <option value="8" >8  </option>
+                  <option value="9" >9  </option>
+                  <option value="10" >紧急   </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label"  for="form-field-select-3">任务优先级</label>
+
+              <div class="controls">
+                <select id="connet">
+                  <option value="" > ---选择优先级---</option>
+                  <option value="1" >1 </option>
+                  <option value="2" >2 </option>
+                  <option value="3" >3  </option>
+                  <option value="4" >4  </option>
+                  <option value="5" >5   </option>
+                  <option value="6" >6 </option>
+                  <option value="7" >7 </option>
+                  <option value="8" >8  </option>
+                  <option value="9" >9  </option>
+                  <option value="10" >紧急   </option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="control-group">
+              <label class="control-label"  for="form-field-select-3">状态</label>
+
+              <div class="controls">
+                <select id="co">
+                  <option value="" > ---选择优先级---</option>
+                  <option value="1" >暂停</option>
+                  <option value="2" >开始</option>
+                </select>
+              </div>
+            </div>
+
+
+                <div class="modal-footer"  style="border-radius: 0;margin-top: 15px; padding: 10px;">
+                  <button class="btn btn-small" data-dismiss="modal">
+                    <i class="icon-remove"></i>
+                    取消
+                  </button>
+                  <button class="btn btn-small btn-primary">
+                    <i class="icon-ok"></i>
+                    确认修改
+                  </button>
+                </div>
+
+          </form>
+
+
+        </div>
+        
+
+        
+        
+      </div>
+
+    </div>
+  </div>
+
+
+</div>          </div></div>          </div>
+

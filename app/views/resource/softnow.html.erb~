@@ -1,0 +1,110 @@
+<div class="container-fluid main-container">
+ <%= render(:partial => "/sidebar/resource") %>
+  <% case when @softid=='1' then%>
+    <% @softname='Tomcat' %>
+    <% @softpic='1' %>
+    <%@softpicurl="/assets/tomcat.png"%>
+    <% @softcom='Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。实际上Tomcat 部分是Apache 服务器的扩展，但它是独立运行的，所以当你运行tomcat 时，它实际上作为一个与Apache 独立的进程单独运行的。' %>
+  <% when @softid=='2' then%>
+    <% @softname='JBoss' %>
+    <% @softpic='2' %>
+  <%@softpicurl="/assets/boss.png"%>
+    <% @softcom='JBoss是一套应用程序服务器，属于开源的企业级Java中间件软件，用于实现基于SOA架构的web应用和服务。' %>
+  <% when @softid=='3' then%>
+    <% @softname='PHP' %>
+    <% @softpic='3' %>
+  <%@softpicurl="/assets/php.png"%>
+    <% @softcom='是一种开源的通用计算机脚本语言。是一种在服务器端执行的嵌入HTML文档的脚本语言，语言的风格有类似于C语言，被广泛地运用，主要用途是在于处理动态网页，也包含了命令行运行接口，或者产生图形用户界面（GUI）程序。' %>
+  <% when @softid=='4' then%>
+    <% @softname='Node.js' %>
+    <% @softpic='4' %>
+  <%@softpicurl="/assets/nodejs.png"%>
+    <% @softcom='Node.js是一套用来编写高性能网络服务器的JavaScript工具包，一系列的变化由此开始，在Node中，Http是首要的。Node为创建http服务器作了优化，所以在网上看到的大部分示例和库都是集中在web上(http框架、模板库等）。' %>
+  <% when @softid=='5' then%>
+    <% @softname='Ruby Stack' %>
+    <% @softpic='5' %>
+  <%@softpicurl="/assets/ruby.png"%>
+    <% @softcom='Ruby，一种为简单快捷的面向对象编程（面向对象程序设计）而创的脚本语言，遵守GPL协议和Ruby License。' %>
+  <% when @softid=='6' then%>
+    <% @softname='GitLab' %>
+    <% @softpic='6' %>
+  <%@softpicurl="/assets/gitlab.png"%>
+    <% @softcom='GitLab 是一个用于仓库管理系统的开源项目。使用Git作为代码管理工具，并在此基础上搭建起来的web服务。[' %>
+  <% end %>
+  <%= render(:partial => "/sidebar/resource") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          运行资源
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">软件自动化</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+    	<div class="page-header position-relative">
+        <h1>
+          软件自动化
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>安装详情&<%=@softname%></span>
+          </small>
+        </h1>
+      </div>
+
+			<div class="row-fluid">
+        <div class="span2 center">
+          <div class="profile-picture">
+            <img alt="Pic mysql" src=<%= @softpicurl %> />
+          </div>
+        </div>
+        <div class="span10">
+      <div id="briefintro">
+        <div class="row-fluid">
+          <div > <h5><%= @softcom %></h5>  </div>
+        </div>
+      </div>
+
+      <div id="choose">
+        <h3>安装详情</h3>
+        <form class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label">虚拟机</label>
+            <div class="controls">
+              <input type="text" class="span3" name="softmac" value="虚拟机1" disabled="disabled">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">账号</label>
+            <div class="controls">
+              <input type="text" class="span3" name="macaccount" value="test1" disabled="disabled">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">密码</label>
+            <div class="controls">
+              <input type="password" class="span3" name="macpwd" value="abcd" disabled="disabled">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">进度</label>
+            <div class="progress progress-success progress-striped active span3" style="margin-left: 20px;" data-percent="25%">
+              <div class="bar" style="width: 10%;"></div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>

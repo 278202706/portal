@@ -1,0 +1,270 @@
+<script>
+  $('#nav_menu_user_resource').addClass('active')
+</script>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/resource") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          <%= t :header_resource %>
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active"><%= t :resource_info %></li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+
+
+    <div id="container">
+      <div class="page-header position-relative">
+        <h1>
+          <%= t :resource_info %>
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span><%= t :resource_container %></span>
+          </small>
+        </h1>
+      </div>
+
+      <div class="media row-fluid">
+        <div class="span3">
+          <div class="widget">
+            <div class="well">
+              <div class="view center">
+                <!--<i class="icon-desktop bigger-300"></i>-->
+                <img src="/assets/res-container.png"  style="height: 100px;">
+                <a class="item-title" href="#">test</a>
+              </div>
+              <div class="item-info">
+                <div class="profile-user-info">
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :res_con_name %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      abc
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name"  style="width:85px">
+                      <%= t :res_con_virnum %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      2
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :res_con_vlanid %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      1102
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="widget">
+            <div class="well">
+              <div class="view center">
+                <!--<i class="icon-desktop bigger-300"></i>-->
+                <img src="/assets/res-container.png" style="height: 100px;">
+                <a class="item-title" href="#">test</a>
+              </div>
+              <div class="item-info">
+                <div class="profile-user-info">
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :res_con_name %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      abc
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name"  style="width:85px">
+                      <%= t :res_con_virnum %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      2
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :res_con_vlanid %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      1102
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+      <div id="virtual">
+      <div class="page-header position-relative">
+        <h1>
+          <%= t :resource_info %>
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span><%= t :resource_virmac %></span>
+          </small>
+        </h1>
+      </div>
+
+      <div class="media row-fluid">
+        <div class="span3">
+          <div class="widget">
+            <div class="well">
+              <div class="view center">
+                <!--<i class="icon-desktop bigger-300"></i>-->
+                <img src="/assets/res-server.png"  style="height: 100px;">
+                <a class="item-title" href="#">test</a>
+              </div>
+              <div class="item-info">
+                <div class="profile-user-info">
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :resource_container %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      abc
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name"  style="width:85px">
+                      <%= t :res_vir_size %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      102400MB
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :res_vir_sys %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      ubuntu12.04
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="widget">
+            <div class="well">
+              <div class="view center">
+                <!--<i class="icon-desktop bigger-300"></i>-->
+                <img src="/assets/res-server.png" style="height: 100px;">
+                <a class="item-title" href="#">test</a>
+              </div>
+              <div class="item-info">
+                <div class="profile-user-info">
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :resource_container %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      abc
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name"  style="width:85px">
+                      <%= t :res_vir_size %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      102400MB
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :res_vir_sys %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      ubuntu12.04
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+          <div class="widget">
+            <div class="well">
+              <div class="view center">
+                <!--<i class="icon-desktop bigger-300"></i>-->
+                <img src="/assets/res-server.png"  style="height: 100px;">
+                <a class="item-title" href="#">test</a>
+              </div>
+              <div class="item-info">
+                <div class="profile-user-info">
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :resource_container %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      abc
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name"  style="width:85px">
+                      <%= t :res_vir_size %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      102400MB
+                    </div>
+                  </div>
+                  <div class="profile-info-row">
+                    <div class="profile-info-name" style="width:85px">
+                      <%= t :res_vir_sys %>
+                    </div>
+                    <div class ="profile-info-value" style="margin-left: 95px;">
+                      ubuntu12.04
+                    </div>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>

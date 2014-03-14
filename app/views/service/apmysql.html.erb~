@@ -1,0 +1,68 @@
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/service") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          能力开发
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">软件超市</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+    <h4>MySQL服务——申请</h4>
+    <form class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label" for="form-field-sername">服务名称</label>
+
+          <div class="controls">
+            <input type="text" id="form-field-sername" placeholder="1-32个字符，不可以数字开头，不可包含中文"/>
+          </div>
+        </div>
+        
+        <div class="row-fluid">
+        <div class="span4">
+        	<div class="center">
+        		<h4>方案1(基本）</h4>
+        	</div>
+        	<li>类型：MySQL</li>
+        	<li>版本：5.5</li>
+        	<li>存储空间：10GB</li>
+        	<li>内存：256MB</li>
+        	<input type="radio" name="mysql" value="1" checked="true"/>1
+        </div>
+        <div class="span4">
+        <div class="center">
+        		<h4>方案2(中等）</h4>
+        	</div>
+        	<li>类型：MySQL</li>
+        	<li>版本：5.5</li>
+        	<li>存储空间：50GB</li>
+        	<li>内存：512MB</li>
+        	<input type="radio" name="mysql" value="2"/>2
+        </div>
+        <div class="span4">
+        <div class="center">
+        		<h4>方案3(高级）</h4>
+        	</div>
+        	<li>类型：MySQL</li>
+        	<li>版本：5.5</li>
+        	<li>存储空间：100GB</li>
+        	<li>内存：1024MB</li>
+        	<input type="radio" name="mysql" value="3"/>3
+        </div>
+        </div>
+         	 <%= link_to raw(确认申请") %>
+         	 
+        
+    </form>
+    </div>
+  </div>
+</div>

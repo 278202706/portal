@@ -1,0 +1,75 @@
+<div class="widget-header widget-header-flat">
+  <h4 class="lighter">
+    <i class="icon-table"></i>
+    接入号使用情况统计表 <%=year  %>
+  </h4>
+</div>
+<div class="widget-body" style="padding-top: 15px;">
+<div id="<%=idname%>"  class="center"  ></div>
+<div id="<%=idname%>year" class="<%=year %>" style="display: hidden;"></div>
+<div id="<%=idname%>type" class="<%=type %>" style="display: hidden;"></div>
+</div>
+  <script type="text/javascript">
+    var <%=idname%>gettableyear=document.getElementById('<%=idname%>year').className ;
+    var <%=idname%>gettabletype=document.getElementById('<%=idname%>type').className ;
+    //console.log(gettabletype+gettableyear);
+    if (<%=idname%>gettabletype=="year"){var <%=idname%>uri='http://10.1.1.63:9294/statistics/company/year/'+<%=idname%>gettableyear;}
+    else if(<%=idname%>gettabletype=="month"){var <%=idname%>uri='http://10.1.1.63:9294/statistics/company/month/'+<%=idname%>gettableyear;}
+    else {var <%=idname%>uri='http://10.1.1.63:9294/statistics/company/month/'+<%=idname%>gettableyear;}    //change day
+    //console.log(uri);
+//        $.ajax({
+//            //   url:'http://10.1.46.215:9294/service/message/tasks?running' ,
+//            url:<%=idname%>uri,
+//            dataType:'jsonp',
+//            jsonp:'jsonpcallback',
+//            error : function(textStatus, errorThrown) {
+//                alert("系统ajax交互错误: " + textStatus);
+//            },
+//            success:function(result) {
+//              //  console.log(uri);
+                var <%=idname%>results={"companys":[{"name":"ebupt","data":[{"num":"12345","data":[10,10,10,12,24,23]},{"num":"123456","data":[12,15,14,12,15,16]}]},{"name":"ebupt2","data":[{"num":"12345","data":[10,10,10,12,24,23]},{"num":"123456","data":[12,15,14,12,15,16]}]}]};
+                //console.log(results["companys"][0]["name"]);
+                //console.log(results["companys"][0]["data"].length);
+                var <%=idname%>table1=document.getElementById("<%=idname%>");
+                var <%=idname%>str="<table class='table table-striped table-bordered bootstrap-datatable datatable'><thead><tr style='text-align:center'><th rowspan='2' style='vertical-align:top;text-align:center'>企业</th><th rowspan='2' style='vertical-align:top;text-align:center'>接入号</th><th colspan='3'  style='text-align:center'>短信</th><th colspan='3' style='text-align:center'>彩信</th></tr><tr><th>上行</th><th>下行</th><th>群发</th><th>上行</th><th>下行</th><th>群发</th></tr></thead>";
+                <%=idname%>str=<%=idname%>str+"<tbody>";
+                var <%=idname%>len=<%=idname%>results["companys"].length;
+//console.log(len);
+                var <%=idname%>duanuptol=0;
+                var <%=idname%>duandowntol=0;
+                var <%=idname%>duanquntol=0;
+                var <%=idname%>caiuptol=0;
+                var <%=idname%>caidowntol=0;
+                var <%=idname%>caiquntol=0;
+                var <%=idname%>comdata="";
+                for(var i=0;i<<%=idname%>len;i++){
+                    <%=idname%>comdata=<%=idname%>results["companys"][i]["data"];
+                    var <%=idname%>a=<%=idname%>results["companys"][i]["data"].length;
+                    var <%=idname%>name=<%=idname%>results["companys"][i]["name"];
+                   // console.log(<%=idname%>name+":"+<%=idname%>a);
+                    <%=idname%>str=<%=idname%>str+"<tr><td rowspan="+<%=idname%>a+" style='vertical-align:top'>"+<%=idname%>name+"</td>";
+                    for(var j=0;j<<%=idname%>a;j++){
+                        <%=idname%>accnum=<%=idname%>comdata[j]["num"];
+                        <%=idname%>accdata=<%=idname%>comdata[j]["data"];
+                        <%=idname%>str=<%=idname%>str+"<td>"+<%=idname%>accnum+"</td><td>"+<%=idname%>accdata[0]+"</td><td>"+<%=idname%>accdata[1]+"</td><td>"+<%=idname%>accdata[2]+"</td><td>"+<%=idname%>accdata[3]+"</td><td>"+<%=idname%>accdata[4]+"</td><td>"+<%=idname%>accdata[5]+"</td></td></tr>";
+                        <%=idname%>duanuptol=<%=idname%>duanuptol+<%=idname%>accdata[0];
+                        <%=idname%>duandowntol=<%=idname%>duandowntol+<%=idname%>accdata[1];
+                        <%=idname%>duanquntol=<%=idname%>duanquntol+<%=idname%>accdata[2];
+                        <%=idname%>caiuptol=<%=idname%>caiuptol+<%=idname%>accdata[3];
+                        <%=idname%>caidowntol=<%=idname%>caidowntol+<%=idname%>accdata[4];
+                        <%=idname%>caiquntol=<%=idname%>caiquntol+<%=idname%>accdata[5];
+                    }
+                    <%=idname%>str=<%=idname%>str+"</tr>";
+                }
+
+//console.log(duanuptol+","+duandowntol+","+duanquntol+","+caiuptol+","+caidowntol+","+caiquntol);
+                <%=idname%>str=<%=idname%>str+"<tr><th style='text-align: center;' colspan='2'>总计</th><td>"+<%=idname%>duanuptol+"</td><td>"+<%=idname%>duandowntol+"</td><td>"+<%=idname%>duanquntol+"</td><td>"+<%=idname%>caiuptol+"</td><td>"+<%=idname%>caidowntol+"</td><td>"+<%=idname%>caiquntol+"</td>"+"</tr>";
+                <%=idname%>str=<%=idname%>str+"</tbody></table>";
+                <%=idname%>table1.innerHTML=<%=idname%>str;
+//            }
+//        });
+
+
+
+
+</script>

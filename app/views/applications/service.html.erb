@@ -1,0 +1,192 @@
+<script>
+  $('#nav_menu_user_applications').addClass('active')
+</script>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/applications") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          应用托管
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">能力绑定</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+
+      <div class="page-header position-relative">
+        <h1>
+          能力绑定
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>绑定关系列表</span>
+          </small>
+        </h1>
+      </div>
+
+      <% if params[:response]=='addfailure' %>
+        <div class="alert alert-error">
+          <button class="close" data-dismiss="alert" type="button">
+            <i class="icon-remove"></i>
+          </button>
+          <h4 class="alert-heading">注意！</h4>
+          <%= "添加能力绑定失败，请重新操作！" %>
+        </div>
+      <% end %>
+      <% if params[:response]=='addsuccess' %>
+        <div class="alert alert-success">
+          <button class="close" data-dismiss="alert" type="button">
+            <i class="icon-remove"></i>
+          </button>
+          <h4 class="alert-heading">提示！</h4>
+          <%= "添加能力绑定成功！" %>
+        </div>
+      <% end %>
+      <% if params[:response]=='unbindfailure' %>
+        <div class="alert alert-error">
+          <button class="close" data-dismiss="alert" type="button">
+            <i class="icon-remove"></i>
+          </button>
+          <h4 class="alert-heading">注意！</h4>
+          <%= "添加能力绑定失败，请重新操作！" %>
+        </div>
+      <% end %>
+      <% if params[:response]=='unbindsuccess' %>
+        <div class="alert alert-success">
+          <button class="close" data-dismiss="alert" type="button">
+            <i class="icon-remove"></i>
+          </button>
+          <h4 class="alert-heading">提示！</h4>
+          <%= "能力解绑成功！" %>
+        </div>
+      <% end %>
+
+      <div class="alert alert-block  alert-info">
+        <button class="close" data-dismiss="alert" type="button">
+          <i class="icon-remove"></i>
+        </button>
+        <p><strong>提示！</strong></p>
+        <p>同一类型的服务绑定多个时可能出错。</p>
+      </div>
+
+      <% if @binds==[]%>
+          <div class="alert alert-block  alert-info">
+            <button class="close" data-dismiss="alert" type="button">
+              <i class="icon-remove"></i>
+            </button>
+            <p><strong>提示！</strong></p>
+            <p>当前无绑定关系。</p>
+          </div>
+      <% else %>
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>应用名称</th>
+          <th>服务名称</th>
+          <th>服务类型</th>
+          <th>绑定时间</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @binds.each do |bind| %>
+        <tr>
+          <td>
+            <%= bind.app.name %>
+          </td>
+          <td>
+            <%=bind.service_instance.name%>
+          </td>
+          <td>
+            <%=bind.service_instance.service_plan.manifest[:entity][:service][:entity][:label]  %>
+          </td>
+          <td>
+            <%= bind.created_at %>
+          </td>
+          <td>
+            <%= link_to raw("<i class='icon-minus-sign icon-white'></i><h style='color:#FFF'>解绑</h>"), {:controller => "applications", :action => "unbind",:appname=>bind.app.name,:sername=>bind.service_instance.name,:id=>bind.service_instance.guid}, :class => "btn btn-danger btn-mini" %>
+          </td>
+        </tr>
+        <% end %>
+
+
+
+        </tbody>
+      </table>
+      <% end %>
+
+      <div class="hr hr-18 dotted hr-double"></div>
+      <h4 class="pink">
+        <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+        <a href="#modal-form-addbind" role="button" class="green" data-toggle="modal"> 添加绑定关系 </a>
+      </h4>
+      <div class="hr hr-18 dotted hr-double"></div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="modal-form-addbind" class="modal hide fade" tabindex="-1">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="blue bigger">
+      添加绑定关系
+      <small>
+        <i class="icon-double-angle-right"></i>
+        <span>请填写下列信息</span>
+      </small>
+    </h4>
+  </div>
+  <%= form_tag url_for(:controller=>"applications",:action=>"appbindser"), :class => "form-horizontal", :style=>"margin-bottom:0px",:method => :post do %>
+    <div class="modal-body overflow-visible">
+      <div class="row-fluid">
+        <div class="span7">
+
+          <div class="control-group">
+            <label class="control-label">选择服务</label>
+            <div class="controls">
+              <select name="serid" >
+                <% @allser.each do |ser| %>
+                <option value="<%= ser.id%>"><%= ser.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label">选择应用</label>
+            <div class="controls">
+              <select name="appid" >
+                <% @allapp.each do |app| %>
+                    <option value="<%= app.id%>"><%= app.appname %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-small" data-dismiss="modal">
+        <i class="icon-remove"></i>
+        取消
+      </button>
+
+      <button class="btn btn-small btn-primary">
+        <i class="icon-ok"></i>
+        确认添加
+      </button>
+    </div>
+
+  <% end %>
+
+</div>

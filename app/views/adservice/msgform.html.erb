@@ -1,0 +1,66 @@
+<script>
+  $('#nav_menu_admin_service').addClass('active')
+</script>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/adservice") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          能力开发
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">能力报表</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+      <div class="page-header position-relative">
+        <h1>
+          能力报表
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>短彩报表</span>
+          </small>
+        </h1>
+      </div>
+      <div class="box-content">
+        <ul class="nav nav-tabs" id="myTab">
+          <li class="<%="active" if (params[:msgtype]==nil||params[:msgtype]=="day")%>"><a data-toggle="tab" href="#info">短彩日度报表 </a></li>
+          <li class="<%="active" if (params[:msgtype]=="month")%>"><a data-toggle="tab" href="#custom">短彩月度报表 </a></li>
+          <li class="<%="active" if (params[:msgtype]=="year")%>"><a data-toggle="tab" href="#messages">短彩年度报表 </a></li>
+        </ul>
+
+        <div id="myTabContent" class="tab-content">
+          <div class="<%="tab-pane "%><%="active" if (params[:msgtype]==nil||params[:msgtype]=="day")%>" id="info">
+            <%= render :partial=>"adservice/duantabday",:locals=>{:year=>@showday,:type=>"day"}%>
+          </div>
+          <div class="<%="tab-pane "%><%="active" if (params[:msgtype]=="month")%>" id="custom">
+            <%= render :partial=>"adservice/duantabmonth",:locals=>{:year=>@showmonth,:type=>"month"}%>
+          </div>
+          <div class="<%="tab-pane "%><%="active" if (params[:msgtype]=="year")%>" id="messages">
+            <%= render :partial=>"adservice/duantabyear",:locals=>{:year=>@showyear,:type=>"year"}%>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $('#myTab a:first.next').tab('show');
+  $('#myTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });</script>

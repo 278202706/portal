@@ -1,0 +1,414 @@
+<script>
+  $('#nav_menu_admin_resource').addClass('active')
+</script>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/adresource") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          运行资源
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">虚拟机管理</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+      <div class="page-header position-relative">
+        <h1>
+          虚拟机管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>虚拟机列表</span>
+          </small>
+        </h1>
+      </div>
+      <div class="table-responsive">
+        <div class="table-responsive">
+          <div class="dataTables_wrapper" role="grid">
+            <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="orgslist">
+              <thead>
+              <tr>
+                <th>名称</th>
+                <th>创建时间</th>
+                <th>所属容器</th>
+                <th>所属业务账号</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tbody role="alert" aria-live="polite" aria-relevant="all">
+
+              <tr>
+                <td><%= '机器1' %></td>
+                <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                <td><%= '容器1' %></td>
+                <td><%= '账号1' %>
+                </td>
+                <td>
+                  <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitvirtualmac"}, :class => "btn btn-success btn-mini" %>
+                  <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adresource", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+                </td>
+              </tr>
+
+              <tr>
+                <td><%= '机器2' %></td>
+                <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                <td><%= '容器1' %></td>
+                <td><%= '账号1' %>
+                </td>
+                <td>
+                  <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitvirtualmac"}, :class => "btn btn-success btn-mini" %>
+                  <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adresource", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+                </td>
+              </tr>
+
+              <tr>
+                <td><%= '机器3' %></td>
+                <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                <td><%= '容器1' %></td>
+                <td><%= '账号1' %>
+                </td>
+                <td>
+                  <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitvirtualmac"}, :class => "btn btn-success btn-mini" %>
+                  <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adresource", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+                </td>
+              </tr>
+
+              <tr>
+                <td><%= '机器4' %></td>
+                <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                <td><%= '容器1' %></td>
+                <td><%= '账号1' %>
+                </td>
+                <td>
+                  <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitvirtualmac"}, :class => "btn btn-success btn-mini" %>
+                  <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adresource", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+                </td>
+              </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+		</div>
+		<div id="content" class="page-content">
+      <div class="page-header position-relative">
+        <h1>
+          虚拟机管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>容器列表</span>
+          </small>
+        </h1>
+      </div>
+      <div class="table-responsive">
+        <div class="table-responsive">
+          <div class="dataTables_wrapper" role="grid">
+            <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="orgslist1">
+              <thead>
+              <tr>
+                <th>名称</th>
+                <th>创建时间</th>
+                <th>包含虚拟机</th>
+                <th>所属业务账号</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tbody role="alert" aria-live="polite" aria-relevant="all">
+
+              <tr>
+                <td><%= '机器1' %></td>
+                <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                <td><%= '虚拟机1' %></td>
+                <td><%= '账号1' %>
+                </td>
+                <td>
+                
+                  <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitcontainer"}, :class => "btn btn-success btn-mini" %>
+                  <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adresource", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+                </td>
+              </tr>
+
+              <tr>
+                <td><%= '机器2' %></td>
+                <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                <td><%= '虚拟机' %></td>
+                <td><%= '账号1' %>
+                </td>
+                <td>
+                  <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitcontainer"}, :class => "btn btn-success btn-mini" %>
+                  <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adresource", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+                </td>
+              </tr>
+
+              <tr>
+                <td><%= '机器3' %></td>
+                <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                <td><%= '虚拟机' %></td>
+                <td><%= '账号1' %>
+                </td>
+                <td>
+                  <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitcontainer"}, :class => "btn btn-success btn-mini" %>
+                  <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adresource", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+                </td>
+              </tr>
+
+              <tr>
+                <td><%= '机器4' %></td>
+                <td><%= '%Y-%m-%d %H:%M:%S' %></td>
+                <td><%= '虚拟机' %></td>
+                <td><%= '账号1' %>
+                </td>
+                <td>
+                  <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitcontainer"}, :class => "btn btn-success btn-mini" %>
+                  <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adresource", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+                </td>
+              </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     <div id="content" class="page-content">
+			<div class="page-header position-relative">
+        <h1>
+          虚拟机管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>申请单</span>
+          </small>
+        </h1>
+      </div>
+			<div class="page-body">
+			 <div class="widget-box transparent">
+				<div class="widget-header widget-header-flat">
+					<h4 class="lighter">申请单</h4>
+					<div class="widget-toolbar no-border">
+						<ul class="nav nav-tabs" id="smyTab">
+							<li class="dropdown active">
+								<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+								  业务容器<b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu dropdown-info">
+								  <li class="active"><a data-toggle="tab" href="#conwait">待批准</a></li>
+								  <li><a data-toggle="tab" href="#conyes">已批准</a></li>
+								  <li><a data-toggle="tab" href="#conno">未批准</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+								  虚拟机<b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu dropdown-info">
+								  <li><a data-toggle="tab" href="#virwait">待批准</a></li>
+								  <li><a data-toggle="tab" href="#viryes">已批准</a></li>
+									<li><a data-toggle="tab" href="#virno">未批准</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="widget-body">
+					<div id="smyTabContent" class="tab-content  no-border">
+
+						<div class="tab-pane active" id="conwait">
+						
+			<table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th>业务容器名称</th>
+          <th>所属业务账号</th>
+          <th>申请时间</th>
+          <th>申请状态</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>abc</td>
+          <td>sav</td>
+          <td>2013-10-23 13:2:51</td>
+          <td>等待批准</td>
+          <td>
+            <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>批准</h>"), {:controller => "adapplications", :action => "unitapp"}, :class => "btn btn-success btn-mini" %>
+            <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>拒绝</h>"), {:controller => "adapplications", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+						
+						
+			      </div>
+						<div class="tab-pane" id="conyes">
+						
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>业务容器名称</th>
+								<th>申请时间</th>
+								<th>批准时间</th>
+								<th>所属业务账号</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Myss</td>
+								<td>2013-10-12 8:22:1</td>
+								<td>2013-10-12 14:2:34</td>
+								<td>test</td>
+								<td>
+									<%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitcontainer", :id =>"123"}, :class => "btn btn-info btn-mini" %>
+								</td>
+							</tr>
+  						</tbody>
+  					</table>
+						
+			      </div>
+						<div class="tab-pane" id="conno">
+						
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>业务容器名称</th>
+								<th>申请时间</th>
+								<th>拒绝时间</th>
+								<th>所属业务账号</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Myss</td>
+								<td>2013-10-12 8:22:1</td>
+								<td>2013-10-12 14:2:34</td>
+								<td>test</td>
+							</tr>
+  						</tbody>
+  					</table>
+						
+						
+						
+						
+			      </div>
+			      <div class="tab-pane" id="virwait">
+			      
+			      
+			      
+			 <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th>虚拟机名称</th>
+          <th>所属业务账号</th>
+          <th>所属业务账号</th>
+          <th>申请时间</th>
+          <th>申请状态</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>abc</td>
+          <td>sav</td>
+          <td>sava</td>
+          <td>2013-10-23 13:2:51</td>
+          <td>等待批准</td>
+          <td>
+            <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>批准</h>"), {:controller => "adapplications", :action => "unitapp"}, :class => "btn btn-success btn-mini" %>
+            <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>拒绝</h>"), {:controller => "adapplications", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+			      
+			      </div>
+						<div class="tab-pane" id="viryes">
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>虚拟机名称</th>
+								<th>申请时间</th>
+								<th>批准时间</th>
+								<th>所属业务容器</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Mysss</td>
+								<td>2013-10-12 8:22:1</td>
+								<td>2013-10-12 14:2:34</td>
+								<td>abcd</td>
+								<td>
+									<%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitvirmac", :id =>"123"}, :class => "btn btn-info btn-mini" %>
+								</td>
+							</tr>
+  						</tbody>
+  					</table>
+			      </div>
+						<div class="tab-pane" id="virno">
+						
+							<table class="table table-striped table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>虚拟机名称</th>
+								<th>申请时间</th>
+								<th>拒绝时间</th>
+								<th>所属业务容器</th>
+								<th>所属业务账号</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Mysss</td>
+								<td>2013-10-12 8:22:1</td>
+								<td>2013-10-12 14:2:34</td>
+								<td>abcd</td>
+							</tr>
+  						</tbody>
+  					</table>
+						
+						
+						
+			      </div>
+			    </div>
+			  </div>
+			</div>
+        
+		</div>
+		
+	
+    
+  </div>
+</div>
+</div>

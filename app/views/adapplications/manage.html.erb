@@ -1,0 +1,86 @@
+<script>
+  $('#nav_menu_admin_applications').addClass('active')
+</script>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/adapplications") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          应用托管
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">应用管理</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+    	<div class="page-header position-relative">
+        <h1>
+          应用管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>应用列表</span>
+          </small>
+        </h1>
+      </div>
+    
+        <div class="table-responsive">
+          <div class="dataTables_wrapper" role="grid">
+            <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="applist">
+              <thead>
+              <tr>
+                <th>名称</th>
+                <th>厂商</th>
+                <th>项目</th>
+                <th>绑定服务个数</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tbody>
+                <% @allapps.each do |app| %>
+                <tr>
+                  <td><%= app.appname %></td>
+                  <td><%= app.org %></td>
+                  <td>
+                    <%= app.space %>
+                  </td>
+                  <td>
+                    <% @cfapps=@userclient.apps_by_name app.appname %>
+                    <% @cfapps.each do |cfapp| %>
+                        <% @cfapp=cfapp if (cfapp.guid==app.appguid) %>
+                    <% end %>
+                    <%= @cfapp.service_bindings.length %>
+                  </td>
+                  <td>
+                    <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adapplications", :action => "unitapp",:id=>app.id}, :class => "btn btn-success btn-mini" %>
+                    <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adapplications", :action => "manage"}, :class => "btn btn-danger btn-mini" %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--/span-->
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(function () {
+    $('#applist').dataTable({
+          "bLengthChange":false,
+          "bProcessing":true,
+          "bInfo":false,
+          "sDom":'<"top"i>rt<"bottom"flp><"clear">'
+        }
+    );
+  })
+</script>

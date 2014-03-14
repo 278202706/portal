@@ -1,0 +1,137 @@
+
+<SCRIPT   LANGUAGE="JavaScript">
+  function   fresh()
+  {
+    if(location.href.indexOf("?show=true")<0)
+    {
+      location.href+="?show=true";
+    }
+  }
+  fresh();
+</SCRIPT>
+<div class="container-fluid main-container">
+	<%if session[:useremail]=="admin"%>
+	<%= render(:partial => "/sidebar/adresource") %>
+	<% else %>
+  <%= render(:partial => "/sidebar/resource") %>
+  <% end %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          厂商
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">信息</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+    
+    
+    
+   			 <div class="page-header position-relative">
+						<h1>
+							信息
+							<small>
+								<i class="icon-double-angle-right"></i>
+								厂商信息
+							</small>
+						</h1>
+					</div>
+					
+					
+					
+					
+					
+								<div id="user-profile-1" class="user-profile row-fluid">
+									<div class="span3 center">
+										<div>
+											<span class="profile-picture">
+												<img id="avatar"  alt="Alex's Avatar" src="/assets/avatars/profile-pic.jpg" />
+											</span>
+
+											<div class="space-4"></div>
+
+											<div class="width-80 label label-info label-large arrowed-in arrowed-in-right">
+												<div class="inline position-relative">
+
+														<i class="icon-circle light-green middle"></i>
+														&nbsp;
+														<span class="white middle bigger-120">厂商名称</span>
+												
+
+													
+												</div>
+											</div>
+										</div>
+
+										<div class="space-6"></div>
+
+									
+									</div>
+									<div class="span9">
+										<div class="profile-user-info profile-user-info-striped">
+											<div class="profile-info-row">
+												<div class="profile-info-name"> 厂商名称 </div>
+
+												<div class="profile-info-value">
+													<span id="username">ebupt</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> 厂商地址 </div>
+
+												<div class="profile-info-value">
+													<i class="icon-map-marker light-orange bigger-110"></i>
+													<span id="country">北京市</span>
+													<span id="city">知春路9号</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> 联系电话 </div>
+
+												<div class="profile-info-value">
+													<span id="age">01082325588</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> 创建时间 </div>
+
+												<div class="profile-info-value">
+													<span id="signup">20/06/2013 9:34:21</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> 最近一次登陆 </div>
+
+												<div class="profile-info-value">
+													<span id="login">20/09/2013 9:34:22</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> 描述 </div>
+
+												<div class="profile-info-value">
+													<span id="about">Editable as WYSIWYG</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+    
+    
+    
+    </div>
+  </div>
+</div>

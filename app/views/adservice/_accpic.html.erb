@@ -1,0 +1,33 @@
+<div class="widget-header widget-header-flat">
+  <h4 class="lighter">
+    <i class="icon-signal"></i>
+    接入号使用情况统计图 <%=year  %>
+  </h4>
+</div>
+<div class="widget-body" style="padding-top: 15px;">
+<table width='98%' align='center' cellpadding='2' cellspacing='0'>
+  <tr>
+    <td align="center">
+      <div id="<%=idname%>" align="center">FusionGadgets</div>
+      <div id="<%=idname%>getshowyear" class="<%=year %>" style="display: hidden;"></div>
+      <div id="<%=idname%>getshowtype" class="<%=type %>" style="display: hidden;"></div>
+
+      <script type="text/javascript">
+          var <%=idname%>getshowyear=document.getElementById('<%=idname%>getshowyear').className ;
+          var <%=idname%>getshowtype=document.getElementById('<%=idname%>getshowtype').className ;
+          var myChart = new FusionCharts("<%= asset_path "FusionCharts/MSColumn2D.swf"%>", "myChartId", "100%", "350", "0", "0");
+          myChart.setDataXML("<chart palette='3' xAxisName='接入号' yAxisName='总条数' shownames='1'showValues='0' decimals='0' formatNumberScale='0'  useRoundEdges='1' legendBorderAlpha='0'><categories><category label='1002'/></categories><dataset seriesName='短信' color='F6BD0F' showValues='0'> <set value= '12'/></dataset><dataset seriesName='彩信' color='8BBA00' showValues='0'><set value='11'/></dataset></chart>");
+          //myChart.setDataXML(<%=idname%>str);
+          myChart.render("<%=idname%>");
+
+      </script>
+    </td>
+  </tr>
+  <tr height='10'>
+    <td></td>
+  </tr>
+  <tr>
+
+  </tr>
+</table>
+</div>

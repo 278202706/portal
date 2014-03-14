@@ -1,0 +1,114 @@
+
+.carousel {
+     margin-bottom: 60px;
+}
+
+.carousel .container {
+     position: relative;
+     z-index: 9;
+}
+
+.carousel-control {
+     background-color: transparent;
+     border: 0px none;
+     font-size: 120px;
+     height: 80px;
+     margin-top: 0px;
+     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+     z-index: 10;
+}
+
+.carousel .item {
+     height: 350px;
+}
+
+.carousel img {
+     height: 350px;
+     left: 0px;
+     min-width: 100%;
+     position: absolute;
+     top: 0px;
+}
+
+.carousel-caption {
+     background-color: transparent;
+     margin-top: 75px;
+     max-width: 500px;
+     padding: 0px 20px;
+     position: static;
+}
+
+.carousel-caption h1, .carousel-caption .lead {
+     color: #FFFFFF;
+     line-height: 1.25;
+     margin: 0px;
+     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-caption .btn {
+     margin-top: 10px;
+}
+
+.marketing .span4 {
+     text-align: center;
+}
+
+.marketing h2 {
+     font-weight: normal;
+}
+
+.marketing .span4 p {
+     margin-left: 10px;
+     margin-right: 10px;
+}
+
+.featurette-divider {
+     margin: 80px 0px;
+}
+
+.featurette {
+     overflow: hidden;
+     padding-top: 120px;
+}
+
+.featurette-image {
+     margin-top: -120px;
+}
+
+.featurette-image.pull-left {
+     margin-right: 40px;
+}
+
+.featurette-image.pull-right {
+     margin-left: 40px;
+}
+
+.featurette-heading {
+     font-size: 50px;
+     font-weight: 300;
+     letter-spacing: -1px;
+     line-height: 1;
+}
+
+@media (max-width: 979px) {
+  .container.navbar-wrapper { margin-bottom: 0px; width: auto; }
+  .navbar-inner { border-radius: 0px 0px 0px 0px; margin: -20px 0px; }
+  .carousel .item { height: 500px; }
+  .carousel img { width: auto; height: 500px; }
+  .featurette { height: auto; padding: 0px; }
+  .featurette-image.pull-left, .featurette-image.pull-right { display: block; float: none; max-width: 40%; margin: 0px auto 20px; }
+}
+
+@media (max-width: 767px) {
+  .navbar-inner { margin: -20px; }
+  .carousel { margin-left: -20px; margin-right: -20px; }
+  .carousel .container {  }
+  .carousel .item { height: 300px; }
+  .carousel img { height: 300px; }
+  .carousel-caption { width: 65%; padding: 0px 70px; margin-top: 100px; }
+  .carousel-caption h1 { font-size: 30px; }
+  .carousel-caption .lead, .carousel-caption .btn { font-size: 18px; }
+  .marketing .span4 + .span4 { margin-top: 40px; }
+  .featurette-heading { font-size: 30px; }
+  .featurette .lead { font-size: 18px; line-height: 1.5; }
+}

@@ -1,0 +1,42 @@
+<div id="sidebar" class="sidebar">
+
+  <ul class="nav nav-list">
+
+    <li class="<%= 'active' if (params[:controller]=="mointor"&&(params[:action] =="machinemonit"||params[:action] =="machinedetail"||params[:action] =="processdetail"||params[:action] =="networkinterfacedetail")) %>">
+      <a href="/mointor/machinemonit">
+        <i class="icon-dashboard"></i>
+        <span class="menu-text">主机监控</span>
+
+      </a>
+    </li>
+
+    <li class="<%= 'active' if (params[:controller]=="mointor"&&(params[:action] =="componentmonit"||params[:action] =="unitaccount"||params[:action] =="CloudControllerdetail"||params[:action] =="DEAdetail"||params[:action] =="Routerdetail"||params[:action] =="HealthManagerdetail"||params[:action] =="UAAdetail")) %>">
+      <a href="/mointor/componentmonit">
+        <i class="icon-table"></i>
+        <span class="menu-text">组件监控</span>
+
+      </a>
+    </li>
+    <li class="<%= 'active' if (params[:controller]=="mointor"&&(params[:action] =="appmonit"||params[:action] =="appinsdetail")) %>">
+      <a href="/mointor/appmonit">
+        <i class="icon-table"></i>
+        <span class="menu-text">应用监控</span>
+
+      </a>
+    </li>
+
+
+
+
+
+
+  </ul>
+  <!--/.nav-list-->
+
+  <div id="sidebar-collapse" class="sidebar-collapse">
+    <i class="icon-double-angle-left"></i>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,41 @@
+<div id="sidebar" class="sidebar">
+
+  <ul class="nav nav-list">
+
+    <li class="<%= 'active' if (params[:controller]=="service"&&(params[:action] =="market"||params[:action] =="apmysql"||params[:action] =="apfilestorage"||params[:action] =="apmessage")) %>">
+      <a href="/service/market">
+        <i class="icon-tasks"></i>
+        <span class="menu-text">能力超市</span>
+
+      </a>
+    </li>
+
+    <li class="<%= 'active' if (params[:controller]=="service"&&(params[:action] =="applylist")) %>">
+      <a href="/service/applylist">
+        <i class="icon-file-text"></i>
+        <span class="menu-text">申请单</span>
+
+      </a>
+    </li>
+
+    <li class="<%= 'active' if (params[:controller]=="service"&&(params[:action] =="manage"||params[:action] =="viewmysql"||params[:action] =="viewfilestorage"||params[:action] =="viewmessage"||params[:action] =="viewmsgqunfa")) %>">
+      <a href="/service/manage">
+        <i class="icon-table"></i>
+        <span class="menu-text">能力管理</span>
+
+      </a>
+    </li>
+
+
+
+
+
+  </ul>
+  <!--/.nav-list-->
+
+  <div id="sidebar-collapse" class="sidebar-collapse">
+    <i class="icon-double-angle-left"></i>
+  </div>
+</div>
+
+
