@@ -1,0 +1,81 @@
+<ul class="nav nav-tabs" id="smyTabup">
+  <li class="active"><a data-toggle="tab" href="#up6h">6小时</a></li>
+  <li><a data-toggle="tab" href="#up12h">12小时</a></li>
+  <li><a data-toggle="tab" href="#up24h">24小时</a></li>
+  <li><a data-toggle="tab" href="#up3d">3天</a></li>
+  <li><a data-toggle="tab" href="#up7d">7天</a></li>
+  <li><a data-toggle="tab" href="#up15d">15天</a></li>
+  <li><a data-toggle="tab" href="#up30d">30天</a></li>
+</ul>
+
+<div id="smyTabupContent" class="tab-content">
+  <div class="tab-pane active" id="up6h">
+    <div id="upchartdiv1" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myupChart1 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myupChart1.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存占用情况' subcaption='最近6小时' xAxisName='Hour' yAxisName='上行流量' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-6Hr' value='0' /><set label='-5Hr' value='0' /><set label='-4Hr' value='10' /><set label='-3Hr' value='0' /><set label='-2Hr' value='0' /><set label='-1Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myupChart1.render("upchartdiv1");
+    </script>
+  </div>
+  <div class="tab-pane" id="up12h">
+    <div id="upchartdiv2" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myupChart2 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myupChart2.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存占用情况' subcaption='最近12小时' xAxisName='Hour' yAxisName='上行流量' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-12Hr' value='0' /><set label='-10Hr' value='0' /><set label='-8Hr' value='10' /><set label='-6Hr' value='0' /><set label='-4Hr' value='0' /><set label='-2Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myupChart2.render("upchartdiv2");
+    </script>
+  </div>
+  <div class="tab-pane" id="up24h">
+    <div id="upchartdiv3" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myupChart3 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myupChart3.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存占用情况' subcaption='最近24小时' xAxisName='Hour' yAxisName='上行流量' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-24Hr' value='0' /><set label='-18Hr' value='0' /><set label='-16Hr' value='10' /><set label='-12Hr' value='0' /><set label='-8Hr' value='0' /><set label='-4Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myupChart3.render("upchartdiv3");
+    </script>
+  </div>
+  <div class="tab-pane" id="up3d">
+    <div id="upchartdiv4" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myupChart4 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myupChart4.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存占用情况' subcaption='最近3天' xAxisName='Day' yAxisName='上行流量' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-3D' value='0' /><set label='-2.5D' value='0' /><set label='-2D' value='10' /><set label='-1.5D' value='0' /><set label='-1D' value='0' /><set label='-0.5D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myupChart4.render("upchartdiv4");
+    </script>
+  </div>
+  <div class="tab-pane" id="up7d">
+    <div id="upchartdiv5" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myupChart5 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myupChart5.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存占用情况' subcaption='最近7天' xAxisName='Day' yAxisName='上行流量' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-7D' value='0' /><set label='-6D' value='0' /><set label='-5D' value='10' /><set label='-4D' value='0' /><set label='-3D' value='0' /><set label='-2D' value='0' /><set label='-1D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myupChart5.render("upchartdiv5");
+    </script>
+  </div>
+  <div class="tab-pane" id="up15d">
+    <div id="upchartdiv6" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myupChart6 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myupChart6.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存占用情况' subcaption='最近15天' xAxisName='Day' yAxisName='上行流量' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-15D' value='0' /><set label='-12D' value='0' /><set label='-9D' value='10' /><set label='-6D' value='0' /><set label='-3D' value='0' /><set label='-2D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myupChart6.render("upchartdiv6");
+    </script>
+  </div>
+  <div class="tab-pane" id="up30d">
+    <div id="upchartdiv7" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myupChart7 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myupChart7.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存占用情况' subcaption='最近30天' xAxisName='Day' yAxisName='上行流量' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-30D' value='0' /><set label='-25D' value='0' /><set label='-20D' value='0' /><set label='-15D' value='0' /><set label='-10D' value='0' /><set label='-5D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myupChart7.render("upchartdiv7");
+    </script>
+  </div>
+</div>
+<script type="text/javascript">
+  $('#smyTabup a:first.next').tab('show');
+  $('#smyTabup a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });</script>

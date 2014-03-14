@@ -1,0 +1,581 @@
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/adaccount") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          厂商管理
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">厂商信息</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+			
+			<div class="page-header position-relative">
+        <h1>
+          厂商管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>厂商详情</span>
+          </small>
+        </h1>
+      </div>
+
+
+      <div class="box-content">
+      
+      <div class="row-fluid">
+      <div class="span8">
+ 			<div class="profile-user-info profile-user-info-striped" id="unitappinfo">
+        <div class="profile-info-row">
+          <div class="profile-info-name"> 厂商名称</div>
+
+          <div class="profile-info-value">
+            <span><%= '@org.name' %></span>
+          </div>
+        </div>
+
+        <div class="profile-info-row">
+          <div class="profile-info-name"> 空间大小</div>
+
+          <div class="profile-info-value">
+            <span><%= '@org.quota_definition.memory_limit' %>MB</span>
+          </div>
+        </div>
+
+        <div class="profile-info-row">
+          <div class="profile-info-name"> 服务限额</div>
+
+          <div class="profile-info-value">
+            <span><%= '@org.quota_definition.total_services' %></span>
+          </div>
+        </div>
+
+
+        <div class="profile-info-row">
+          <div class="profile-info-name"> 包含项目</div>
+
+          <div class="profile-info-value">
+                        <span>
+                        <%=' @org.spaces[0].name if @org.spaces!=[]' %>
+                        </span>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> 包含账号</div>
+
+          <div class="profile-info-value">
+                        <span>
+                        <%= '@user.email' %>
+                        </span>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> 创建时间</div>
+
+          <div class="profile-info-value">
+                        <span>
+                          <%= "%Y-%m-%d %H:%M:%S" %>
+                        </span>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> 包含应用</div>
+
+          <div class="profile-info-value">
+                        <span>
+                          <%= "无应用" %>
+                        </span>
+          </div>
+        </div>
+        <div class="profile-info-row">
+          <div class="profile-info-name"> 包含服务</div>
+
+          <div class="profile-info-value">
+                        <span>
+                          <%= "无服务" %>
+                        </span>
+          </div>
+        </div>
+				</div>
+				
+				
+				</div>
+				
+				<div class="span4">
+				
+				  <div class="hr hr-18 dotted hr-double"></div>
+					<h4 class="pink">
+						<i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+						<a href="#modal-form-addorgacc" role="button" class="green" data-toggle="modal"> 厂商账号添加 </a>
+					</h4>
+					<div class="hr hr-18 dotted hr-double"></div>
+				
+					<div class="hr hr-18 dotted hr-double"></div>
+					<h4 class="pink">
+						<i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+						<a href="#modal-form-magorgcodesize" role="button" class="green" data-toggle="modal"> 厂商代码空间设置 </a>
+					</h4>
+					<div class="hr hr-18 dotted hr-double"></div>
+				
+				
+					<div class="hr hr-18 dotted hr-double"></div>
+					<h4 class="pink">
+						<i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+						<a href="#modal-form-magorgquota" role="button" class="green" data-toggle="modal"> 厂商权限修改 </a>
+					</h4>
+					<div class="hr hr-18 dotted hr-double"></div>
+				
+				
+				</div>
+				
+				
+				
+				</div>
+				
+				
+
+      </div>
+
+
+		<div id="modal-form-addorgacc" class="modal hide fade" tabindex="-1">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="blue bigger">请填写下列信息</h4>
+			</div>
+
+			<div class="modal-body overflow-visible">
+				<div class="row-fluid">
+
+
+				  <div class="span7">
+
+             <%= form_tag url_for(), :class => "form-horizontal", :style=>"margin-bottom:0px",:method => :post do %>
+              <div class="control-group field ">
+                <label class="control-label" for="email">厂商</label>
+
+                <div class="controls">
+                  <%= text_field_tag :organization, :value => '@org.name', :readOnly => 'true' %>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">项目名称</label>
+
+                <div class="controls">
+                  <input type="text" style="width:220px" class="span6" name="space_name">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">代码存储空间</label>
+
+                <div class="controls">
+                  <div class="input-append">
+                    <%= text_field_tag :codenum %>
+                    <span class="add-on">MB</span>
+                  </div>
+                </div>
+              </div>
+              <div class="control-group field ">
+                <label class="control-label" for="email">邮箱</label>
+
+                <div class="controls">
+                  <%= text_field_tag :email %>
+                </div>
+              </div>
+              <div class="control-group field ">
+                <label class="control-label" for="password">密码</label>
+
+                <div class="controls">
+                  <%= text_field_tag :password, :type => "password" %>
+                </div>
+              </div>
+              <div class="control-group field ">
+                <label class="control-label" for="password_confirmation">密码确认</label>
+
+                <div class="controls">
+                  <%= text_field_tag :password_confirmation, :type => "password" %>
+                </div>
+              </div>
+
+
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      							<div class="modal-footer">
+								<button class="btn btn-small" data-dismiss="modal">
+									<i class="icon-remove"></i>
+									取消
+								</button>
+
+								<button class="btn btn-small btn-primary">
+									<i class="icon-ok"></i>
+									确认申请
+								</button>
+							</div>
+    </div>
+
+
+		<div id="modal-form-magorgcodesize" class="modal hide fade" tabindex="-1">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="blue bigger">请填写下列信息</h4>
+			</div>
+
+			<div class="modal-body overflow-visible">
+				<div class="row-fluid">
+
+
+				  <div class="span7">
+
+            <%= form_tag url_for(:controller => 'adaccount', :action => 'manage'), :class => "form-horizontal", :style=>"margin-bottom:0px", :method => :post do %>
+
+
+              <div class="control-group">
+                <label class="control-label">原代码存储空间</label>
+
+                <div class="controls">
+                  <input type="text" style="width:220px" class="span6" name="oldpassword" value="<%= format("%0.3f", 123456) %>MB" readOnly="true">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">已上传代码空间</label>
+
+                <div class="controls">
+                  <input type="text" style="width:220px" class="span6" name="oldpassword" value="<%= format("%0.3f", (123456)/1024.0) %>MB" readOnly="true">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">新代码存储空间</label>
+
+                <div class="controls">
+                  <div class="input-append">
+                    <input type="text" style="width:220px" class="span6" name="codesize"><span class="add-on">MB</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      							<div class="modal-footer">
+								<button class="btn btn-small" data-dismiss="modal">
+									<i class="icon-remove"></i>
+									取消
+								</button>
+
+								<button class="btn btn-small btn-primary">
+									<i class="icon-ok"></i>
+									确认申请
+								</button>
+							</div>
+		</div>
+		
+
+		<div id="modal-form-magorgquota" class="modal hide fade" tabindex="-1">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="blue bigger">请填写下列信息</h4>
+			</div>
+
+			<div class="modal-body overflow-visible">
+				<div class="row-fluid">
+
+
+				  <div class="span7">
+            <%= form_tag url_for(:controller => 'adaccount', :action => 'manage'), :class => "form-horizontal", :style=>"margin-bottom:0px", :method => :post do %>
+
+
+              <div class="control-group">
+                <label class="control-label">原空间大小</label>
+
+                <div class="controls">
+                  <input type="text" style="width:220px" class="span6" name="oldpassword" value="<%= '@org.quota_definition.memory_limit' %>MB" readOnly="true">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">已占空间大小</label>
+
+                <div class="controls">
+                  <input type="text" style="width:220px" class="span6" name="oldpassword" value="<%= '@appsize' %>MB" readOnly="true">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">原服务个数</label>
+
+                <div class="controls">
+                  <input type="text" style="width:220px" class="span6" name="oldpassword" value="<%= '@org.quota_definition.total_services' %>" readOnly="true">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">已建服务个数</label>
+
+                <div class="controls">
+                  <input type="text" style="width:220px" class="span6" name="oldpassword" value="<%= '@sernum' %>" readOnly="true">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">新空间大小</label>
+
+                <div class="controls">
+                  <%= select_tag "quota_memory", options_for_select({"512M" => "512", "1G" => "1024", "2G" => "2028", "5G" => "5120", "10G" => "10240"}) %>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">新服务个数</label>
+
+                <div class="controls">
+                  <%= select_tag "quota_service", options_for_select({"2" => "2", "5" => "5", "10" => "10"}) %>
+                </div>
+              </div>
+
+							
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+								<button class="btn btn-small" data-dismiss="modal">
+									<i class="icon-remove"></i>
+									取消
+								</button>
+
+								<button class="btn btn-small btn-primary">
+									<i class="icon-ok"></i>
+									确认申请
+								</button>
+							</div>
+
+			</div>
+    </div>
+    
+    
+    <div id="content" class="page-content">
+			<div class="page-header position-relative">
+        <h1>
+          厂商管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>应用情况</span>
+          </small>
+        </h1>
+      </div>
+      <div class="box-content">    
+      	 <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>应用名称</th>
+          <th>厂商</th>
+          <th>项目</th>
+          <th>版本号</th>
+          <th>运行状态</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+              <td>test</td>
+              <td>ebupt</td>
+              <td>paas</td>
+              <td>1.0</td>
+              <td>
+                <span class="label label-grey">未启动</span>
+              </td>
+              <td>
+                <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adapplications", :action => "unitapp", :id => "12345"}, :class => "btn btn-info btn-mini" %>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>test</td>
+              <td>ebupt</td>
+              <td>paas</td>
+              <td>1.0</td>
+              <td>
+                <span class="label label-success">运行中</span>
+              </td>
+              <td>
+                <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adapplications", :action => "unitapp", :id => "12345"}, :class => "btn btn-info btn-mini" %>
+
+              </td>
+            </tr>
+        </tbody>
+      </table>
+			</div>
+		</div>
+		
+		<div id="content" class="page-content">
+			<div class="page-header position-relative">
+        <h1>
+          厂商管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>能力情况</span>
+          </small>
+        </h1>
+      </div>
+      <div class="box-content">    
+       <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>服务类型</th>
+          <th>服务名称</th>
+          <th>申请时间</th>
+          <th>批准时间</th>
+          <th>绑定应用名称</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>MySQL</td>
+          <td>mysql-1</td>
+          <td>2013-10-12 8:22:1</td>
+          <td>2013-10-12 14:2:34</td>
+          <td>abcd</td>
+          <td>
+            <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adservice", :action => "viewmysql", :id => "12345"}, :class => "btn btn-info btn-mini" %>
+            
+
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>文件存储</td>
+          <td>save-1</td>
+          <td>2013-10-22 13:2:51</td>
+          <td>2013-10-25 15:27:4</td>
+          <td>暂未绑定应用</td>
+          <td>
+            <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adservice", :action => "viewfilestorage", :id => "12345"}, :class => "btn btn-info btn-mini" %>
+           
+
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>短彩（单发）</td>
+          <td>msg-1</td>
+          <td>2013-11-04 18:2:14</td>
+          <td>2013-11-05 22:21:34</td>
+          <td>暂未绑定应用</td>
+          <td>
+            <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adservice", :action => "viewmessage", :id => "12345",:type=>"0"}, :class => "btn btn-info btn-mini" %>
+          
+
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>短彩（群发）</td>
+          <td>msg-2</td>
+          <td>2013-11-04 19:2:14</td>
+          <td>2013-11-05 22:24:34</td>
+          <td>暂未绑定应用</td>
+          <td>
+            <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adservice", :action => "viewmessage", :id => "12345",:type=>"1"}, :class => "btn btn-info btn-mini" %>
+         
+
+
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+			</div>
+		</div>
+		
+		
+		<div id="content" class="page-content">
+			<div class="page-header position-relative">
+        <h1>
+          厂商管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>资源情况</span>
+          </small>
+        </h1>
+      </div>
+      <div class="box-content">    
+      
+        <div class="hr hr-18 dotted hr-double"></div>
+					<h4 class="pink">
+						<i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+							<%= link_to raw("查看业务账号"), {:controller => "adresource", :action => "bussiness", :id =>"123"}, :class => "green",:role=>"button" %>
+					</h4>
+				<div class="hr hr-18 dotted hr-double"></div>
+      
+      
+      	<table class="table table-striped table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>虚拟机名称</th>
+								<th>申请时间</th>
+								<th>批准时间</th>
+								<th>所属业务容器</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Mysss</td>
+								<td>2013-10-12 8:22:1</td>
+								<td>2013-10-12 14:2:34</td>
+								<td>abcd</td>
+								<td>
+									<%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitvirtualmac", :id =>"123"}, :class => "btn btn-info btn-mini" %>
+								</td>
+							</tr>
+  						</tbody>
+  					</table>
+  					
+  		<table class="table table-striped table-bordered table-hover">
+							<thead>
+							<tr>
+								<th>业务容器名称</th>
+								<th>申请时间</th>
+								<th>批准时间</th>
+								<th>所属业务账号</th>
+								<th>操作</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>Myss</td>
+								<td>2013-10-12 8:22:1</td>
+								<td>2013-10-12 14:2:34</td>
+								<td>test</td>
+								<td>
+									<%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adresource", :action => "unitcontainer", :id =>"123"}, :class => "btn btn-info btn-mini" %>
+								</td>
+							</tr>
+  						</tbody>
+  					</table>			
+  					
+      
+			</div>
+		</div>	
+		
+		
+</div>
+

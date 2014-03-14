@@ -1,0 +1,74 @@
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/service") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          能力开发
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">软件超市</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+    	<h3>基础服务</h3>
+    	  <div class="row-fluid">
+        <div class="span6">
+        	<h4>MySQL</h4>
+        	 <%= link_to raw("申请"), {:controller => "service", :action => "apmysql", :id =>"123"},:class=>"btn btn-small btn-primary",:style=>"margin-left:150px" %>
+        	
+        </div>
+        <div class="span6">
+          <h4>Oracle</h4>
+        	<button class="btn btn-small btn-primary" style="margin-left:150px">申请</button>
+        </div>
+        </div>
+        <div class="row-fluid">
+        <div class="span6">
+        	<h4>文件存储</h4>
+        	<button class="btn btn-small btn-primary" style="margin-left:150px">申请</button>
+        </div>
+        </div>
+    	<h3>电信服务</h3>
+    	 <div class="row-fluid">
+        <div class="span6">
+        	<h4>短彩</h4>
+        	<button class="btn btn-small btn-primary" style="margin-left:150px">申请</button>
+        </div>
+        <div class="span6">
+          <h4>ctd拨号</h4>
+        	<button class="btn btn-small btn-primary" style="margin-left:150px">申请</button>
+        </div>
+        </div>
+        <div class="row-fluid">
+        <div class="span6">
+        	<h4>boss/misc ftp</h4>
+        	<button class="btn btn-small btn-primary" style="margin-left:150px">申请</button>
+        </div>
+        </div>
+    	<h3>互联网服务</h3>
+    	 <div class="row-fluid">
+        <div class="span6">
+        	<h4>webmon</h4>
+        	<button class="btn btn-small btn-primary" style="margin-left:150px">申请</button>
+        </div>
+        <div class="span6">
+          <h4>图片</h4>
+        	<button class="btn btn-small btn-primary" style="margin-left:150px">申请</button>
+        </div>
+        </div>
+        <div class="row-fluid">
+        <div class="span6">
+        	<h4>邮件</h4>
+        	<button class="btn btn-small btn-primary" style="margin-left:150px">申请</button>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>

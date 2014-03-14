@@ -1,0 +1,105 @@
+<div class="sortable">
+  <div class="box">
+    <div class="box-content">
+      <% if params[:error]=='wrong' %>
+        <div class="alert alert-error">
+          <button class="close" data-dismiss="alert" type="button">
+            <i class="icon-remove"></i>
+          </button>
+          <h4 class="alert-heading">注意！</h4>
+          <%= "您的代码包打包有误，无法上传，请重新打包并上传。" %>
+        </div>
+      <% end %>
+      <div class="alert alert-block  alert-success">
+        <button class="close" data-dismiss="alert" type="button">
+          <i class="icon-remove"></i>
+        </button>
+        <p><strong>提示！</strong></p>
+        <p>如果当前代码版本处显示“当前应用未部署代码”，请先上传代码或启用已上传的代码。</p>
+        <p>对于代码的管理可直接在下表中操作。</p>
+      </div>
+      <div class="alert alert-info">
+        <button data-dismiss="alert" class="close" type="button"><i class="icon-remove"></i></button>
+        <strong>注意!</strong>
+        当前代码版本：<%= @app.version || "暂无"%>
+        <br>
+      </div>
+      <% if @appcodes!=[] %>
+      <%= form_tag url_for(:controller => 'applications', :action => 'manage'), :multipart => true, :method => :post do %>
+        <fieldset>
+
+          <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+              <th>版本号</th>
+              <th>上传时间</th>
+              <th>语言/框架</th>
+              <th>空间大小</th>
+              <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @appcodes.each do |code| %>
+            <tr>
+              <td><%= code.version%></td>
+              <td><%= code.uploaddate %></td>
+              <td>
+                <%=code.appdetect %>
+              </td>
+              <td><%= format("%0.3f",(code.size.to_i/1024.0))%>KB</td>
+              <td>
+                <% if code.version==@app.version %>
+                <a class="btn btn-success btn-mini" disabled="disabled" href="javascript:void(0)">
+
+                  <h style="color:#fff"><i class="icon-play icon-white"></i>启用</h>
+                </a>
+                <%= link_to raw("<i class='icon-stop icon-white'></i><h style='color:#FFF'>停用</h>"), {:controller => "applications", :action => "stopcode",:id=>code.id,:appid=>@app.id}, :class => "btn btn-info btn-mini" %>
+                <a class="btn btn-danger btn-mini" disabled="disabled" href="javascript:void(0)">
+
+                  <h style="color:#fff"><i class="icon-trash icon-white"></i>&nbsp;删除</h>
+                </a>
+                <% else %>
+                <%= link_to raw("<i class='icon-play icon-white'></i><h style='color:#FFF'>启用</h>"), {:controller => "applications", :action => "usecode",:id=>code.id,:appid=>@app.id}, :class => "btn btn-success btn-mini" %>
+                <a class="btn btn-info btn-mini" disabled="disabled" href="javascript:void(0)">
+
+                <h style="color:#fff"><i class="icon-stop icon-white"></i>停用</h>
+                </a>
+                <%= link_to raw("<i class='icon-trash icon-mini'></i><h style='color:#FFF'>删除</h>"), {:controller => "applications", :action => "deletecode",:id=>code.id,:appid=>@app.id}, :class => "btn btn-danger btn-mini" %>
+
+                <% end %>
+                <%= link_to raw("<i class='icon-download icon-white'></i><h style='color:#FFF'>下载</h>"), {:controller => "applications", :action => "downcode",:id=>code.id}, :class => "btn btn-primary btn-mini" %>
+
+              </td>
+            </tr>
+            <% end %>
+            </tbody>
+          </table>
+
+
+
+
+
+
+      </fieldset>
+
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="hr hr-18 dotted hr-double"></div>
+<h4 class="pink">
+  <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+  <a href="#modal-form-upappcode" role="button" class="green" data-toggle="modal"> 上传新代码 </a>
+</h4>
+<div class="hr hr-18 dotted hr-double"></div>
+
+
+
+
+
+
+
+

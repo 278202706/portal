@@ -1,0 +1,120 @@
+<div class="container-fluid main-container" xmlns="http://www.w3.org/1999/html">
+
+  <%= render(:partial => "/sidebar/service") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          能力开发
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">能力管理</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+      <div class="row-fluid">
+        <div class="span4">
+      <h4>群发任务详细信息</h4>
+          <li>任务名称：test1</li>
+          <li>接入号：123456</li>
+          <li>服务优先级：2</li>
+          <li>任务优先级：3</li>
+          <li>所属项目：abc</li>
+          <li>绑定应用：暂未绑定应用</li>
+          <li>预处理：乱序</li>
+          <li>开始时间：2013-10-12 8:22:1</li>
+          <li>预计完成时间：2013-12-12 8:22:1</li>
+          <li>已发条数：150</li>
+          <li>完成进度：<div class="progress progress-success progress-striped active"  data-percent="25%" style="width: 80%;">
+              <div class="bar" style="width: 25%;"></div>
+            </div>
+          </li>
+          <li>状态：运行中</li>
+        </div>
+        <div class="span8">
+          <h4>参数修改</h4>
+          <form class="form-horizontal">
+
+
+
+
+            <div class="control-group">
+              <label class="control-label"  for="form-field-select-3">服务优先级</label>
+
+              <div class="controls">
+                <select id="connetwork">
+                  <option value="" > ---选择优先级---</option>
+                  <option value="1" >1 </option>
+                  <option value="2" >2 </option>
+                  <option value="3" >3  </option>
+                  <option value="4" >4  </option>
+                  <option value="5" >5   </option>
+                  <option value="6" >6 </option>
+                  <option value="7" >7 </option>
+                  <option value="8" >8  </option>
+                  <option value="9" >9  </option>
+                  <option value="10" >紧急   </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label"  for="form-field-select-3">任务优先级</label>
+
+              <div class="controls">
+                <select id="connet">
+                  <option value="" > ---选择优先级---</option>
+                  <option value="1" >1 </option>
+                  <option value="2" >2 </option>
+                  <option value="3" >3  </option>
+                  <option value="4" >4  </option>
+                  <option value="5" >5   </option>
+                  <option value="6" >6 </option>
+                  <option value="7" >7 </option>
+                  <option value="8" >8  </option>
+                  <option value="9" >9  </option>
+                  <option value="10" >紧急   </option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="control-group">
+              <label class="control-label"  for="form-field-select-3">状态</label>
+
+              <div class="controls">
+                <select id="co">
+                  <option value="" > ---选择优先级---</option>
+                  <option value="1" >暂停</option>
+                  <option value="2" >开始</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div style="margin-left: 200px;">
+              <%= submit_tag '确认修改', :class => 'btn btn-primary' %>
+              <input class="btn" type="reset" value="取消">
+            </div>
+
+          </form>
+
+
+        </div>
+        
+
+        
+        
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+

@@ -1,0 +1,42 @@
+<div id="sidebar" class="sidebar">
+
+  <ul class="nav nav-list">
+
+    <li class="<%= 'active' if (params[:controller]=="adapplications"&&params[:action] =="dashboard") %>">
+      <a href="/adapplications/dashboard">
+        <i class="icon-dashboard"></i>
+        <span class="menu-text">汇总信息</span>
+
+      </a>
+    </li>
+
+    <li class="<%= 'active' if (params[:controller]=="adapplications"&&(params[:action] =="manage"||params[:action] =="unitapp")) %>">
+      <a href="/adapplications/manage">
+        <i class="icon-table"></i>
+        <span class="menu-text">应用管理</span>
+
+      </a>
+    </li>
+
+    <li class="<%= 'active' if (params[:controller]=="adapplications"&&params[:action] =="service") %>">
+      <a href="/adapplications/service">
+        <i class="icon-magnet"></i>
+        <span class="menu-text">能力绑定</span>
+
+      </a>
+    </li>
+
+
+
+
+
+  </ul>
+  <!--/.nav-list-->
+
+  <div id="sidebar-collapse" class="sidebar-collapse">
+    <i class="icon-double-angle-left"></i>
+  </div>
+</div>
+
+
+

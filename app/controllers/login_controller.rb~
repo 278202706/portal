@@ -1,0 +1,18 @@
+class LoginController < ApplicationController
+  def log
+  end
+  def index
+    email=params[:email]
+    session[:useremail]=email
+    if email=="admin"
+      redirect_to :controller => "adresource", :action => "dashboard"   #创建成功跳转 id为业务账号的ownerid
+    else
+      redirect_to :controller => "resource", :action => "dashboard"   #创建成功跳转 id为业务账号的ownerid
+    end
+  end
+  def logout
+    session[:useremail]=nil
+    redirect_to :controller => "login", :action => "log"
+  end
+
+end

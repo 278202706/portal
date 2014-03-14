@@ -1,0 +1,81 @@
+<ul class="nav nav-tabs" id="smyTabcpu">
+  <li class="active"><a data-toggle="tab" href="#cpu6h">6小时</a></li>
+  <li><a data-toggle="tab" href="#cpu12h">12小时</a></li>
+  <li><a data-toggle="tab" href="#cpu24h">24小时</a></li>
+  <li><a data-toggle="tab" href="#cpu3d">3天</a></li>
+  <li><a data-toggle="tab" href="#cpu7d">7天</a></li>
+  <li><a data-toggle="tab" href="#cpu15d">15天</a></li>
+  <li><a data-toggle="tab" href="#cpu30d">30天</a></li>
+</ul>
+
+<div id="smyTabcpuContent" class="tab-content">
+  <div class="tab-pane active" id="cpu6h">
+    <div id="cpuchartdiv1" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var mycpuChart1 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      mycpuChart1.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='CPU使用情况' subcaption='最近6小时' xAxisName='Hour' yAxisName='CPU时间' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-6Hr' value='0' /><set label='-5Hr' value='0' /><set label='-4Hr' value='10' /><set label='-3Hr' value='0' /><set label='-2Hr' value='0' /><set label='-1Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      mycpuChart1.render("cpuchartdiv1");
+    </script>
+  </div>
+  <div class="tab-pane" id="cpu12h">
+    <div id="cpuchartdiv2" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var mycpuChart2 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      mycpuChart2.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='CPU使用情况' subcaption='最近12小时' xAxisName='Hour' yAxisName='CPU时间' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-12Hr' value='0' /><set label='-10Hr' value='0' /><set label='-8Hr' value='10' /><set label='-6Hr' value='0' /><set label='-4Hr' value='0' /><set label='-2Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      mycpuChart2.render("cpuchartdiv2");
+    </script>
+  </div>
+  <div class="tab-pane" id="cpu24h">
+    <div id="cpuchartdiv3" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var mycpuChart3 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      mycpuChart3.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='CPU使用情况' subcaption='最近24小时' xAxisName='Hour' yAxisName='CPU时间' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-24Hr' value='0' /><set label='-18Hr' value='0' /><set label='-16Hr' value='10' /><set label='-12Hr' value='0' /><set label='-8Hr' value='0' /><set label='-4Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      mycpuChart3.render("cpuchartdiv3");
+    </script>
+  </div>
+  <div class="tab-pane" id="cpu3d">
+    <div id="cpuchartdiv4" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var mycpuChart4 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      mycpuChart4.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='CPU使用情况' subcaption='最近3天' xAxisName='Day' yAxisName='CPU时间' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-3D' value='0' /><set label='-2.5D' value='0' /><set label='-2D' value='10' /><set label='-1.5D' value='0' /><set label='-1D' value='0' /><set label='-0.5D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      mycpuChart4.render("cpuchartdiv4");
+    </script>
+  </div>
+  <div class="tab-pane" id="cpu7d">
+    <div id="cpuchartdiv5" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var mycpuChart5 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      mycpuChart5.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='CPU使用情况' subcaption='最近7天' xAxisName='Day' yAxisName='CPU时间' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-7D' value='0' /><set label='-6D' value='0' /><set label='-5D' value='10' /><set label='-4D' value='0' /><set label='-3D' value='0' /><set label='-2D' value='0' /><set label='-1D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      mycpuChart5.render("cpuchartdiv5");
+    </script>
+  </div>
+  <div class="tab-pane" id="cpu15d">
+    <div id="cpuchartdiv6" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var mycpuChart6 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      mycpuChart6.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='CPU使用情况' subcaption='最近15天' xAxisName='Day' yAxisName='CPU时间' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-15D' value='0' /><set label='-12D' value='0' /><set label='-9D' value='10' /><set label='-6D' value='0' /><set label='-3D' value='0' /><set label='-2D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      mycpuChart6.render("cpuchartdiv6");
+    </script>
+  </div>
+  <div class="tab-pane" id="cpu30d">
+    <div id="cpuchartdiv7" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var mycpuChart7 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      mycpuChart7.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='CPU使用情况' subcaption='最近30天' xAxisName='Day' yAxisName='CPU时间' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-30D' value='0' /><set label='-25D' value='0' /><set label='-20D' value='0' /><set label='-15D' value='0' /><set label='-10D' value='0' /><set label='-5D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      mycpuChart7.render("cpuchartdiv7");
+    </script>
+  </div>
+</div>
+<script type="text/javascript">
+  $('#smyTabcpu a:first.next').tab('show');
+  $('#smyTabcpu a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });</script>

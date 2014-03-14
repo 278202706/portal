@@ -1,0 +1,49 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/zh.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+zh:
+   hello: 你好
+   login: 登陆
+   #home/_header
+   header_index: 门户首页
+   header_resource: 运行资源
+   header_applications: 应用托管
+   header_service: 能力开放
+   header_account: 厂商管理
+   header_title: PaaS 融合门户
+   header_set: 设置
+   header_info: 用户信息
+   header_drop: 退出
+   #login/log
+   log_tip: 请输入邮箱和登陆密码
+   log_email: 邮箱
+   log_pwd: 密码
+   log_error: 用户名或密码错误！
+   log_error_re: 请重新输入
+   #resource/dashboard
+   resource_info: 资源信息
+   resource_container: 业务容器
+   resource_virmac: 虚拟机
+   res_con_name: 业务账号
+   res_con_virnum: 已有虚拟机数
+   res_con_vlanid: vlanid
+   res_vir_size: 硬盘容量
+   res_vir_sys: 操作系统

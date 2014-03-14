@@ -1,0 +1,47 @@
+<div class="row-fluid">
+  <div class="span9">
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>存储卷名称</th>
+    <th>选用的存储网络</th>
+    <th>存储性能级别</th>
+    <th>RAID级别</th>
+    <th>存储空间大小(GB)</th>
+    <th>存储的状态</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Test1</td>
+    <td>dmz区</td>
+    <td>SSD</td>
+    <td>RAID5</td>
+    <td>200</td>
+    <td>良好</td>
+    <td>
+      <%= link_to raw("释放"), {:controller => "resource", :action => "deletecontainer", :id =>"1234"} %>
+    </td>
+  </tr>
+  </tbody>
+</table>  </div><div class="span3">
+  存储介绍
+  <div class="hr hr-18 dotted hr-double"></div>
+  <h4 class="pink">
+    <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
+    <a href="#modal-form-addstorage" role="button" class="green" data-toggle="modal"> 申请存储卷 </a>
+  </h4>
+  <div class="hr hr-18 dotted hr-double"></div>
+
+</div></div>
+<script type="text/javascript">
+
+
+  //chosen plugin inside a modal will have a zero width because the select element is originally hidden
+  //and its width cannot be determined.
+  //so we set the width after modal is show
+  $('#modal-form-addstorage').on('show', function () { })
+
+</script>
+

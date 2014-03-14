@@ -1,0 +1,85 @@
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/adapplications") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          应用托管
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">能力绑定</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+
+      <h4>已绑定的关系列表</h4>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>应用名称</th>
+          <th>服务名称</th>
+          <th>服务类型</th>
+          <th>绑定时间</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th>
+            <%= 'abcf3' %>
+          </th>
+          <th>
+            <%='test'%>
+          </th>
+          <th>
+            <%=  'mysql-5.5'  %>
+          </th>
+          <th>
+            <%= '2013-11-15 10:45:45' %>
+          </th>
+
+        </tr>
+        <tr>
+          <th>
+            <%= 'abcf5' %>
+          </th>
+          <th>
+            <%='test'%>
+          </th>
+          <th>
+            <%=  '短彩'  %>
+          </th>
+          <th>
+            <%= '2013-11-15 10:45:45' %>
+          </th>
+
+        </tr>
+
+        <tr>
+          <th>
+            <%= 'abcf' %>
+          </th>
+          <th>
+            <%='test'%>
+          </th>
+          <th>
+            <%=  '文件存储'  %>
+          </th>
+          <th>
+            <%= '2013-11-15 10:45:45' %>
+          </th>
+
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<script>
+  $('#nav_menu_unlog_applications').addClass('active')
+</script>
+
+
+<div class="row-fluid" style="width:80%;margin-left: auto;margin-right: auto;margin-top: 50px;">
+  <div class="row-fluid span12">
+    <div class="span6">
+      <div class="widget-main" style="padding-left: 80px;">
+        <h3 style="color:#438EB9 ;margin-bottom: 30px;font-weight: bold;">应用沙箱</h3>
+        <h5>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器采用分布式部署的方式，开发者将代码部署到应用引擎前端机后，会通过同步的方式，将代码部署到应用引擎中所有的服务器。相当于在每一台服务器上都有备份，如此，即使某一台服务器宕机，用户请求也会被转发到其他的服务器上，不会影响应用的正常使用，大大提高了应用的稳定性。
+        </h5>
+
+      </div>
+    </div>
+    <div class="span6 center" style="padding-top: 50px;margin-right: 0;">
+      <%= image_tag("pic_sandbox.png",width:"250") %>
+    </div>
+  </div>
+  </br>
+</div>
+<div class="row-fluid" style="width:80%;margin-left: auto;margin-right: auto;margin-top: 60px;">
+  <div class="row-fluid span12">
+    <div class="span6 center" style="padding-top: 50px;margin-right: 0;">
+      <%= image_tag("pic_codesafe.png",width:"400") %>
+    </div>
+    <div class="span6">
+      <div class="widget-main" style="padding-right: 80px;">
+        <h3 style="color:#438EB9 ;margin-bottom: 30px;font-weight: bold;">安全保护</h3>
+        <h5>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应用引擎运行环境中每个App在运行时都是隔离开的，应用无法跳出沙箱获取到别人的代码，从而保证用户应用代码的安全。
+        </h5>
+      </div>
+    </div>
+  </div>
+  </br>
+</div>
+
+<div class="row-fluid" style="width:80%;margin-left: auto;margin-right: auto;margin-top: 50px;">
+  <div class="row-fluid span12">
+    <div class="span6">
+      <div class="widget-main" style="padding-left: 80px;">
+        <h3 style="color:#438EB9 ;margin-bottom: 30px;font-weight: bold;">分布部署</h3>
+        <h5>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应用引擎服务器采用分布式部署的架构，这就需要均衡每一台服务器的负载，从而保证每一个请求的访问速度。
+        </h5>
+
+      </div>
+    </div>
+    <div class="span6 center" style="padding-top: 50px;margin-right: 0;">
+      <%= image_tag("pic_fenbu.png",width:"300") %>
+    </div>
+  </div>
+  </br>
+</div>
+<div class="row-fluid" style="width:80%;margin-left: auto;margin-right: auto;margin-top: 60px;">
+  <div class="row-fluid span12">
+    <div class="span6 center" style="padding-top: 50px;margin-right: 0;">
+      <%= image_tag("pic_cache.png",width:"250") %>
+    </div>
+    <div class="span6">
+      <div class="widget-main" style="padding-right: 80px;">
+        <h3 style="color:#438EB9 ;margin-bottom: 30px;font-weight: bold;">分布式缓存</h3>
+        <h5>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;应用引擎服务器提供分布式的Redis缓存服务。
+        </h5>
+        <h5>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redis使用了两种文件格式：全量数据和增量请求。全量数据格式是把内存中的数据写入磁盘，便于下次读取文件进行加载；增量请求文件则是把内存中的数据序列化为操作请求，用于读取文件进行replay得到数据，序列化的操作包括SET、RPUSH、SADD、ZADD。
+        </h5>
+        <h5>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redis的存储分为内存存储、磁盘存储和log文件三部分，配置文件中有三个参数对其进行配置。
+        </h5>
+      </div>
+    </div>
+  </div>
+  </br>
+</div>
+<div class="row-fluid" style="width:80%;margin-left: auto;margin-right: auto;margin-top: 50px;">
+  <div class="row-fluid span12">
+    <div class="span6">
+      <div class="widget-main" style="padding-left: 80px;">
+        <h3 style="color:#438EB9 ;margin-bottom: 30px;font-weight: bold;">定时任务</h3>
+        <h5>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定时任务为开发者提供的分布式定时服务，用来定时触发开发者的特定动作，满足比如定时计算排行榜等需求。Cron的执行是以HTTP方式触发的，触发后真正执行的是用户在App中的代码。Cron服务是分布式环境部署的，具有高可靠性，多点之间相互隔离且同时触发，并且通过分布式锁进行选举并最终由一个健康节点执行。
+        </h5>
+
+      </div>
+    </div>
+    <div class="span6 center" style="padding-top: 50px;margin-right: 0;">
+      <%= image_tag("pic_cron.png",width:"300") %>
+    </div>
+  </div>
+  </br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

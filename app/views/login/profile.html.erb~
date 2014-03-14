@@ -1,0 +1,126 @@
+<div class="container-fluid main-container">
+	<%if session[:useremail]=="admin"%>
+	<%= render(:partial => "/sidebar/adresource") %>
+	<% else %>
+  <%= render(:partial => "/sidebar/resource") %>
+  <% end %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          厂商
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">信息</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+    
+    
+    
+   			 <div class="page-header position-relative">
+						<h1>
+							信息
+							<small>
+								<i class="icon-double-angle-right"></i>
+								厂商信息
+							</small>
+						</h1>
+					</div>
+					
+					
+					
+					
+					
+								<div id="user-profile-1" class="user-profile row-fluid">
+									<div class="span3 center">
+										<div>
+											<span class="profile-picture">
+												<img id="avatar"  alt="Alex's Avatar" src="/assets/avatars/profile-pic.jpg" />
+											</span>
+
+											<div class="space-4"></div>
+
+											<div class="width-80 label label-info label-large arrowed-in arrowed-in-right">
+												<div class="inline position-relative">
+
+														<i class="icon-circle light-green middle"></i>
+														&nbsp;
+														<span class="white middle bigger-120">厂商名称</span>
+												
+
+													
+												</div>
+											</div>
+										</div>
+
+										<div class="space-6"></div>
+
+									
+									</div>
+									<div class="span9">
+										<div class="profile-user-info profile-user-info-striped">
+											<div class="profile-info-row">
+												<div class="profile-info-name"> Username </div>
+
+												<div class="profile-info-value">
+													<span class="editable" id="username">alexdoe</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> Location </div>
+
+												<div class="profile-info-value">
+													<i class="icon-map-marker light-orange bigger-110"></i>
+													<span class="editable" id="country">Netherlands</span>
+													<span class="editable" id="city">Amsterdam</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> Age </div>
+
+												<div class="profile-info-value">
+													<span class="editable" id="age">38</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> Joined </div>
+
+												<div class="profile-info-value">
+													<span class="editable" id="signup">20/06/2010</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> Last Online </div>
+
+												<div class="profile-info-value">
+													<span class="editable" id="login">3 hours ago</span>
+												</div>
+											</div>
+
+											<div class="profile-info-row">
+												<div class="profile-info-name"> About Me </div>
+
+												<div class="profile-info-value">
+													<span class="editable" id="about">Editable as WYSIWYG</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+    
+    
+    
+    </div>
+  </div>
+</div>

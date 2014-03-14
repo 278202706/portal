@@ -1,0 +1,33 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+.widget { margin-bottom: 30px; }
+.item-info { padding: 4px 14px 3px 14px; }
+.item-title { font-size: 14px; font-weight: 600; font-family: 'Open Sans', sans-serif; margin: 10px 0; display: block; color: #1D8EC7;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.item-title:hover { color: #E03D22; }
+.item-buttons { text-align: center; }
+.item-buttons .btn { margin: 2px 5px; }
+
+.view { position: relative; margin: 3px; }
+.view img { z-index: 10; }
+.view-back{ width: 100%; height: 100%; position: absolute; right: 0; background: #777 url("../img/icons/zoom.png") no-repeat 50%; z-index: 0; display: none; opacity: 0.5; filter: alpha(opacity=50); }
+.view-back span { display: block; float: right; padding: 5px 20px 5px; width: 100%; text-align: right; font-size: 16px; color: rgba(255,255,255,0.6); }
+.view-back span:first-child { padding-top: 20px; }
+.view-back a { display: block; font-size: 18px; color: rgba(255,255,255,0.4); position: absolute; right: 15px; bottom: 15px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; width: 30px; height: 30px; line-height: 22px; text-align: center; font-weight: 700; }
+.view-back a:hover { color: #fff; border-color: #fff; }
+.homemenu {font-size:15px}

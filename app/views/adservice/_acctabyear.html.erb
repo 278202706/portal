@@ -1,0 +1,39 @@
+<%= form_tag url_for(:controller=>'adservice',:action=>'accform',:msgtype=>"year"),:method=>:post do %>
+
+  <%=select_tag "yearsely",options_for_select({ "2013"=>"2013","2012"=>"2012"},Time.now.strftime("%Y"))%>
+      <%= submit_tag '提交选择',:class=>'btn btn-primary',:style=>'margin-top:-10px'%>
+
+
+  <% end %>
+
+  <div class="box" >
+
+    <div class='messagetotal'>
+
+      <div class="box-content">
+        <div class="total_inf" id="tinf">
+          <div class="baobiaopic  widget-box transparent">
+            <%=render :partial =>'adservice/accpic',:locals=>{:year=>year,:type=>type,:idname=>"yearpic"}%>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="box" >
+
+    <div class='messagetotal'>
+      <div class="box-content">
+        <div class="total_inf" id="tinf1">
+
+          <div class="baobiaotable  widget-box transparent">
+            <%=render :partial =>'adservice/acctable',:locals=>{:year=>year,:type=>type,:idname=>"yeartable"}%>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+

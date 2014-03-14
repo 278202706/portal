@@ -1,0 +1,264 @@
+<script>
+  $('#nav_menu_user_resource').addClass('active')
+</script>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/resource") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          运行资源
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">网络</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+      <div class="page-header position-relative">
+        <h1>
+          网络
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>网段信息</span>
+          </small>
+        </h1>
+      </div>
+
+      <% if params[:response]=='failure' %>
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert" type="button">
+          <i class="icon-remove"></i>
+        </button>
+        <h4 class="alert-heading">注意！</h4>
+        <%= "地址释放失败，请重新操作！" %>
+      </div>
+      <% end %>
+      <% if params[:response]=='success' %>
+      <div class="alert alert-success">
+        <button class="close" data-dismiss="alert" type="button">
+          <i class="icon-remove"></i>
+        </button>
+        <h4 class="alert-heading">提示！</h4>
+        <%= "地址释放成功！" %>
+      </div>
+      <% end %>
+
+
+      <div class="row-fluid">
+        <div class="span6">
+          <div class="widget-box transparent">
+            <div class="widget-header">
+              <h4 class="lighter smaller">
+
+                业务容器名称：abcd
+              </h4>
+            </div>
+
+            <div class="widget-body">
+              <div class="widget-main padding-4">
+                    <h4 class="smaller lighter green">
+                      <i class="icon-list-ol"></i>
+                      网段 &nbsp;&nbsp;10.212.180.___
+                    </h4>
+
+                    <ul class="item-list">
+                      <li class="item-grey clearfix">
+                        <label class="inline">
+
+                          <span class="lbl"> 未分配</span>
+                        </label>
+                        <div class="pull-right action-buttons">
+                          <span class="label label-grey arrowed-right arrowed-in">107</span>
+                          <span class="label label-grey arrowed-right arrowed-in">108</span>
+                        </div>
+                      </li>
+
+                      <li class="item-pink clearfix">
+                        <label class="inline">
+
+                          <span class="lbl"> 网络地址</span>
+                        </label>
+
+                        <div class="pull-right action-buttons">
+                          <span class="label label-pink arrowed-right arrowed-in">104</span>
+                        </div>
+                      </li>
+
+                      <li class="item-green clearfix">
+                        <label class="inline">
+
+                          <span class="lbl"> 网关地址</span>
+                        </label>
+                        <div class="pull-right action-buttons">
+                          <span class="label label-success arrowed-right arrowed-in">105</span>
+                        </div>
+                      </li>
+
+                      <li class="item-blue clearfix">
+                        <label class="inline">
+
+                          <span class="lbl"> 广播地址</span>
+                        </label>
+                        <div class="pull-right action-buttons">
+                          <span class="label label-info arrowed-right arrowed-in">111</span>
+                        </div>
+                      </li>
+
+                      <li class="item-brown clearfix">
+                        <label class="inline">
+
+                          <span class="lbl"> 主机地址</span>
+                        </label>
+                        <div class="pull-right action-buttons">
+                          <span class="label label-important arrowed-right arrowed-in">104</span>
+                        </div>
+                      </li>
+
+                      <li class="item-red clearfix">
+                        <label class="inline">
+
+                          <span class="lbl"> 负载均衡地址</span>
+                        </label>
+                        <div class="pull-right action-buttons">
+                          <span class="label label-warning arrowed-right arrowed-in">109</span>
+                        </div>
+                      </li>
+
+                      <li class="item-orange clearfix">
+                        <label class="inline">
+
+                          <span class="lbl"> 网络设备地址</span>
+                        </label>
+                        <div class="pull-right action-buttons">
+                          <span class="label label-yellow arrowed-right arrowed-in">109</span>
+                        </div>
+                      </li>
+
+                      <li class="item-black clearfix">
+                        <label class="inline">
+
+                          <span class="lbl"> 可释放地址</span>
+                        </label>
+                        <div class="pull-right action-buttons">
+                          <%= link_to raw("<span class='label label-inverse arrowed-right arrowed-in'>109</span>"),{:controller=>"resource",:action=>"releaseip",:ip=>"10.212.180.109"},:confirm=>"确定要释放改地址吗？" %>
+                        </div>
+                      </li>
+                    </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="span6">
+          <div class="widget-box transparent">
+            <div class="widget-header">
+              <h4 class="lighter smaller">
+
+                业务容器名称：abcd2
+              </h4>
+            </div>
+
+            <div class="widget-body">
+              <div class="widget-main padding-4">
+                <h4 class="smaller lighter green">
+                  <i class="icon-list-ol"></i>
+                  网段 &nbsp;&nbsp;10.212.181.___
+                </h4>
+
+                <ul class="item-list">
+                  <li class="item-grey clearfix">
+                    <label class="inline">
+
+                      <span class="lbl"> 未分配</span>
+                    </label>
+                    <div class="pull-right action-buttons">
+                      <span class="label label-grey arrowed-right arrowed-in">107</span>
+                      <span class="label label-grey arrowed-right arrowed-in">108</span>
+                    </div>
+                  </li>
+
+                  <li class="item-pink clearfix">
+                    <label class="inline">
+
+                      <span class="lbl"> 网络地址</span>
+                    </label>
+
+                    <div class="pull-right action-buttons">
+                      <span class="label label-pink arrowed-right arrowed-in">104</span>
+                    </div>
+                  </li>
+
+                  <li class="item-green clearfix">
+                    <label class="inline">
+
+                      <span class="lbl"> 网关地址</span>
+                    </label>
+                    <div class="pull-right action-buttons">
+                      <span class="label label-success arrowed-right arrowed-in">105</span>
+                    </div>
+                  </li>
+
+                  <li class="item-blue clearfix">
+                    <label class="inline">
+
+                      <span class="lbl"> 广播地址</span>
+                    </label>
+                    <div class="pull-right action-buttons">
+                      <span class="label label-info arrowed-right arrowed-in">111</span>
+                    </div>
+                  </li>
+
+                  <li class="item-brown clearfix">
+                    <label class="inline">
+
+                      <span class="lbl"> 主机地址</span>
+                    </label>
+                    <div class="pull-right action-buttons">
+                      <span class="label label-important arrowed-right arrowed-in">104</span>
+                    </div>
+                  </li>
+
+                  <li class="item-red clearfix">
+                    <label class="inline">
+
+                      <span class="lbl"> 负载均衡地址</span>
+                    </label>
+                    <div class="pull-right action-buttons">
+                      <span class="label label-warning arrowed-right arrowed-in">109</span>
+                    </div>
+                  </li>
+
+                  <li class="item-orange clearfix">
+                    <label class="inline">
+
+                      <span class="lbl"> 网络设备地址</span>
+                    </label>
+                    <div class="pull-right action-buttons">
+                      <span class="label label-yellow arrowed-right arrowed-in">109</span>
+                    </div>
+                  </li>
+
+                  <li class="item-black clearfix">
+                    <label class="inline">
+
+                      <span class="lbl"> 可释放地址</span>
+                    </label>
+                    <div class="pull-right action-buttons">
+                      <%= link_to raw("<span class='label label-inverse arrowed-right arrowed-in'>109</span>"),{:controller=>"resource",:action=>"releaseip",:ip=>"10.212.181.109"},:confirm=>"确定要释放改地址吗？" %>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

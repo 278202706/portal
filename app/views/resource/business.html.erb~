@@ -1,0 +1,454 @@
+<script src="/assets/js/jq-topology.js"></script>
+<script src="/assets/js/d3.v3.min.js"></script>
+<style>
+  #topo {
+    display: inline-block;
+    height: 350px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    overflow-x: visible;
+    overflow-y: visible;
+    width: 900px;
+  }
+  .unit-container {
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+</style>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/resource") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          运行资源
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">虚拟机管理</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+
+      <div class="page-header position-relative">
+        <h1>
+          虚拟机管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>业务概况</span>
+          </small>
+        </h1>
+      </div>
+
+      <div class="row-fluid">
+        <div class="span6">
+        <div class="profile-user-info profile-user-info-striped" id="unitserinfo">
+          <div class="profile-info-row">
+            <div class="profile-info-name">业务系统名称</div>
+            <div class="profile-info-value">
+              <span id="unitsername">Test</span>
+            </div>
+          </div>
+          <div class="profile-info-row">
+            <div class="profile-info-name">业务系统类型</div>
+            <div class="profile-info-value">
+              <span id="unitsernam">自有门户</span>
+            </div>
+          </div>
+
+        </div>
+        </div>
+        <div class="span6" style="margin-left: 0;">
+          <div class="profile-user-info profile-user-info-striped" id="unitserinf">
+
+            <div class="profile-info-row">
+              <div class="profile-info-name">业务系统编码</div>
+              <div class="profile-info-value">
+                <span id="unitsernae">e8f0aa48d6894461924a4a72f84f1ac8</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name">业务系统状态</div>
+              <div class="profile-info-value">
+                <span id="unitserame">资源分配中</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+  <div  class="page-content">
+    <div class="page-header position-relative">
+      <h1>
+        虚拟机管理
+        <small>
+          <i class="icon-double-angle-right"></i>
+          <span>业务拓扑图</span>
+        </small>
+      </h1>
+    </div>
+    <div id="topo" class="unit-container"></div>
+   </div>
+
+    <div  class="page-content">
+      <div class="page-header position-relative">
+        <h1>
+          虚拟机管理
+          <small>
+            <i class="icon-double-angle-right"></i>
+            <span>业务资源</span>
+          </small>
+        </h1>
+      </div>
+
+
+      <div class="widget-box transparent" id="recent-box">
+        <div class="fc-widget-header">
+          <div class="widget-toolbar no-border">
+            <ul class="nav nav-tabs" id="myTab">
+
+              <li class='active'><a data-toggle="tab" href="#tab1">业务容器</a></li>
+              <li><a data-toggle="tab" href="#tab2">存储卷</a></li>
+              <li><a data-toggle="tab" href="#tab3">公网IP</a></li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="widget-body">
+          <div class="widget-main padding-4">
+            <div class="tab-content">
+              <div id="tab1" class="tab-pane active">
+
+                <%= render :partial => "/resource/container", :locals => {} %>
+              </div>
+
+              <div id="tab2" class="tab-pane">
+                <%= render :partial => "/resource/storage", :locals => {} %>
+              </div>
+
+              <div id="tab3" class="tab-pane">
+                <%= render :partial => "/resource/iplist", :locals => {} %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div id="modal-form-crecontainer" class="modal hide fade" tabindex="-1">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="blue bigger">请填写下列信息</h4>
+    </div>
+
+    <div class="modal-body overflow-visible">
+      <div class="row-fluid">
+
+
+        <div class="span7">
+        <%= form_tag url_for(), :class => "form-horizontal", :style=>"margin-bottom:0px",:method => :post do %>
+          <div class="control-group">
+            <label class="control-label" for="form-field-containername">业务容器名称</label>
+
+            <div class="controls">
+              <input type="text" id="form-field-containername" placeholder="1-32个字符"/>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="form-field-username">所属业务名称</label>
+
+            <div class="controls">
+              <input type="text" id="form-field-busname" placeholder="busname" value="Test" disabled="disabled"/>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="form-field-select-3">所属网络子网</label>
+
+            <div class="controls">
+              <select data-placeholder="选择网络子网" id="connetwork">
+                <option value="" > ---选择网络子网---</option>
+                <option value="1" >dmz区 </option>
+                <option value="2" >测试区  </option>
+                <option value="3" >高性能区  </option>
+                <option value="4">核心生产区  </option>
+                <option value="5" >存储网络区   </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="form-field-macnum">包含虚拟机个数</label>
+
+            <div class="controls">
+              <input type="text" id="form-field-macnum" placeholder="1-32"  />
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="form-field-com">描述</label>
+
+            <div class="controls">
+              <input class="input-small" type="text" id="form-field-com" placeholder="1-128个字符"  />
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-small" data-dismiss="modal">
+        <i class="icon-remove"></i>
+        取消
+      </button>
+
+      <button class="btn btn-small btn-primary">
+        <i class="icon-ok"></i>
+        确认创建
+      </button>
+    </div>
+  </div>
+
+
+
+<div id="modal-form-addstorage" class="modal hide fade" tabindex="-1">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="blue bigger">请填写下列信息</h4>
+  </div>
+
+  <div class="modal-body ">
+    <div class="row-fluid">
+
+
+      <div class="span7">
+        <%= form_tag url_for(), :class => "form-horizontal", :style=>"margin-bottom:0px",:method => :post do %>
+        <div class="control-group">
+          <label class="control-label" for="form-field-storagename">块存储名称</label>
+
+          <div class="controls">
+            <input type="text" id="form-field-storagename" placeholder="1-32个字符，不可以数字开头，不可包含中文"/>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="form-field-storagesize">容量</label>
+
+          <div class="controls">
+            <input type="text" id="form-field-storagesize" placeholder="单位为GB"/>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>选用的存储网络</label>
+          <div class="controls">
+            <select data-placeholder="选择存储网络" id="storagenetwork">
+              <option value="1" >FC-San</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>存储级别</label>
+          <div class="controls">
+            <select data-placeholder="选择存储级别" id="storagelevel">
+              <option value="1" >SSD-RAID5</option>
+              <option value="2" >HDD-RAID10</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>是否使用动态分级</label>
+          <div class="controls">
+            <select data-placeholder="选择是否使用动态分级" id="fenji">
+              <option value="1" >使用</option>
+              <option value="2" >不使用</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>资源存储类型</label>
+          <div class="controls">
+            <select data-placeholder="选择资源存储类型" id="storagetype">
+              <option value="1" >通用块存储（可挂虚拟机、物理机）</option>
+              <option value="2" >挂载虚拟机类型的块存储</option>
+              <option value="3" >挂载物理机类型的块存储</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="form-field-bussys">所属业务系统</label>
+
+          <div class="controls">
+            <input type="text" id="form-field-bussys" value="Test" disabled="disabled"  />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="form-field-comstorage">描述</label>
+
+          <div class="controls">
+            <input class="input-small" type="text" id="form-field-comstorage" placeholder="1-128个字符"  />
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-small" data-dismiss="modal">
+      <i class="icon-remove"></i>
+      取消
+    </button>
+
+    <button class="btn btn-small btn-primary">
+      <i class="icon-ok"></i>
+      确认申请
+    </button>
+  </div>
+</div>
+
+
+
+<div id="modal-form-addip" class="modal hide fade" tabindex="-1">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="blue bigger">请填写下列信息</h4>
+  </div>
+
+  <div class="modal-body overflow-visible">
+    <div class="row-fluid">
+
+
+      <div class="span7">
+        <%= form_tag url_for(), :class => "form-horizontal", :style=>"margin-bottom:0px",:method => :post do %>
+        <div class="control-group">
+          <label for="form-field-select-3">所属网络子网</label>
+
+          <div class="controls">
+            <select data-placeholder="选择网络子网" id="ipnetwork">
+              <option value="" > ---选择网络子网---</option>
+              <option value="1" >dmz区 </option>
+              <option value="2" >测试区  </option>
+              <option value="3" >高性能区  </option>
+              <option value="4">核心生产区  </option>
+              <option value="5" >存储网络区   </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="form-field-com">所属业务系统</label>
+
+          <div class="controls">
+            <input class="input-small" type="text" value="Test" disabled="disabled"  />
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-small" data-dismiss="modal">
+      <i class="icon-remove"></i>
+      取消
+    </button>
+
+    <button class="btn btn-small btn-primary">
+      <i class="icon-ok"></i>
+      确认申请
+    </button>
+  </div>
+</div>
+
+
+
+
+
+<div id="modal-form-addband" class="modal hide fade" tabindex="-1">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="blue bigger">请填写下列信息</h4>
+  </div>
+
+  <div class="modal-body overflow-visible">
+    <div class="row-fluid">
+
+
+      <div class="span7">
+
+        <div class="control-group">
+          <label class="control-label" for="form-field-com">公网IP地址</label>
+
+          <div class="controls">
+            <input class="input-small" type="text" value="218.205.48.215" disabled="disabled"  />
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="form-field-com">所属业务系统</label>
+
+          <div class="controls">
+            <input class="input-small" type="text" value="Test" disabled="disabled"  />
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="form-field-com">带宽</label>
+
+          <div class="controls">
+            <input class="input-small" type="text" placeholder="以Mbps为单位"/>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="form-field-com">描述</label>
+
+          <div class="controls">
+            <input class="input-small" type="text"placeholder="1-128个字符" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-small" data-dismiss="modal">
+      <i class="icon-remove"></i>
+      取消
+    </button>
+
+    <button class="btn btn-small btn-primary">
+      <i class="icon-ok"></i>
+      确认申请
+    </button>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+$(function(){
+var json=new String('{"networks":[{"parameter":["0","0","100","100"],"nodes":[{"levelNodes":[{"name":"CMDB自动采集测试","ID":"402894784116d2db01414dff33c30038","type":"ownerSystem"}],"level":"1"},{"levelNodes":[{"name":"CMDB测试","ID":"402894784116d2db01414eb1247c0043","type":"ownerContainer"}],"level":"2"},{"levelNodes":[{"name":"cmdb-2","ID":"4028947341176b7e01414edf4e667569","type":"vguest"},{"name":"cmdb-1","ID":"4028947341176b7e01414edb8a3e742f","type":"vguest"}],"level":"3"}],"name":"wholeTopo","links":[{"endpoint2_ID":"402894784116d2db01414eb1247c0043","endpoint1_ID":"402894784116d2db01414dff33c30038","bandwidth":"2*10GE"},{"endpoint2_ID":"4028947341176b7e01414edf4e667569","endpoint1_ID":"402894784116d2db01414eb1247c0043","bandwidth":"2*10GE"},{"endpoint2_ID":"4028947341176b7e01414edb8a3e742f","endpoint1_ID":"402894784116d2db01414eb1247c0043","bandwidth":"2*10GE"}]}],"linksBetweenNetworks":[]}');
+var json1=eval("(" + json + ")");
+topology(json1,"topo","white",5,0,"blue",50,50,"grey",1,"black",15,10);});
+</script>

@@ -1,0 +1,84 @@
+<%= javascript_include_tag "FusionCharts" %>
+<ul class="nav nav-tabs" id="smyTabre">
+  <li class="active"><a data-toggle="tab" href="#re6h">6小时</a></li>
+  <li><a data-toggle="tab" href="#re12h">12小时</a></li>
+  <li><a data-toggle="tab" href="#re24h">24小时</a></li>
+  <li><a data-toggle="tab" href="#re3d">3天</a></li>
+  <li><a data-toggle="tab" href="#re7d">7天</a></li>
+  <li><a data-toggle="tab" href="#re15d">15天</a></li>
+  <li><a data-toggle="tab" href="#re30d">30天</a></li>
+</ul>
+
+<div id="smyTabreContent" class="tab-content">
+  <div class="tab-pane active" id="re6h">
+    <div id="chartdiv1" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myChart1 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myChart1.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='请求数情况' subcaption='最近6小时' xAxisName='Hour' yAxisName='请求数' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-6Hr' value='0' /><set label='-5Hr' value='0' /><set label='-4Hr' value='10' /><set label='-3Hr' value='0' /><set label='-2Hr' value='0' /><set label='-1Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myChart1.render("chartdiv1");
+    </script>
+
+  </div>
+  <div class="tab-pane" id="re12h">
+    <div id="chartdiv2" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myChart2 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myChart2.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='请求数情况' subcaption='最近12小时' xAxisName='Hour' yAxisName='请求数' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-12Hr' value='0' /><set label='-10Hr' value='0' /><set label='-8Hr' value='10' /><set label='-6Hr' value='0' /><set label='-4Hr' value='0' /><set label='-2Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myChart2.render("chartdiv2");
+    </script>
+
+  </div>
+  <div class="tab-pane" id="re24h">
+    <div id="chartdiv3" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myChart3 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myChart3.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='请求数情况' subcaption='最近24小时' xAxisName='Hour' yAxisName='请求数' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-24Hr' value='0' /><set label='-18Hr' value='0' /><set label='-16Hr' value='10' /><set label='-12Hr' value='0' /><set label='-8Hr' value='0' /><set label='-4Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myChart3.render("chartdiv3");
+    </script>
+  </div>
+  <div class="tab-pane" id="re3d">
+    <div id="chartdiv4" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myChart4 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myChart4.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='请求数情况' subcaption='最近3天' xAxisName='Day' yAxisName='请求数' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-3D' value='0' /><set label='-2.5D' value='0' /><set label='-2D' value='10' /><set label='-1.5D' value='0' /><set label='-1D' value='0' /><set label='-0.5D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myChart4.render("chartdiv4");
+    </script>
+  </div>
+  <div class="tab-pane" id="re7d">
+    <div id="chartdiv5" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myChart5 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myChart5.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='请求数情况' subcaption='最近7天' xAxisName='Day' yAxisName='请求数' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-7D' value='0' /><set label='-6D' value='0' /><set label='-5D' value='10' /><set label='-4D' value='0' /><set label='-3D' value='0' /><set label='-2D' value='0' /><set label='-1D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myChart5.render("chartdiv5");
+    </script>
+  </div>
+  <div class="tab-pane" id="re15d">
+    <div id="chartdiv6" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myChart6 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myChart6.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='请求数情况' subcaption='最近15天' xAxisName='Day' yAxisName='请求数' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-15D' value='0' /><set label='-12D' value='0' /><set label='-9D' value='10' /><set label='-6D' value='0' /><set label='-3D' value='0' /><set label='-2D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myChart6.render("chartdiv6");
+    </script>
+  </div>
+  <div class="tab-pane" id="re30d">
+    <div id="chartdiv7" align="center">FusionGadgets</div>
+    <script type="text/javascript">
+      var myChart7 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "600", "300", "0", "0");
+      myChart7.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='请求数情况' subcaption='最近30天' xAxisName='Day' yAxisName='请求数' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-30D' value='0' /><set label='-25D' value='0' /><set label='-20D' value='0' /><set label='-15D' value='0' /><set label='-10D' value='0' /><set label='-5D' value='0' /><set label='NOW' value='0' /></chart> ");
+      //myChart.setDataXML(str);
+      myChart7.render("chartdiv7");
+    </script>
+  </div>
+</div>
+<script type="text/javascript">
+  $('#smyTabre a:first.next').tab('show');
+  $('#smyTabre a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });</script>
