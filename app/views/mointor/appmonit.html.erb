@@ -1,0 +1,119 @@
+<script>
+    $('#nav_menu_admin_monit').addClass('active')
+</script>
+<%= javascript_include_tag "jquery.dataTables.min" %>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/admonit") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          管理员
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">应用监控</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+      <!-- content starts -->
+
+
+      <div class="row-fluid sortable">
+        <div class="box span12">
+          <div class="page-header position-relative">
+            <h1>
+              监控管理
+              <small>
+                <i class="icon-double-angle-right"></i>
+                <span>应用</span>
+              </small>
+            </h1>
+          </div>
+          <div class="table-responsive">
+            <div class="table-responsive">
+              <div class="dataTables_wrapper" role="grid">
+                <% if @appinsinfos == nil%>
+               　　Can't get application informations!
+                <%else%>
+                <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="listlogs">
+                  <thead>
+                  <tr>
+                    <th>应用名</th>
+                    <th>实例号</th>
+                    <th>url</th>
+                    <th>状态</th>
+                    <th>运行时间</th>
+                    <th>详情</th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <%@appinsinfos.each do |id , appinsinfo|  %>
+                    <% if appinsinfo["state"]!="CRASHED" %>
+                     <% stats= appinsinfo["stats"] %>
+                     <% uris=stats["uris"] %>
+                      <tr>
+                        <td><%= stats["name"] %></td>
+                        <td><%= appinsinfo["index"] %></td>
+                        <% if uris!=nil %>
+                          <td><%= uris.each do |k| %>
+                            <%= puts k%>
+                            <%end %>
+                          </td>
+                        <% else %>
+                          <td>null</td>
+                        <%end %>
+                        <td><%= appinsinfo["state"] %> </td>
+                        <td><%= second_to_date(stats["uptime"]) %></td>
+                        <td>
+                          <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>详情</h>"), {:controller => "mointor", :action => "appinsdetail", :id => id }, :class => "btn btn-success btn-small" %>
+                        </td>
+                      </tr>
+                      <% end %>
+                    <% end %>
+                  </tbody>
+                </table>
+              <% end %>
+                
+              </div>
+            </div>
+            <!--/span-->
+
+          </div>
+          <!--/row-->
+
+
+        </div>
+        <!--/span-->
+
+      </div>
+      <!--/row-->
+
+
+      <!-- content ends -->
+    </div>
+    <!--/#content.span10-->
+  </div>
+  <!--/fluid-row-->
+
+
+
+</div><!--/.fluid-container-->
+
+<script>
+    $(function () {
+        $('#listlogs').dataTable({
+                    "bLengthChange":false,
+                    "bProcessing":true,
+                    "bInfo":false,
+                    "sDom":'<"top"i>rt<"bottom"flp><"clear">',
+                }
+        );
+    })
+</script>

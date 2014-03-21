@@ -15,6 +15,8 @@ Cloudweb::Application.routes.draw do
   get "resource/network"
   get "home/index"
   get "login/log"
+  #get "monitor/machinemonit"=>'monitor#machinemonit'
+  #get "monitor/index"=>'monitor#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -88,7 +90,7 @@ Cloudweb::Application.routes.draw do
   #     resources :products
   #   end
   #get ':controller/:action/:id'
- # match ':controller/:action/:id', to: ':controller#:action', via: :all
+  #match ':controller/:action/:id', to: ':controller#:action', via: :all
   #get ':controller(/:action(/:id))'
   match ':controller(/:action(/:id))',via: :all
 

@@ -38,6 +38,7 @@
 
 
 </style>
+
 <div class="container">
   <div class="container">
     <div class="row">
@@ -51,30 +52,30 @@
 
             <strong>
               <i class="icon-remove"></i>
-              <%= t :log_error %>
+              <%= "用户名或密码错误！" %>
             </strong>
-            <%= t :log_error_re %>
+            <%= "请重新输入" %>
             <br>
           </div>
         <% end %>
-        <div class="alert alert-info"><%= t :log_tip %> </div>
+        <div class="alert alert-info"><%= "请输入邮箱和登陆密码" %> </div>
         <%= form_tag url_for(:controller => 'login', :action => 'index'), :class => "center", :method => :post do %>
           <fieldset>
 
 
-            <div data-rel="tooltip" data-original-title="<%= t :log_email %>" class="clearfix" style="position:relative">
+            <div data-rel="tooltip" data-original-title="邮箱" class="clearfix" style="position:relative">
               <span>
-              <%= text_field_tag 'email', nil, :placeholder=>t(:log_email) %>
+              <%= text_field_tag 'email', nil, :placeholder=>"邮箱" %>
                 <span class="green" style="position:absolute;left: 80%;top:7px;display:none"><i class="icon-ok"></i></span>
               </span>
             </div>
-            <div data-rel="tooltip" data-original-title="<%= t :log_pwd %>" class="clearfix" style="position:relative">
+            <div data-rel="tooltip" data-original-title="密码" class="clearfix" style="position:relative">
               <span>
-              <%= text_field_tag 'password', nil, :type => "password",:placeholder=>t(:log_pwd) %>
+              <%= text_field_tag 'password', nil, :type => "password",:placeholder=>"密码" %>
                 <span class="green" style="position:absolute;left: 80%;top:7px;display:none"><i class="icon-ok"></i></span>
               </span>
             </div>
-            <button id="submit" type="submit" class="btn btn-small primary"><%= t :login %></button>
+            <button id="submit" type="submit" class="btn btn-small primary"><%= "登陆" %></button>
 
             <!--     <p class="center span5">
               <a href="/cfusers/new">注册新用户</a>

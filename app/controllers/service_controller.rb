@@ -240,4 +240,18 @@ class ServiceController < ApplicationController
 
   end
 
+  def authented
+    type = params[:type]
+    value = params[:value]
+    ret = nil
+    ret = Serviceinst.find_by_name(value)  if type == "sername"
+    ret={:res=>"valid"} if ret==nil
+
+    #jsonpcallback = params['jsonpcallback']
+    @res="#{ret.to_json}"
+    respond_to do|format|
+      format.json {render :json=>@res}
+    end
+  end
+
 end

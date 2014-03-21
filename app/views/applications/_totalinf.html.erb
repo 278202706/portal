@@ -64,14 +64,20 @@
       <div class="widget-body">
         <div class="widget-main padding-16">
           <div class="row-fluid">
-            <div class="grid3 center">
+            <div class="grid4 center">
               <%= link_to raw("<i class='icon-play bigger-140'></i>启动"), {:controller=>"applications",:action=>"startapp",:id=>@app.id}, :class => "btn btn-app btn-light btn-mini" %>
             </div>
-            <div class="grid3 center">
+            <div class="grid4 center">
               <%= link_to raw("<i class='icon-repeat bigger-140'></i>重启"), {:controller=>"applications",:action=>"restartapp",:id=>@app.id}, :class => "btn btn-app btn-light btn-mini" %>
             </div>
-            <div class="grid3 center">
+            <div class="grid4 center">
               <%= link_to raw("<i class='icon-stop bigger-140'></i>停止"), {:controller=>"applications",:action=>"stopapp",:id=>@app.id}, :class => "btn btn-app btn-light btn-mini" %>
+            </div>
+            <div class="grid4 center">
+              <a class="btn btn-app btn-light btn-mini" href="#modal-preview" role="button" data-toggle="modal" onclick="getAppStartInfo()">
+                <i class="icon-zoom-in bigger-140"></i>
+                查看
+              </a>
             </div>
           </div>
         </div>
@@ -89,7 +95,8 @@
             <label class="control-label" for="form-field-comstorage">应用名称</label>
 
             <div class="controls " >
-              <input class="input-small" type="text" id="appname" name="appname" placeholder="1-20个字符"  />
+              <input class="input-small" type="text" id="appname" name="appname" placeholder="1-20个字符" onkeyup="judge(this,'appname')" />
+              <span class="green" style="display:none"><i class="icon-ok"></i></span>
             </div>
           </div>
           <div class="modal-footer"  style="border-radius: 0;margin-top: 15px; padding: 10px;">
@@ -161,23 +168,25 @@
           </br>
             <%= hidden_field_tag 'appid', @app.id %>
             <div class="control-group">
+              <label class="control-label" for="form-field-comstorage">domain</label>
+              <div class="controls">
+                <select data-placeholder="选择domain" id="domainname" name="domainname" style="width:105px">
+                  <% @avidomains.each do |domain|%>
+                      <option value="<%= domain[:name]%>" ><%= domain[:name]%></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+          <div class="control-group">
             <label class="control-label" for="form-field-comstorage">host名称</label>
 
             <div class="controls">
-              <input class="input-small" type="text" id="hostname" name="hostname" placeholder="1-10个英文字符"  />
+              <input class="input-small" type="text" id="hostname" name="hostname" placeholder="1-10个英文字符" onkeyup="judge(this,'hostname')" />
+              <span class="green" style="display:none"><i class="icon-ok"></i></span>
             </div>
           </div>
 
-          <div class="control-group">
-            <label class="control-label" for="form-field-comstorage">domain</label>
-            <div class="controls">
-              <select data-placeholder="选择domain" id="domainname" name="domainname" style="width:105px">
-                <% @avidomains.each do |domain|%>
-                <option value="<%= domain[:name]%>" ><%= domain[:name]%></option>
-                <% end %>
-              </select>
-            </div>
-          </div>
+
           <div class="modal-footer" style="border-radius: 0;margin-top: 15px; padding: 10px;">
             <button class="btn btn-small" data-dismiss="modal">
               <i class="icon-remove"></i>
@@ -244,7 +253,7 @@
                       <th><%= (@appins[(i-1).to_s][:stats][:disk_quota]/1024/1024).to_s+"MB" %></th>
                       <th><%= @appins[(i-1).to_s][:stats][:uptime] %></th>
                   <% else %>
-                      <td colspan=6>暂无</td>
+                      <td colspan=8>暂无</td>
                   <% end %>
                   <th><%= @appins[(i-1).to_s][:state] %></th>
 
@@ -273,7 +282,8 @@
             <label class="control-label" for="form-field-comstorage">实例个数修改</label>
 
             <div class="controls">
-              <input class="input-small" type="text" id="instnum" name="instnum" placeholder="1-9"  />
+              <input class="input-small" type="text" id="appinsnum" name="instnum" placeholder="1-9"  onkeyup="judge(this,'appinstnum')" />
+              <span class="green" style="display:none"><i class="icon-ok"></i></span>
             </div>
           </div>
           <div class="modal-footer" id="infofoot" style="border-radius: 0;margin-top: 15px; padding: 10px;">
@@ -654,5 +664,8 @@
   </div>
 </div>
 </div>
+
+
 </div>
+
 </div>

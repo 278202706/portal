@@ -396,17 +396,26 @@ class ApplicationsController < ApplicationController
 
   def startapp
     @userclient=session[:userclient]
+    @username=session[:useremail]
     appid=params[:id]
     @app=App.find_by_id appid
     @cfapp=@userclient.app_by_name @app.appname
     @path = File.join("#{Rails.root}/public/userdata/"+session[:useremail].to_s, @app.appname.to_s)
     @cfapp.upload @path.to_s
-
-      t2=Thread.new do
-        @cfapp.start!
-        @app.active=true
-        @app.save
-      end
+    @app.startime=Time.now
+    @app.save
+    t2=Thread.new do
+      puts "app"+@app.appname.to_s
+      @app.delay.startheapp(@cfapp,@username)
+      @app.active=true
+      @app.save
+    end
+    #t2=Thread.new do
+    #    #@cfapp.start!
+    #    startheapp @cfapp
+    #    @app.active=true
+    #    @app.save
+    #end
     redirect_to :controller => "applications", :action => "unitapp", :id => appid
   end
 
@@ -429,5 +438,61 @@ class ApplicationsController < ApplicationController
     @app.save
     redirect_to :controller => "applications", :action => "unitapp", :id => appid
   end
+
+
+  def authented
+    type = params[:type]
+    value = params[:value]
+    curemail=session[:useremail]
+    @account=Account.find_by_email curemail
+    ret = nil
+    ret = App.where({:userguid=>@account.guid,:appname=>value}).all  if type == "appname"
+    if type=="hostname"
+      @hostname=value
+      @domainname=params[:domainname]
+      @userclient=session[:userclient]
+      @space=@userclient.organizations[0].spaces[0]
+      @domain=@space.domain_by_name @domainname.to_s
+      host=@hostname.to_s
+      route=find_route(@domain, host)
+      if route==nil
+        ret=[]
+      else
+        ret={:res=>"invalid"}
+      end
+    end
+
+    ret={:res=>"valid"} if ret==[]
+
+    #jsonpcallback = params['jsonpcallback']
+    @res="#{ret.to_json}"
+    respond_to do|format|
+      format.json {render :json=>@res}
+    end
+  end
+
+
+  def getinfo
+   # t3=Thread.new do
+    appid = params[:appid]
+    curemail=session[:useremail]
+    app=App.find_by_id appid
+    appinfos=Appstartpro.where({:username=>curemail,:appid=>app.appguid,:token=>"no"}).all
+    appinfos.each do |info|
+      info.token="yes"
+      info.save
+    end
+
+    ret=appinfos
+
+    #jsonpcallback = params['jsonpcallback']
+    @res="#{ret.to_json}"
+    respond_to do|format|
+      format.json {render :json=>@res}
+    end
+    #end
+    #t3.join
+  end
+
 
 end

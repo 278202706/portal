@@ -28,6 +28,7 @@ en:
   header_applications: 应用托管
   header_service: 能力开放
   header_account: 厂商管理
+  header_monit: 监控信息
   header_title: PaaS 融合门户
   header_set: 设置
   header_info: 用户信息

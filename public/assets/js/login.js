@@ -1,5 +1,5 @@
 authenUserName=function(value,obj){
-	$.get("/users/authented",{"type":"name","value":value},function(data){
+	$.get("/login/authented",{"type":"name","value":value},function(data){
 		console.log(data);
 		console.log($(obj).next())
 		if(data != null)
@@ -10,7 +10,7 @@ authenUserName=function(value,obj){
 	},"json");
 }
 authenPass=function(value,obj){
-	$.get("/users/authented",{"type":"pass","value":value},function(data){
+	$.get("/login/authented",{"type":"pass","value":value},function(data){
 		
 		if(data != null)
 		{
@@ -33,11 +33,11 @@ judge=function(obj,type){
 		authenPass($(obj).val(),obj);
 	}
 }
-$(function(){
-	var userSel = "input[placeholder=Username]";
-	var passSel = "input[placeholder=Password]";
-	var username=$(userSel).val();
-	var pass=$(passSel).val();
-	authenUserName(username,$(userSel));
-	authenPass(pass,$(passSel));
-});
+//$(function(){
+//	var userSel = "input[placeholder=Username]";
+//	var passSel = "input[placeholder=Password]";
+//	var username=$(userSel).val();
+//	var pass=$(passSel).val();
+//	authenUserName(username,$(userSel));
+//	authenPass(pass,$(passSel));
+//});

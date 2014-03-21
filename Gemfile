@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 gem 'net_dav'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'mysql2'
 #gem 'ruby-oci8'
 gem 'uuidtools'
 gem 'rubyzip'
@@ -12,7 +13,8 @@ gem 'rubyzip'
 gem 'protected_attributes'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
-
+gem 'delayed_job_active_record'
+gem "daemons"
 
 gem 'cfoundry', '~> 4.7.2.rc1'
 gem "twitter-bootstrap-rails"

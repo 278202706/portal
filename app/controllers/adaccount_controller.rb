@@ -118,16 +118,16 @@ class AdaccountController < ApplicationController
         @result.update!
         @org.users=[@result]
         create_space @admin, @result, @spacename.to_s
-        act="管理员成功创建组织"+@org.name+"的账号"
+        #act="管理员成功创建组织"+@org.name+"的账号"
        # createlog act
         format.html { redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid] }
         format.json
 			else
-				act="管理员创建组织"+@org.name+"的账号失败"
+				#act="管理员创建组织"+@org.name+"的账号失败"
 				#createlog act
-				format.html { redirect_to :controller => "admin", :action => "orgdetail", :name => @cfuser.organization }
+				format.html { redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid] }
 				#format.html { redirect_to :controller=>"admin",:action=>"orgslist" }
-				format.json { render json: @cfuser.errors, status: :unprocessable_entity }
+				format.json { render json: @account.errors, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -157,5 +157,21 @@ class AdaccountController < ApplicationController
 
   end
 
+
+
+  def authented
+    type = params[:type]
+    value = params[:value]
+    ret = nil
+    ret = Account.find_by_email(value)  if type == "accemail"
+    ret = Orglocal.find_by_name(value)  if type == "orgname"
+    ret={:res=>"valid"} if ret==nil
+
+    #jsonpcallback = params['jsonpcallback']
+    @res="#{ret.to_json}"
+    respond_to do|format|
+      format.json {render :json=>@res}
+    end
+  end
 
 end
