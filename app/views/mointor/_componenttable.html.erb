@@ -1,4 +1,6 @@
-
+<% if instances == nil  %>
+  no instance informations!!!
+<% else %>
 <div class="table-responsive">
   <div class="table-responsive">
     <div class="dataTables_wrapper" role="grid">
@@ -20,8 +22,8 @@
             <tr>
               <th><%= ip %></th>
               <th><%= port %></th>
-              <th><%= instance["start"]!="" ?instance["start"]:"无" %></th>
-              <th><%= instance["uptime"]!="" ?instance["uptime"]:"无" %></th>
+              <th><%= instance["start"]!="" ?to_time(instance["start"]):"无" %></th>
+              <th><%= instance["uptime"]!="" ?to_date(instance["uptime"]):"无" %></th>
               <th><%= instance["varz"]?instance["varz"]["mem"]:"无" %></th>
               <th><%= instance["varz"]?instance["varz"]["cpu"]:"无" %></th>
               <th>
@@ -39,4 +41,4 @@
     </div>
   </div>
 </div>
-
+<% end  %>

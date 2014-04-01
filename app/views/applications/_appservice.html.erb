@@ -44,7 +44,7 @@
             <% else %>
                 <%= link_to raw("<i class='icon-plus-sign icon-white'></i><h style='color:#FFF'>绑定</h>"), {:controller => "applications", :action => "appbindser",:appid=>@app.id,:serid=>@locser.id,:type=>"1"}, :class => "btn btn-success btn-mini" %>
             <% end %>
-            <%= link_to raw("<i class='icon-minus-sign icon-white'></i><h style='color:#FFF'>详情</h>"), {:controller => "service", :action => "viewfilestorage",:id=>'123'}, :class => "btn btn-info btn-mini" %>
+            <%= link_to raw("<i class='icon-minus-sign icon-white'></i><h style='color:#FFF'>详情</h>"), {:controller => "service", :action => "viewmysql", :name => ser.name}, :class => "btn btn-info btn-mini" %>
           </td>
         </tr>
 

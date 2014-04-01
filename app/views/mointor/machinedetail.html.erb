@@ -42,11 +42,12 @@
                 <ul class="nav nav-tabs" id="myTab">
 
                   <li class= 'active' ><a data-toggle="tab" href="#tab1">操作系统</a></li>
-                  <li ><a data-toggle="tab" href="#tab2">内存</a></li>
-                  <li ><a data-toggle="tab" href="#tab3">磁盘</a></li>
-                  <li ><a data-toggle="tab" href="#tab4">进程</a></li>
-                  <li ><a data-toggle="tab" href="#tab5">文件系统</a></li>
-                  <li ><a data-toggle="tab" href="#tab6">网络</a></li>
+                  <li ><a data-toggle="tab" href="#tab2">CPU</a></li>
+                  <li ><a data-toggle="tab" href="#tab3">内存</a></li>
+                  <li ><a data-toggle="tab" href="#tab4">磁盘</a></li>
+                  <li ><a data-toggle="tab" href="#tab5">进程</a></li>
+                  <li ><a data-toggle="tab" href="#tab6">文件系统</a></li>
+                  <li ><a data-toggle="tab" href="#tab7">网络</a></li>
 
                 </ul>
               </div>
@@ -59,18 +60,21 @@
                     <%= render :partial => "/mointor/os", :locals => {} %>
                   </div>
                   <div id="tab2" class="tab-pane">
-                    <%= render :partial => "/mointor/memory", :locals => {} %>
+                    <%= render :partial => "/mointor/cpu", :locals => {:idname => 'cpu', :instances => @mcpu_rundata} %>
                   </div>
                   <div id="tab3" class="tab-pane">
-                    <%= render :partial => "/mointor/disk", :locals => {} %>
+                    <%= render :partial => "/mointor/memory", :locals => {:idname => 'mem', :instances => @mmem_rundata} %>
                   </div>
                   <div id="tab4" class="tab-pane">
-                    <%= render :partial => "/mointor/process", :locals => {} %>
+                    <%= render :partial => "/mointor/disk", :locals => {:idname => 'disk', :instances => @mdisk_rundata} %>
                   </div>
                   <div id="tab5" class="tab-pane">
-                    <%= render :partial => "/mointor/filesystem", :locals => {} %>
+                    <%= render :partial => "/mointor/process", :locals => {} %>
                   </div>
                   <div id="tab6" class="tab-pane">
+                    <%= render :partial => "/mointor/filesystem", :locals => {} %>
+                  </div>
+                  <div id="tab7" class="tab-pane">
                     <%= render :partial => "/mointor/network", :locals => {} %>
                   </div>
                 </div>

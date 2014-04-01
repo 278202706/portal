@@ -1,6 +1,7 @@
 <script>
   $('#nav_menu_user_service').addClass('active')
 </script>
+<script src="/assets/js/onclick.js"></script>
 <div class="container-fluid main-container">
 
   <%= render(:partial => "/sidebar/service") %>
@@ -62,7 +63,8 @@
               <label class="control-label" for="form-field-sername">服务名称</label>
 
               <div class="controls">
-                <input type="text" id="sername" name="sername" placeholder="1-32个字符，不可以数字开头，不可包含中文"/>
+                <input type="text" id="sername" name="sername" placeholder="1-32个字符，不可以数字开头，不可包含中文" onkeyup="judge(this,'sername')"/>
+                <span class="green" style="display:none"><i class="icon-ok"></i></span>
               </div>
             </div>
 

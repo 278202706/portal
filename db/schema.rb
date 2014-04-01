@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313062210) do
+ActiveRecord::Schema.define(version: 20140401051535) do
 
   create_table "accounts", force: true do |t|
     t.string   "email"
@@ -56,11 +56,52 @@ ActiveRecord::Schema.define(version: 20140313062210) do
     t.string   "org"
     t.string   "space"
     t.string   "hascode"
+    t.datetime "startime"
   end
+
+  create_table "appstartpros", force: true do |t|
+    t.string   "username"
+    t.string   "appid"
+    t.string   "token"
+    t.string   "log"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "delayed_jobs", force: true do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "orglocals", force: true do |t|
     t.string   "name"
     t.string   "guid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rundata_machinecpus", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rundata_machinedisks", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rundata_machinemems", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -106,5 +147,12 @@ ActiveRecord::Schema.define(version: 20140313062210) do
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+
+  create_table "userlogs", force: true do |t|
+    t.string   "username"
+    t.string   "log"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

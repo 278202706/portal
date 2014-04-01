@@ -1,21 +1,18 @@
-
-<SCRIPT   LANGUAGE="JavaScript">
-  function   fresh()
-  {
-    if(location.href.indexOf("?show=true")<0)
-    {
-      location.href+="?show=true";
+<SCRIPT LANGUAGE="JavaScript">
+    function fresh() {
+        if (location.href.indexOf("show=true") < 0) {
+            if (location.href.indexOf("?info=") < 0)
+                location.href += "?show=true";
+            else
+                location.href += "&show=true";
+        }
     }
-  }
-  fresh();
+    fresh();
 </SCRIPT>
+<script src="/assets/js/onclick.js"></script>
 <div class="container-fluid main-container">
-	<%if session[:useremail]=="admin"%>
-	<%= render(:partial => "/sidebar/adresource") %>
-	<% else %>
-  <%= render(:partial => "/sidebar/resource") %>
-  <% end %>
-  <div class="main-content clearfix">
+
+  <div class="main-content clearfix" style="margin-left: 0px;">
     <div class="breadcrumbs" id="breadcrumbs">
       <ul class="breadcrumb">
         <li>
@@ -31,49 +28,72 @@
       <!--.breadcrumb-->
     </div>
     <div id="content" class="page-content">
-    			<div class="page-header position-relative">
-						<h1>
-							设置
-							<small>
-								<i class="icon-double-angle-right"></i>
-								密码修改
-							</small>
-						</h1>
-					</div><!--/.page-header-->
-    <form class="form-horizontal" />
-         								<div id="edit-password" class="tab-pane">
-														<div class="space-10"></div>
+      <div class="page-header position-relative">
+        <h1>
+          设置
+          <small>
+            <i class="icon-double-angle-right"></i>
+            密码修改
+          </small>
+        </h1>
+      </div>
+      <!--/.page-header-->
+      <% if params[:info]=="failure" %>
+          <div class="alert alert-error">
+            <h4 class="alert-heading">注意！</h4>
+            <p><%=  "密码修改失败，请重试！" %></p>
+          </div>
+      <% else if params[:info]=="success" %>
+          <div class="alert alert-info">
+            <h4 class="alert-heading">注意！</h4>
+            <p><%= "密码修改成功！" %></p>
+          </div>
+      <% end %>
+      <% end %>
+      <%= form_tag url_for(:controller=>"login",:action=>"pwdchange"), :class => "form-horizontal", :style=>"margin-bottom:0px",:method => :post do %>
+      <div id="edit-password" class="tab-pane" style="margin-left: 150px;">
+        <div class="space-10"></div>
 
-														<div class="control-group">
-															<label class="control-label" for="form-field-pass1">新密码</label>
+        <div class="control-group">
+          <label class="control-label" for="oldpassword">原密码</label>
 
-															<div class="controls">
-																<input type="password" id="form-field-pass1" />
-															</div>
-														</div>
+          <div class="controls">
+            <input type="password" id="oldpassword" name="oldpassword"/>
+          </div>
+        </div>
 
-														<div class="control-group">
-															<label class="control-label" for="form-field-pass2">新密码确认</label>
+        <div class="control-group">
+          <label class="control-label" for="form-field-pass1">新密码</label>
 
-															<div class="controls">
-																<input type="password" id="form-field-pass2" />
-															</div>
-														</div>
-													</div>
-    <div class="form-actions">
-												<button class="btn btn-info btn-small" type="button">
-													<i class="icon-ok"></i>
-													确认修改
-												</button>
+          <div class="controls">
+            <input type="password" id="password" name="password"/>
+          </div>
+        </div>
 
-												<button class="btn  btn-small" type="reset">
-													<i class="icon-undo"></i>
-													取消
-												</button>
-											</div>
-										</form>
-    
-    
+        <div class="control-group">
+          <label class="control-label" for="form-field-pass2">新密码确认</label>
+
+          <div class="controls">
+            <input type="password" id="password_confirmation" name="password_confirmation" onkeyup="judge(this,'password')"/>
+            <span class="green" style="display:none"><i class="icon-ok"></i></span>
+          </div>
+        </div>
+      </div>
+          <div class="modal-footer">
+            <button class="btn btn-small" data-dismiss="modal">
+              <i class="icon-remove"></i>
+              取消
+            </button>
+
+            <button class="btn btn-small btn-primary">
+              <i class="icon-ok"></i>
+              确认修改
+            </button>
+          </div>
+
+      <% end %>
+
+
     </div>
   </div>
 </div>

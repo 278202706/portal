@@ -1,3 +1,18 @@
+<script>
+    $('#nav_menu_admin_monit').addClass('active')
+</script>
+
+<style type="text/css">
+
+    .g_a{display:-moz-inline-stack; display:inline-block; border-bottom:1px solid #2F96B4; border-top:1px solid #2F96B4; background:#2F96B4; text-decoration:none;}
+    .g_b{float:left; border-left:1px solid #8190ac; border-right:1px solid #2F96B4; padding:1px 0; margin:0 -1px; position:relative;}
+    .g_c{float:left; border-left:1px solid #8190ac; border-right:1px solid #2F96B4; margin:0 -2px; background:#2F96B4; position:relative;}
+    .g_d{display:block; line-height:4px; background:#2F96B4; border-bottom:4px solid #2F96B4; border-top:8px solid #2F96B4;}
+    .g_e{display:block; line-height:16px; border-bottom:4px solid #2F96B4; border-top:4px solid #2F96B4; margin-top:-16px; padding:0px 12px; font-size:12px; color:#fff; cursor:pointer;}
+    .g_a:hover{text-decoration:none;}
+
+</style>
+
 <% disks = @machineinfo["disk_list"] %>
  <!--<%= disks %>-->
 
@@ -28,21 +43,44 @@
                   <td><%= disk["device"] %></td>
                   <td><%= disk["reads"] %></td>
                   <td><%= disk["writes"] %></td>
-                  <td><%= disk["read_bytes"] %></td>
-                  <td><%= disk["write_bytes"] %></td>
-                  <td><%= disk["rtime"] %></td>
-                  <td><%= disk["wtime"] %></td>
-                  <td><%= disk["qtime"] %></td>
-                  <td><%= disk["time"] %></td>
-                  <td><%= disk["snaptime"] %></td>
+                  <td><%= bit_to_Mb(disk["read_bytes"]) %>M</td>
+                  <td><%= bit_to_Mb(disk["write_bytes"]) %>M</td>
+                  <td><%= second_to_date(disk["rtime"]) %></td>
+                  <td><%= second_to_date(disk["wtime"]) %></td>
+                  <td><%= second_to_date(disk["qtime"]) %></td>
+                  <td><%= second_to_date(disk["time"]) %></td>
+                  <td><%= second_to_date(disk["snaptime"]) %></td>
                   <td><%= disk["service_time"] %></td>
                   <td><%= disk["queue"] %></td>
                 </tr>
             <% end %>
         </tbody>
       </table>
+
     </div>
   </div>
   <!--/span-->
 
+  <%= instances.size %>
+  <%= instances %>
+  <div class="tab-pane active" id="re6h">
+    <div id="<%= idname %>" align="center">刷新出图</div>
+    <script type="text/javascript">
+
+        var myChart1 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "100%", "300", "0", "0");
+        str= "<chart bgColor='ffffff' borderColor ='ffffff' caption='磁盘读事务情况' subcaption='最近半小时' xAxisName='Min' yAxisName='读事务个数/个' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'>" ;
+
+        <% (instances.size-1).downto(1) do |i| %>
+        str+="<set label='-";
+        str+=<%= i %>;
+        str+="' value='";
+        str+=<%= instances[i] %>;
+        str+="' />";
+        <% end %>
+        str+="</chart>";
+
+        myChart1.setDataXML(str);
+        myChart1.render("<%= idname %>");
+    </script>
+  </div>
 </div>

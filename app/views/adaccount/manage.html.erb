@@ -1,6 +1,7 @@
 <script>
   $('#nav_menu_admin_account').addClass('active')
 </script>
+<script src="/assets/js/onclick.js"></script>
 <%= javascript_include_tag "jquery.dataTables.min" %>
 <div class="container-fluid main-container">
 
@@ -31,6 +32,21 @@
         </h1>
       </div>
 
+      <% if params[:error]=="namerecur" %>
+          <div class="alert alert-error">
+            <h4 class="alert-heading">注意！</h4>
+            <% tip=case when params[:error]=="namerecur" then
+               "此厂商名已被使用，厂商无法创建，请重新填写。" %>
+            <% end %>
+            <p><%= tip %></p>
+          </div>
+      <% end %>
+      <% if params[:info]=="success" %>
+          <div class="alert alert-info">
+            <h4 class="alert-heading">注意！</h4>
+            <p><%= "厂商删除成功"  %></p>
+          </div>
+      <% end %>
 		<%if @orgs.length==0 %>
 			<div class="alert alert-block">
             <h4 class="alert-heading">提示！</h4>
@@ -65,7 +81,10 @@
                   </td>
                   <td>
                     <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adaccount", :action => "unitaccount",:id=>org.id}, :class => "btn btn-success btn-mini" %>
-                    <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adaccount", :action => "manage",:id=>org.id}, :class => "btn btn-danger btn-mini" %>
+                    <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adaccount", :action => "deleteorg",:id=>org.id}, :class => "btn btn-danger btn-mini" %>
+                    <% if (@theacc!=nil) %>
+                        <%= link_to raw("<i class='icon-table icon-white'></i><h style='color:#FFF'>操作记录</h>"), {:controller => "adaccount", :action => "viewlogs",:id=>org.id}, :class => "btn  btn-mini" %>
+                  <% end %>
                   </td>
                 </tr>
 				<%end%>
@@ -105,7 +124,8 @@
                 <label class="control-label" for="form-field-containername">厂商名称</label>
 
                 <div class="controls">
-                  <input type="text" id="org_name" name="org_name" placeholder="1-32个字符"/>
+                  <input type="text" id="org_name" name="org_name" placeholder="1-32个字符" onkeyup="judge(this,'orgname')"/>
+                  <span class="green" style="position:absolute;left: 70%;top:20px;display:none"><i class="icon-ok"></i></span>
                 </div>
               </div>
 

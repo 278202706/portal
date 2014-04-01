@@ -58,15 +58,18 @@
                 <span class="green"><%=org.created_at%></span>
               </div>
               <div class="text">
-                <span>已有应用：<%= %>个</span></br>
-                <span>已有能力：<%= %>个</span></br>
-				<span>已有账号：<%= %>个</span></br>
+                <% @orgapps=App.where({:org=>org.name}).all %>
+                <% @orgsers=Serviceinst.where({:org=>org.name}).all %>
+                <% @orgacc=Account.where({:organization=>org.name}).all%>
+                <span>已有应用：<%=@orgapps.length %>个</span></br>
+                <span>已有能力：<%=@orgsers.length %>个</span></br>
+				<span>已有账号：<%=@orgacc.length%>个</span></br>
                 <!--<span>业务账号：1个</span></br>
                 <span>业务容器：2个</span></br>
                 <span>虚拟机数：3个</span>-->
               </div>
               <div>
-                <span class="label label-info arrowed-in  arrowed-in-right">已登录</span>
+                <span class="label label-info arrowed-in  arrowed-in-right">正常使用中</span>
               </div>
             </div>
           </div>

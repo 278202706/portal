@@ -2,6 +2,7 @@
 class AdaccountController < ApplicationController
   include AdaccountHelper
   include LoginHelper
+  include HomeHelper
   def dashboard
     @orgs=Orglocal.all
     @userclient=session[:userclient]
@@ -9,6 +10,13 @@ class AdaccountController < ApplicationController
 
   def manage
 	  @orgs=Orglocal.all
+  end
+  def viewlogs
+    id=params[:id]
+    @thisorg=Orglocal.find_by_id id
+    @thisaccount=Account.find_by_organization @thisorg.name
+    user=@thisaccount.email
+    @logs=get_user_logs user
   end
 
   def unitaccount
@@ -43,22 +51,22 @@ class AdaccountController < ApplicationController
         break
       end
     end
-    puts "aa"+@name.to_s+@memory.to_s+@sernum.to_s
-    puts "----------------------------------ok"
     if @qrepeat==0
       begin
         @quota.create!
-        puts "----------------------------------ok"
-          #act = "管理员创建权限"+@name+"成功"
-          #createlog act
+        log = "管理员创建权限"+@name+"成功"
+        user=session[:useremail]
+        createlog user,log
       rescue Exception => e
         puts e
-          #act = "管理员创建权限"+@name+"失败"+e.to_s
-          #createlog act
+        log = "管理员创建权限"+@name+"失败"
+        user=session[:useremail]
+        createlog user,log
       end
     else
-      #act = "管理员创建权限"+@name+"失败，权限名称已存在"
-      #createlog act
+      log = "管理员创建权限"+@name+"失败，权限名称已存在"
+      user=session[:useremail]
+      createlog user,log
     end
     @error=params[:error]
     @orgs=@userclient.organizations
@@ -83,12 +91,14 @@ class AdaccountController < ApplicationController
       #space.organization=org
       #space.name=@spacename
       #space.create!
-      act = "管理员创建组织"+@orgname+"成功"
-      #createlog act
+      log = "管理员创建组织"+@orgname+"成功"
+      user=session[:useremail]
+      createlog user,log
       redirect_to :controller => "adaccount", :action => "manage"
     else
-      act = "管理员创建组织"+@orgname+"失败"
-      #createlog act
+      log = "管理员创建组织"+@orgname+"失败"
+      user=session[:useremail]
+      createlog user,log
       redirect_to :controller => "adaccount", :action => "manage", :error => "namerecur"
     end
   end
@@ -118,16 +128,18 @@ class AdaccountController < ApplicationController
         @result.update!
         @org.users=[@result]
         create_space @admin, @result, @spacename.to_s
-        act="管理员成功创建组织"+@org.name+"的账号"
-       # createlog act
+        log="管理员成功创建组织"+@org.name+"的账号"+ @account.email
+        user=session[:useremail]
+        createlog user,log
         format.html { redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid] }
         format.json
 			else
-				act="管理员创建组织"+@org.name+"的账号失败"
-				#createlog act
-				format.html { redirect_to :controller => "admin", :action => "orgdetail", :name => @cfuser.organization }
+				log="管理员创建组织"+@org.name+"的账号失败"
+        user=session[:useremail]
+        createlog user,log
+				format.html { redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid] }
 				#format.html { redirect_to :controller=>"admin",:action=>"orgslist" }
-				format.json { render json: @cfuser.errors, status: :unprocessable_entity }
+				format.json { render json: @account.errors, status: :unprocessable_entity }
 			end
 		end
 	end
@@ -137,6 +149,9 @@ class AdaccountController < ApplicationController
     account1=Account.find_by_id id
     account1.codenum=params[:codesize]
     account1.save
+    log="管理员修改账号"+account1.email+"的代码空间大小"
+    user=session[:useremail]
+    createlog user,log
     redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid]
 
 
@@ -152,10 +167,80 @@ class AdaccountController < ApplicationController
     @quotanow.memory_limit=@mem.to_i
     @quotanow.total_services=@tolser.to_i
     @quotanow.update!
-
+    log="管理员修改厂商"+@quotaname+"的权限"
+    user=session[:useremail]
+    createlog user,log
     redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid]
 
   end
 
+  def deleteorg
+    @userclient=session[:userclient]
+    puts "22222222222222"
+    id=params[:id]
+    @thisorg=Orglocal.find_by_id id
+    @thisaccount=Account.find_by_organization @thisorg.name
+    @orgname=@thisorg.name
+    @org=@userclient.organization_by_name @orgname.to_s
+    begin
+    if @org.spaces!=[]
+    @allapps=@org.spaces[0].apps
+    @allapps.each do |app|
+      if app.stopped!=true
+        app.stop!
+      end
+      to_deleted_routes = app.routes
+      to_deleted_routes.each { |r|
+        r.delete!
+      }
+      #unbind service
+      service_instances = app.services
+      service_instances.each { |si|
+        app.unbind si
+      }
+      @apptode=App.where({:appid => app.guid}).first
+      @apptode.destroy
+      app.delete!
+    end
+    @allsers=@org.spaces[0].service_instances
+    @allsers.each do |ser|
+      ser.delete!
+    end
+    @users=@org.users
+    @users.each do |user|
+      @usertode=Account.where(:guid => user.guid).first
+      @usertode.destroy
+      user.delete!
+    end
+    @org.spaces.each do |sp|
+      sp.delete!
+    end
+    end
+    @org.delete!
+    @thisorg.destroy
+    rescue
+    end
+    log = "管理员删除组织"+@orgname+"成功"
+    user=session[:useremail]
+    createlog user,log
+    redirect_to :controller => "adaccount", :action => "manage",:info=>"success"
+  end
+
+
+
+  def authented
+    type = params[:type]
+    value = params[:value]
+    ret = nil
+    ret = Account.find_by_email(value)  if type == "accemail"
+    ret = Orglocal.find_by_name(value)  if type == "orgname"
+    ret={:res=>"valid"} if ret==nil
+
+    #jsonpcallback = params['jsonpcallback']
+    @res="#{ret.to_json}"
+    respond_to do|format|
+      format.json {render :json=>@res}
+    end
+  end
 
 end

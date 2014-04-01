@@ -38,7 +38,9 @@
           <div class="table-responsive">
             <div class="table-responsive">
               <div class="dataTables_wrapper" role="grid">
-
+                <% if @appinsinfos == nil%>
+               　　Can't get application informations!
+                <%else%>
                 <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="listlogs">
                   <thead>
                   <tr>
@@ -53,12 +55,12 @@
                   </thead>
                   <tbody>
                     <%@appinsinfos.each do |id , appinsinfo|  %>
-                    <% if appinsinfo["state"]!=nil %>
+                    <% if appinsinfo["state"]!="CRASHED" %>
                      <% stats= appinsinfo["stats"] %>
-                     <%uris=stats["uris"] %>
+                     <% uris=stats["uris"] %>
                       <tr>
                         <td><%= stats["name"] %></td>
-                        <td><%= appinsinfo["index"] %></td>
+                        <td><%= appinsinfo["instance"] %></td>
                         <% if uris!=nil %>
                           <td><%= uris.each do |k| %>
                             <%= puts k%>
@@ -68,16 +70,17 @@
                           <td>null</td>
                         <%end %>
                         <td><%= appinsinfo["state"] %> </td>
-                        <td><%= stats["uptime"] %> s </td>
+                        <td><%= second_to_date(stats["uptime"]) %></td>
                         <td>
                           <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>详情</h>"), {:controller => "mointor", :action => "appinsdetail", :id => id }, :class => "btn btn-success btn-small" %>
                         </td>
                       </tr>
                       <% end %>
-                    <%end %>
-
+                    <% end %>
                   </tbody>
                 </table>
+              <% end %>
+                
               </div>
             </div>
             <!--/span-->

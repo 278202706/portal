@@ -55,7 +55,7 @@
               <div class="profile-info-name"> 创建时间</div>
 
               <div class="profile-info-value">
-                <span><%= @deainfo["start"] %></span>
+                <span><%= to_time(@deainfo["start"]) %></span>
               </div>
             </div>
 
@@ -63,7 +63,7 @@
               <div class="profile-info-name"> 更新时间</div>
 
               <div class="profile-info-value">
-                <span><%= @deainfo["LastUpdateTime"] %></span>
+                <span><%= to_time(@deainfo["LastUpdateTime"]) %></span>
               </div>
             </div>
 
@@ -71,7 +71,7 @@
               <div class="profile-info-name"> 已使用内存空间</div>
 
               <div class="profile-info-value">
-                <span><%= @deainfo["varz"]["mem_used_bytes"] %></span>
+                <span><%= bit_to_Mb(@deainfo["varz"]["mem_used_bytes"]) %>M</span>
               </div>
             </div>
 
@@ -80,7 +80,7 @@
               <div class="profile-info-name"> 剩余内存空间</div>
 
               <div class="profile-info-value">
-                <span><%= @deainfo["varz"]["mem_free_bytes"] %></span>
+                <span><%= bit_to_Mb(@deainfo["varz"]["mem_free_bytes"]) %>M</span>
               </div>
             </div>
 

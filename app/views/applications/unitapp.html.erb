@@ -1,6 +1,7 @@
 <script>
   $('#nav_menu_user_applications').addClass('active')
 </script>
+<script src="/assets/js/onclick.js"></script>
 <div class="container-fluid main-container">
 
   <%= render(:partial => "/sidebar/applications") %>
@@ -145,3 +146,20 @@
   <% end %>
 
 </div>
+              <div id="modal-preview" class="modal hide fade" tabindex="-1">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" onclick="int=window.clearInterval(int)">&times;</button>
+                  <h4 class="blue bigger">
+                    查看信息
+                    <small>
+                      <i class="icon-double-angle-right"></i>
+                      <span>应用启动信息</span>
+                    </small>
+                  </h4>
+                </div>
+                <div class="modal-body overflow-visible" style="height:300px;overflow: auto;" >
+                  <div id="preview">
+
+                  </div>
+                </div>
+              </div>

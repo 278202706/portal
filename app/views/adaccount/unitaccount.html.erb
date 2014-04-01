@@ -1,6 +1,7 @@
 <script>
   $('#nav_menu_admin_account').addClass('active')
 </script>
+<script src="/assets/js/onclick.js"></script>
 <div class="container-fluid main-container">
 	<%= render(:partial => "/sidebar/adaccount") %>
 	<div class="main-content clearfix">
@@ -24,7 +25,7 @@
 					厂商管理
 					<small>
 						<i class="icon-double-angle-right"></i>
-						<span>厂商详情</span>
+						<span>厂商详情<%= @account.errors.full_messages%></span>
 					</small>
 				</h1>
 			</div>
@@ -39,7 +40,7 @@
 								</div>
 							</div>
 							<div class="profile-info-row">
-								<div class="profile-info-name"> 实例大小</div>
+								<div class="profile-info-name"> 空间大小</div>
 								<div class="profile-info-value">
 									<span><%= @org.quota_definition.memory_limit%>MB</span>
 								</div>
@@ -126,6 +127,7 @@
 				</div>
 				
 				<%= form_for @account,url: {action: "addtoorg"}, html: {class: "form-horizontal",style:"margin-bottom:0px"} do |f| %>
+
                   <%= hidden_field_tag 'organization', @org.name %>
                   <%= hidden_field_tag 'orgid', @thisorg.id %>
 					<div class="modal-body overflow-visible">
@@ -155,20 +157,22 @@
 								<div class="control-group field ">
 									<label class="control-label" for="email">邮箱</label>
 									<div class="controls">
-										<%= f.text_field :email %>
+										<%= f.text_field :email ,:onkeyup=>"judge(this,'accemail')"%>
+                                      <span class="green" style="position:absolute;left: 70%;top:170px;display:none"><i class="icon-ok"></i></span>
 									</div>
 								</div>
 								<div class="control-group field ">
 									<label class="control-label" for="password">密码</label>
 									<div class="controls">
-										<%= f.password_field :password %>
+										<%= f.password_field :password,:id=>"password" %>
 									</div>
 								</div>
 								<div class="control-group field ">
 									<label class="control-label" for="password_confirmation">密码确认</label>
 									<div class="controls">
-										<%= f.password_field :password_confirmation %>
-									</div>
+										<%= f.password_field :password_confirmation,:id=>"password_confirmation" ,:onkeyup=>"judge(this,'password')"%>
+                                      <span class="green" style="position:absolute;left: 70%;top:270px;display:none"><i class="icon-ok"></i></span>
+                                    </div>
 								</div>
 							
 
@@ -189,6 +193,7 @@
 					</div>
 				<% end %>
 			</div>
+ <% if @thisaccount!=nil %>
 			<div id="modal-form-magorgcodesize" class="modal hide fade" tabindex="-1">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -236,7 +241,7 @@
 				</div>
               <% end %>
 			</div>
-			
+			<% end %>
 			<div id="modal-form-magorgquota" class="modal hide fade" tabindex="-1">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>

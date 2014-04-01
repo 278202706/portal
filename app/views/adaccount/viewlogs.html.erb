@@ -1,0 +1,74 @@
+<script>
+  $('#nav_menu_admin_account').addClass('active')
+</script>
+<script src="/assets/js/onclick.js"></script>
+<div class="container-fluid main-container">
+	<%= render(:partial => "/sidebar/adaccount") %>
+	<div class="main-content clearfix">
+		<div class="breadcrumbs" id="breadcrumbs">
+			<ul class="breadcrumb">
+				<li>
+					<i class="icon-home"></i>厂商管理
+					<span class="divider">
+						<i class="icon-angle-right"></i>
+					</span>
+				</li>
+				<li class="active">厂商操作记录</li>
+			</ul>
+      <!--.breadcrumb-->
+		</div>
+      <div id="content" class="page-content">
+        <div class="page-header position-relative">
+          <h1>
+            厂商管理
+            <small>
+              <i class="icon-double-angle-right"></i>
+              <span>操作记录<i class="icon-angle-right"></i>厂商<%= @thisaccount.email %></span>
+            </small>
+          </h1>
+        </div>
+      <div class="table-responsive">
+        <div class="table-responsive">
+          <div class="dataTables_wrapper" role="grid">
+            <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="logslist">
+              <thead>
+              <tr>
+                <th>用户账号</th>
+                <th>操作时间</th>
+                <th>操作内容</th>
+              </tr>
+              </thead>
+              <tbody role="alert" aria-live="polite" aria-relevant="all">
+              <%@logs.each do |log|%>
+                  <tr>
+                    <td><%= log.username%></td>
+                    <td><%= log.created_at %></td>
+                    <td><%= log.log %>
+                  </tr>
+              <%end%>
+
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      </div>
+
+	</div>
+</div>
+
+<script>
+    $(function () {
+        $('#logslist').dataTable({
+                    "bLengthChange":false,
+                    "bProcessing":true,
+                    "bInfo":false,
+                    "sDom":'<"top"i>rt<"bottom"flp><"clear">'
+                }
+        );
+    })
+</script>

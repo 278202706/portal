@@ -18,6 +18,10 @@ module LoginHelper
 		return auth_token
 	end
 
+  def get_user_logs user
+    logs=Userlog.where({:username=>user}).order('created_at DESC').all
+    return logs
+  end
 
 
 

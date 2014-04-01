@@ -29,13 +29,29 @@
           </small>
         </h1>
       </div>
+
+      <% if @permisson=="no" %>
+          <div class="alert alert-block">
+            <h4 class="alert-heading">提示！</h4>
+
+            <p>当前厂商可创服务个数已满，无法申请新的服务。</p>
+
+
+          </div>
+      <% end %>
+
+
     	  <div class="row-fluid">
 
           <div class="widget-box span6">
             <div class="widget-header widget-header-flat widget-header-small">
               <h5>MySQL</h5>
               <div class="widget-toolbar no-border">
-                <%= link_to raw("&nbsp;&nbsp;申请&nbsp;&nbsp; "), {:controller => "service", :action => "apmysql"},:class=>"btn btn-minier btn-primary",:style=>"font-size:12px" %>
+                <% if @permisson=="no" %>
+                    <%= link_to raw("&nbsp;&nbsp;无法申请&nbsp;&nbsp; "), {:controller => "service", :action => "apmysql"},:class=>"btn btn-minier btn-primary",:style=>"font-size:12px",:disabled=>"true" %>
+                <% else %>
+                    <%= link_to raw("&nbsp;&nbsp;申请&nbsp;&nbsp; "), {:controller => "service", :action => "apmysql"},:class=>"btn btn-minier btn-primary",:style=>"font-size:12px" %>
+                <% end %>
               </div>
             </div>
             <div class="widget-body">

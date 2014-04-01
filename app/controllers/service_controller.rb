@@ -1,6 +1,17 @@
+# encoding: utf-8
 class ServiceController < ApplicationController
   include ServiceHelper
+  include HomeHelper
   def market
+    curemail=session[:useremail]
+    @serinsts=Serviceinst.where({:username=>curemail}).all
+    @userclient=session[:userclient]
+    total_service=@userclient.organizations[0].quota_definition.total_services
+    if @serinsts.length.to_i < total_service.to_i
+      @permisson="ok"
+    else
+      @permisson="no"
+    end
   end
 
   def applylist
@@ -35,6 +46,9 @@ class ServiceController < ApplicationController
       @app.unbind @thisser
     end
     @thisser.delete!
+    log="用户删除服务"+@serinst.name+",服务类型为"+@serinst.sertype
+    user=session[:useremail]
+    createlog user,log
     @serlist=Servicelist.where({:username=>@serinst.username,:name=>@serinst.name}).first
     @serlist.isdelete="yes"
     @serlist.save
@@ -88,6 +102,15 @@ class ServiceController < ApplicationController
       an_list.approve_at=an_inst.approvetime
       an_list.active=true
       an_list.save
+      log="用户申请服务"+@serint.name+",服务类型为"+an_inst.sertype+",等待管理员审核"
+      user=session[:useremail]
+      createlog user,log
+      log="管理员批准账号"+an_list.username+"的服务申请，编号为"+an_list.id.to_s
+      user="admin"
+      createlog user,log
+      log="用户申请服务"+@serint.name+",服务类型为"+an_inst.sertype+",获得管理员批准"
+      user=session[:useremail]
+      createlog user,log
     else
       @planid=1
       @service=@userclient.services[0]
@@ -101,6 +124,9 @@ class ServiceController < ApplicationController
           :active=>false,
           :isrej=>"no")
       an_list.save
+      log="用户申请服务"+@serint.name+",服务类型为"+@serint.sertype+",等待管理员审核"
+      user=session[:useremail]
+      createlog user,log
     end
     redirect_to :controller=>"service",:action=>"applylist"
   end
@@ -238,6 +264,20 @@ class ServiceController < ApplicationController
     end
 
 
+  end
+
+  def authented
+    type = params[:type]
+    value = params[:value]
+    ret = nil
+    ret = Serviceinst.find_by_name(value)  if type == "sername"
+    ret={:res=>"valid"} if ret==nil
+
+    #jsonpcallback = params['jsonpcallback']
+    @res="#{ret.to_json}"
+    respond_to do|format|
+      format.json {render :json=>@res}
+    end
   end
 
 end

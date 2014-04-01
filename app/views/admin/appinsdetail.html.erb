@@ -1,0 +1,330 @@
+<!--<style type="text/css">-->
+/*<--*/
+/*.g_a{display:-moz-inline-stack; display:inline-block; border-bottom:1px solid #2F96B4; border-top:1px solid #2F96B4; background:#2F96B4; text-decoration:none;}*/
+/*.g_b{float:left; border-left:1px solid #8190ac; border-right:1px solid #2F96B4; padding:1px 0; margin:0 -1px; position:relative;}*/
+/*.g_c{float:left; border-left:1px solid #8190ac; border-right:1px solid #2F96B4; margin:0 -2px; background:#2F96B4; position:relative;}*/
+/*.g_d{display:block; line-height:4px; background:#2F96B4; border-bottom:4px solid #2F96B4; border-top:8px solid #2F96B4;}*/
+/*.g_e{display:block; line-height:16px; border-bottom:4px solid #2F96B4; border-top:4px solid #2F96B4; margin-top:-16px; padding:0px 12px; font-size:12px; color:#fff; cursor:pointer;}*/
+/*.g_a:hover{text-decoration:none;}*/
+/*-->*/
+<!--</style>-->
+
+<!--<div class="container-fluid main-container">-->
+
+  <!--<%= render(:partial => "/sidelist/adsidebar") %>-->
+  <!--<div class="main-content clearfix">-->
+    <!--<div class="breadcrumbs" id="breadcrumbs">-->
+      <!--<ul class="breadcrumb">-->
+        <!--<li>-->
+          <!--<i class="icon-home"></i>-->
+          <!--管理员-->
+
+			<!--<span class="divider">-->
+				<!--<i class="icon-angle-right"></i>-->
+			<!--</span>-->
+        <!--</li>-->
+        <!--<li class="active">应用监控</li>-->
+      <!--</ul>-->
+      <!--&lt;!&ndash;.breadcrumb&ndash;&gt;-->
+    <!--</div>-->
+    <!--<div id="content" class="page-content">-->
+      <!--<div class="row-fluid sortable">-->
+        <!--<div class="box span12">-->
+          <!--<div class="page-header position-relative">-->
+            <!--<h1>-->
+              <!--监控管理-->
+              <!--<small>-->
+                <!--<i class="icon-double-angle-right"></i>-->
+                <!--<span>应用实例详情</span>-->
+              <!--</small>-->
+            <!--</h1>-->
+          <!--</div>-->
+          <!--<div class="box-content">-->
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 应用名</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= @appdetail["name"] %></span>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 实例号</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= @appinsinfo["index"] %></span>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 主机IP</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= @appdetail["host"] %></span>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 端口号</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= @appdetail["port"] %></span>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 状态</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= @appinsinfo["state"] %></span>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 运行时间</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= @appdetail["uptime"] %> s</span>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 内存限制</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= (Float@appdetail["mem_quota"].to_f/1048576.0).to_s %>M</span>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 磁盘限制</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= (Float@appdetail["disk_quota"].to_i/1048576.0).to_s %>M</span>-->
+              <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 文件描述符限制</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= @appdetail["fds_quota"] %></span>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> cpu利用率</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= @appdetail["usage"]["cpu"] %></span>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 已用内存空间</div>-->
+
+              <!--<div class="profile-info-value">-->
+              <!--<span><%= (Float@appdetail["usage"]["mem"].to_i/1048576.0).to_s %>M</span>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="profile-info-row">-->
+              <!--<div class="profile-info-name"> 已用磁盘空间</div>-->
+
+              <!--<div class="profile-info-value">-->
+                <!--<span><%= (Float@appdetail["usage"]["disk"].to_i/1048576.0).to_s %>M</span>-->
+              <!--</div>-->
+            <!--</div>-->
+
+              <!--<div class="profile-info-row">-->
+                <!--<div class="profile-info-name"></div>-->
+
+                <!--<div class="profile-info-value" >-->
+                  <!--<a href="/admin/appmonit" class="g_a vm">-->
+               <!--<span class="g_b">-->
+                <!--<span class="g_c">-->
+                 <!--<span class="g_d">&nbsp;</span>-->
+                 <!--<span class="g_e"> 返回 </span>-->
+                <!--</span>-->
+               <!--</span>-->
+                  <!--</a>-->
+                <!--</div>-->
+              <!--</div>-->
+
+
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;/row&ndash;&gt;-->
+
+
+    <!--</div>-->
+    <!--&lt;!&ndash;/row&ndash;&gt;-->
+  <!--</div>-->
+<!--</div>-->
+
+
+<script>
+    $('#nav_menu_admin_monit').addClass('active')
+</script>
+<style type="text/css">
+    <--
+    .g_a{display:-moz-inline-stack; display:inline-block; border-bottom:1px solid #2F96B4; border-top:1px solid #2F96B4; background:#2F96B4; text-decoration:none;}
+    .g_b{float:left; border-left:1px solid #8190ac; border-right:1px solid #2F96B4; padding:1px 0; margin:0 -1px; position:relative;}
+    .g_c{float:left; border-left:1px solid #8190ac; border-right:1px solid #2F96B4; margin:0 -2px; background:#2F96B4; position:relative;}
+    .g_d{display:block; line-height:4px; background:#2F96B4; border-bottom:4px solid #2F96B4; border-top:8px solid #2F96B4;}
+    .g_e{display:block; line-height:16px; border-bottom:4px solid #2F96B4; border-top:4px solid #2F96B4; margin-top:-16px; padding:0px 12px; font-size:12px; color:#fff; cursor:pointer;}
+    .g_a:hover{text-decoration:none;}
+    -->
+</style>
+
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/admonit") %>
+  <div class="main-conteint clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          管理员
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">应用监控</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+      <div class="row-fluid sortable">
+        <div class="box span12">
+          <div class="page-header position-relative">
+            <h1>
+              监控管理
+              <small>
+                <i class="icon-double-angle-right"></i>
+                <span>应用实例详情</span>
+              </small>
+            </h1>
+          </div>
+
+          <div class="box-content">
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 应用名</div>
+
+              <div class="profile-info-value">
+                <span><%= @appdetail["name"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 实例号</div>
+
+              <div class="profile-info-value">
+                <span><%= @appinsinfo["index"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 主机IP</div>
+
+              <div class="profile-info-value">
+                <span><%= @appdetail["host"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 端口号</div>
+
+              <div class="profile-info-value">
+                <span><%= @appdetail["port"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 状态</div>
+
+              <div class="profile-info-value">
+                <span><%= @appinsinfo["state"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 运行时间</div>
+
+              <div class="profile-info-value">
+                <span><%= second_to_date(@appdetail["uptime"]) %> </span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 内存空间限制</div>
+
+              <div class="profile-info-value">
+                <span><%= bit_to_Mb(@appdetail["mem_quota"]) %>M</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 已用内存空间</div>
+
+              <div class="profile-info-value">
+                <span><%= bit_to_Mb(@appdetail["usage"]["mem"]) %>M</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 磁盘空间限制</div>
+
+              <div class="profile-info-value">
+                <span><%= bit_to_Mb(@appdetail["disk_quota"])  %>M</span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 已用磁盘空间</div>
+
+              <div class="profile-info-value">
+                <span><%= bit_to_Mb(@appdetail["usage"]["disk"]) %>M</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 文件描述符限制</div>
+
+              <div class="profile-info-value">
+                <span><%= @appdetail["fds_quota"] %></span>
+              </div>
+            </div>
+            <div class="profile-info-row">
+              <div class="profile-info-name"> cpu利用率</div>
+
+              <div class="profile-info-value">
+                <span><%= @appdetail["usage"]["cpu"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"></div>
+
+              <div class="profile-info-value" >
+                <a href="/admin/appmonit" class="g_a vm">
+               <span class="g_b">
+                <span class="g_c">
+                 <span class="g_d">&nbsp;</span>
+                 <span class="g_e"> 返回 </span>
+                </span>
+               </span>
+                </a>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <!--/row-->
+
+
+    </div>
+    <!--/row-->
+  </div>
+</div>

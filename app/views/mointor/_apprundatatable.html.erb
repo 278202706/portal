@@ -1,0 +1,56 @@
+<div >
+  <div id="<%=idname %>mem" align="center">FusionGadgets</div>
+  <script type="text/javascript">
+
+      var myChart1 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "100%", "300", "0", "0");
+      str= "<chart bgColor='ffffff' borderColor ='ffffff' caption='内存使用情况'  labelStep='4' yAxisName='已用内存大小/Mb' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'>";
+      <% (0).upto(mem_rundata.length-1) do |i| %>
+        str+="<set label='";
+        str+="<%= time[i] %>";
+        str+="' value='" ;
+        str+= <%= mem_rundata[i] %>;
+        str+="' />";
+      <% end %>
+      str+="</chart> ";
+      myChart1.setDataXML(str);
+      myChart1.render("<%=idname %>mem");
+  </script>
+</div>
+
+<div  >
+  <div id="<%=idname %>disk" align="center">FusionGadgets</div>
+  <script type="text/javascript">
+
+      var myChart2 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "100%", "300", "0", "0");
+      str= "<chart bgColor='ffffff' borderColor ='ffffff' caption='磁盘使用情况'  labelStep='4' yAxisName='已用磁盘大小/Mb' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'>";
+      <% (0).upto(disk_rundata.length-1) do |i|%>
+      str+="<set label='";
+      str+="<%= time[i] %>";
+      str+="' value='" ;
+      str+= <%= disk_rundata[i] %>;
+      str+="' />";
+      <% end %>
+      str+="</chart> ";
+      myChart2.setDataXML(str);
+      myChart2.render("<%=idname %>disk");
+  </script>
+</div>
+
+<div  >
+  <div id="<%=idname %>cpu" align="center">FusionGadgets</div>
+  <script type="text/javascript">
+
+      var myChart3 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "100%", "300", "0", "0");
+      str= "<chart bgColor='ffffff' borderColor ='ffffff' caption='CPU使用情况'  labelStep='4' yAxisName='CPU使用率/%' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'>";
+      <% (0).upto(cpu_rundata.length-1) do |i|%>
+      str+="<set label='";
+      str+="<%= time[i] %>";
+      str+="' value='" ;
+      str+= <%= cpu_rundata[i] %>;
+      str+="' />";
+      <% end %>
+      str+="</chart> ";
+      myChart3.setDataXML(str);
+      myChart3.render("<%=idname %>cpu");
+  </script>
+</div>

@@ -1,4 +1,6 @@
+# encoding: utf-8
 class AdapplicationsController < ApplicationController
+  include HomeHelper
   def dashboard
     @userclient=session[:userclient]
     @allapps=App.all

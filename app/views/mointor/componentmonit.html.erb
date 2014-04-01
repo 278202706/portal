@@ -36,7 +36,10 @@
             </h1>
           </div>
 
-
+        
+       <% if @componentinfos == nil %>
+             can't get component informations!!
+            <% else %>
 
           <div class="widget-box transparent" id="recent-box">
             <div class="fc-widget-header">
@@ -51,7 +54,8 @@
                 </ul>
               </div>
             </div>
-
+            
+            
             <div class="widget-body">
               <div class="widget-main padding-4">
                 <div class="tab-content">
@@ -76,6 +80,7 @@
 
           </div>
           <!--/transparent-->
+        <% end %>
 
 
         </div>
