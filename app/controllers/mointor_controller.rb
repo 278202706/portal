@@ -11,6 +11,7 @@ class MointorController < ApplicationController
      @index = params[:id].to_i
      @machineinfos_json = get_machineinfo
      @machineinfos = @machineinfos_json["guardians"]
+<<<<<<< HEAD
      if @machineinfos != nil
       @machineinfo = @machineinfos[@index]["machineinfo"]
       @machineip = @machineinfos[@index]["ipaddr"]
@@ -19,6 +20,9 @@ class MointorController < ApplicationController
       @mcpu_rundata = fetch_machinecpu_rundata @machineip
       @mmem_rundata = fetch_machinemem_rundata @machineip
      end
+=======
+     @machineinfo = @machineinfos[@index]["machineinfo"]
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
    end
 
    def processdetail
@@ -91,6 +95,7 @@ class MointorController < ApplicationController
      @appinsinfo = @appinfos[params[:id]]
      @appdetail=@appinsinfo["stats"]
      
+<<<<<<< HEAD
      @appinstanceid=@appinsinfo["instance"]
 
      @now = Time.new
@@ -183,4 +188,41 @@ class MointorController < ApplicationController
        end
      end
    end
+=======
+     @appinstanceid=@appinsinfo["instance"] 
+     #@rundata = RundataApp.find(:first)
+     rundata_num = 360
+     @top_rundata = RundataApp.find(:all, :conditions => ["appinstanceid= ? ", @appinstanceid], :order => "collecttime DESC", :limit => rundata_num, :select=> "collecttime, usage_cpu, usage_disk, usage_mem")
+     offset = 12 #1分钟
+     #@rundata = RundataApp.find_latest_data(rundata_num)
+    
+     j=0
+     @rundata = Array.new
+     @mem_rundata = Array.new
+     @disk_rundata = Array.new
+     @cpu_rundata = Array.new
+
+     0.upto(rundata_num-1) do |i|
+        if i% offset == 0
+           if @top_rundata[i] !=nil
+             @rundata[j] = RundataApp.new
+             @rundata[j] = @top_rundata[i]
+             @mem_rundata[j] = bit_to_Mb(@rundata[j].usage_mem)
+             @disk_rundata[j] = bit_to_Mb(@rundata[j].usage_disk)
+             @cpu_rundata[j] = @rundata[j].usage_cpu*100
+           else
+             @mem_rundata[j] = 0
+             @disk_rundata[j] = 0
+             @cpu_rundata[j] = 0
+           end
+           j+=1
+        end
+     end
+     0.upto(j) do |i|
+
+     end
+
+   end
+
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 end

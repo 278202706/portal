@@ -32,11 +32,19 @@ production:
   
 rundata:
   adapter: mysql2
+<<<<<<< HEAD
   database: apprundata
+=======
+  database: paasop
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   username: root
   password: "mysql"
   port: 3306
   pool: 15
   timeout: 5000
+<<<<<<< HEAD
   host: 10.1.29.124
+=======
+  host: 192.168.0.100
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 

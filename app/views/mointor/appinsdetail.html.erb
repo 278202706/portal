@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script>
     $('#nav_menu_admin_monit').addClass('active')
 </script>
@@ -200,3 +201,295 @@
     </div>
     <!-- main content clearfix -->
 </div>
+=======
+<script>
+    $('#nav_menu_admin_monit').addClass('active')
+</script>
+
+<style type="text/css">
+
+    .g_a{display:-moz-inline-stack; display:inline-block; border-bottom:1px solid #2F96B4; border-top:1px solid #2F96B4; background:#2F96B4; text-decoration:none;}
+    .g_b{float:left; border-left:1px solid #8190ac; border-right:1px solid #2F96B4; padding:1px 0; margin:0 -1px; position:relative;}
+    .g_c{float:left; border-left:1px solid #8190ac; border-right:1px solid #2F96B4; margin:0 -2px; background:#2F96B4; position:relative;}
+    .g_d{display:block; line-height:4px; background:#2F96B4; border-bottom:4px solid #2F96B4; border-top:8px solid #2F96B4;}
+    .g_e{display:block; line-height:16px; border-bottom:4px solid #2F96B4; border-top:4px solid #2F96B4; margin-top:-16px; padding:0px 12px; font-size:12px; color:#fff; cursor:pointer;}
+    .g_a:hover{text-decoration:none;}
+
+</style>
+
+<div class="container-fluid main-container">
+
+    <%= render(:partial => "/sidebar/admonit") %>
+    <div class="main-content clearfix">
+      <div class="breadcrumbs" id="breadcrumbs">
+        <ul class="breadcrumb">
+          <li>
+            <i class="icon-home"></i>
+            管理员
+
+                <span class="divider">
+                    <i class="icon-angle-right"></i>
+                </span>
+          </li>
+          <li class="active">应用监控</li>
+        </ul>
+      </div>
+      <!-- breadcrumbs -->
+
+      <div id="content" class="page-content">
+        <div class="row-fluid sortable">
+          <div class="box span12">
+            <div class="page-header position-relative">
+              <h1>
+                监控管理
+                <small>
+                  <i class="icon-double-angle-right"></i>
+                  <span>应用实例详情</span>
+                </small>
+              </h1>
+            </div>
+
+            <div class="box-content">
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 应用名</div>
+                <div class="profile-info-value">
+                  <span><%= @appdetail["name"] %></span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 实例号</div>
+                <div class="profile-info-value">
+                  <span><%= @appinsinfo["index"] %></span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 主机IP</div>
+                <div class="profile-info-value">
+                  <span><%= @appdetail["host"] %></span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 端口号</div>
+                <div class="profile-info-value">
+                  <span><%= @appdetail["port"] %></span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 状态</div>
+                <div class="profile-info-value">
+                  <span><%= @appinsinfo["state"] %></span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 运行时间</div>
+                <div class="profile-info-value">
+                  <span><%= second_to_date(@appdetail["uptime"]) %> </span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 内存空间限制</div>
+                <div class="profile-info-value">
+                  <span><%= bit_to_Mb(@appdetail["mem_quota"]) %>M</span>
+                </div>
+              </div>
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 已用内存空间</div>
+                <div class="profile-info-value">
+                  <span><%= bit_to_Mb(@appdetail["usage"]["mem"]) %>M</span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 磁盘空间限制</div>
+                <div class="profile-info-value">
+                  <span><%= bit_to_Mb(@appdetail["disk_quota"]) %>M</span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 已用磁盘空间</div>
+                <div class="profile-info-value">
+                  <span><%= bit_to_Mb(@appdetail["usage"]["disk"]) %>M</span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> 文件描述符限制</div>
+                <div class="profile-info-value">
+                  <span><%= @appdetail["fds_quota"] %></span>
+                </div>
+              </div>
+
+              <div class="profile-info-row">
+                <div class="profile-info-name"> cpu利用率</div>
+                <div class="profile-info-value">
+                  <span><%= @appdetail["usage"]["cpu"]*100 %>%</span>
+                </div>
+              </div>
+
+            </div>
+            <!-- box content-->
+
+
+
+            <div class="tab-pane active" id="re6h">
+              <div id="chartdiv1" align="center">FusionGadgets</div>
+              <script type="text/javascript">
+
+                  var myChart1 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "100%", "300", "0", "0");
+                  str= "<chart bgColor='ffffff' borderColor ='ffffff' caption='内存使用情况' subcaption='最近半小时' xAxisName='Min' yAxisName='已用内存大小/Mb' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-28Min' value='" ;
+                  str+= <%= @mem_rundata[28] %>;
+                  str+="' /><set label='-26Min' value='";
+                  str+= <%= @mem_rundata[26] %>;
+                  str+="' /><set label='-24Min' value='";
+                  str+= <%= @mem_rundata[24] %>;
+                  str+="' /><set label='-22Min' value='";
+                  str+= <%= @mem_rundata[22] %>;
+                  str+="' /><set label='-20Min' value='";
+                  str+= <%= @mem_rundata[20] %>;
+                  str+="' /><set label='-18Min' value='";
+                  str+= <%= @mem_rundata[18] %>;
+                  str+="' /><set label='-16Min' value='";
+                  str+= <%= @mem_rundata[16] %>;
+                  str+="' /><set label='-14Min' value='";
+                  str+= <%= @mem_rundata[14] %>;
+                  str+="' /><set label='-12Min' value='";
+                  str+= <%= @mem_rundata[12] %>;
+                  str+="' /><set label='-10Min' value='";
+                  str+= <%= @mem_rundata[10] %>;
+                  str+="' /><set label='-8Min' value='";
+                  str+= <%= @mem_rundata[8] %>;
+                  str+="' /><set label='-6Min' value='";
+                  str+= <%= @mem_rundata[6] %>;
+                  str+="' /><set label='-4Min' value='";
+                  str+= <%= @mem_rundata[4] %>;
+                  str+="' /><set label='-2Min' value='";
+                  str+= <%= @mem_rundata[2] %>;
+                  str+="' /><set label='NOW' value='";
+                  str+= <%= @mem_rundata[0] %>
+                  str+="' /></chart> ";
+                 //myChart1.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存使用情况' subcaption='最近半小时' xAxisName='Min' yAxisName='已用内存大小' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-6Hr' value='"+<%= @rundata[0].usage_mem%>+"'> /><set label='-5Hr' value='0' /><set label='-4Hr' value='10' /><set label='-3Hr' value='0' /><set label='-2Hr' value='0' /><set label='-1Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+                  myChart1.setDataXML(str);
+                  myChart1.render("chartdiv1");
+              </script>
+            </div>
+
+            <div class="tab-pane active" id="re6h">
+              <div id="chartdiv2" align="center">FusionGadgets</div>
+              <script type="text/javascript">
+
+                  var myChart2 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "100%", "300", "0", "0");
+                  str= "<chart bgColor='ffffff' borderColor ='ffffff' caption='磁盘使用情况' subcaption='最近半小时' xAxisName='Min' yAxisName='已用磁盘大小/Mb' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-28Min' value='" ;
+                  str+= <%= @disk_rundata[28] %>;
+                  str+="' /><set label='-26Min' value='";
+                  str+= <%= @disk_rundata[26] %>;
+                  str+="' /><set label='-24Min' value='";
+                  str+= <%= @disk_rundata[24] %>;
+                  str+="' /><set label='-22Min' value='";
+                  str+= <%= @disk_rundata[22] %>;
+                  str+="' /><set label='-20Min' value='";
+                  str+= <%= @disk_rundata[20] %>;
+                  str+="' /><set label='-18Min' value='";
+                  str+= <%= @disk_rundata[18] %>;
+                  str+="' /><set label='-16Min' value='";
+                  str+= <%= @disk_rundata[16] %>;
+                  str+="' /><set label='-14Min' value='";
+                  str+= <%= @disk_rundata[14] %>;
+                  str+="' /><set label='-12Min' value='";
+                  str+= <%= @disk_rundata[12] %>;
+                  str+="' /><set label='-10Min' value='";
+                  str+= <%= @disk_rundata[10] %>;
+                  str+="' /><set label='-8Min' value='";
+                  str+= <%= @disk_rundata[8] %>;
+                  str+="' /><set label='-6Min' value='";
+                  str+= <%= @disk_rundata[6] %>;
+                  str+="' /><set label='-4Min' value='";
+                  str+= <%= @disk_rundata[4] %>;
+                  str+="' /><set label='-2Min' value='";
+                  str+= <%= @disk_rundata[2] %>;
+                  str+="' /><set label='NOW' value='";
+                  str+= <%= @disk_rundata[0] %>
+                          str+="' /></chart> ";
+                  //myChart1.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存使用情况' subcaption='最近半小时' xAxisName='Min' yAxisName='已用内存大小' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-6Hr' value='"+<%= @rundata[0].usage_mem%>+"'> /><set label='-5Hr' value='0' /><set label='-4Hr' value='10' /><set label='-3Hr' value='0' /><set label='-2Hr' value='0' /><set label='-1Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+                  myChart2.setDataXML(str);
+                  myChart2.render("chartdiv2");
+              </script>
+            </div>
+
+            <div class="tab-pane active" id="re6h">
+              <div id="chartdiv3" align="center">FusionGadgets</div>
+              <script type="text/javascript">
+
+                  var myChart3 = new FusionCharts("<%= asset_path "FusionCharts/Line.swf"%>", "myChartId", "100%", "300", "0", "0");
+                  str= "<chart bgColor='ffffff' borderColor ='ffffff' caption='cpu利用率' subcaption='最近半小时' xAxisName='Min' yAxisName='cpu利用率/%' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-28Min' value='" ;
+                  str+= <%= @cpu_rundata[28] %>;
+                  str+="' /><set label='-26Min' value='";
+                  str+= <%= @cpu_rundata[26] %>;
+                  str+="' /><set label='-24Min' value='";
+                  str+= <%= @cpu_rundata[24] %>;
+                  str+="' /><set label='-22Min' value='";
+                  str+= <%= @cpu_rundata[22] %>;
+                  str+="' /><set label='-20Min' value='";
+                  str+= <%= @cpu_rundata[20] %>;
+                  str+="' /><set label='-18Min' value='";
+                  str+= <%= @cpu_rundata[18] %>;
+                  str+="' /><set label='-16Min' value='";
+                  str+= <%= @cpu_rundata[16] %>;
+                  str+="' /><set label='-14Min' value='";
+                  str+= <%= @cpu_rundata[14] %>;
+                  str+="' /><set label='-12Min' value='";
+                  str+= <%= @cpu_rundata[12] %>;
+                  str+="' /><set label='-10Min' value='";
+                  str+= <%= @cpu_rundata[10] %>;
+                  str+="' /><set label='-8Min' value='";
+                  str+= <%= @cpu_rundata[8] %>;
+                  str+="' /><set label='-6Min' value='";
+                  str+= <%= @cpu_rundata[6] %>;
+                  str+="' /><set label='-4Min' value='";
+                  str+= <%= @cpu_rundata[4] %>;
+                  str+="' /><set label='-2Min' value='";
+                  str+= <%= @cpu_rundata[2] %>;
+                  str+="' /><set label='NOW' value='";
+                  str+= <%= @cpu_rundata[0] %>
+                          str+="' /></chart> ";
+                  //myChart1.setDataXML("<chart bgColor='ffffff' borderColor ='ffffff' caption='内存使用情况' subcaption='最近半小时' xAxisName='Min' yAxisName='已用内存大小' showValues='0' alternateHGridColor='036AC2' alternateHGridAlpha='20' divLineColor='036AC2' divLineAlpha='50' canvasBorderColor='666666' baseFontColor='666666' lineColor='036AC2'><set label='-6Hr' value='"+<%= @rundata[0].usage_mem%>+"'> /><set label='-5Hr' value='0' /><set label='-4Hr' value='10' /><set label='-3Hr' value='0' /><set label='-2Hr' value='0' /><set label='-1Hr' value='0' /><set label='NOW' value='0' /></chart> ");
+                  myChart3.setDataXML(str);
+                  myChart3.render("chartdiv3");
+              </script>
+            </div>
+
+
+            <!---->
+            <div class="profile-info-row">
+              <div class="profile-info-name"></div>
+              <div class="profile-info-value" >
+                <a href="/mointor/appmonit" class="g_a vm">
+                  <span class="g_b">
+                    <span class="g_c">
+                      <span class="g_d">&nbsp;</span>
+                      <span class="g_e"> 返回 </span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!-- box span12 -->
+        </div>
+        <!--/row-fluid sortable-->
+
+
+      </div>
+      <!--content-->
+    </div>
+    <!-- main content clearfix -->
+</div>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb

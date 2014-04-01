@@ -1,7 +1,10 @@
 # encoding: utf-8
 class ApplicationsController < ApplicationController
   include ApplicationsHelper
+<<<<<<< HEAD
   include HomeHelper
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   def dashboard
     curemail=session[:useremail]
     @userclient=session[:userclient]
@@ -65,6 +68,7 @@ class ApplicationsController < ApplicationController
     @useremail=curemail
     result=upcode @appname,@useremail,@tmpfile,@userclient,@app.appguid,@codeversion
     if result=="success"
+<<<<<<< HEAD
       log="用户上传版本号为"+@codeversion+"的代码成功，应用名称为"+@appname
       user=session[:useremail]
       createlog user,log
@@ -73,6 +77,10 @@ class ApplicationsController < ApplicationController
       log="用户上传版本号为"+@codeversion+"的代码失败，应用名称为"+@appname
       user=session[:useremail]
       createlog user,log
+=======
+      redirect_to :controller=>"applications",:action=>"unitapp",:id=>appid ,:tab=>"tab2"
+    else
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
       #redirect_to :controller=>"applications",:action=>"unitapp",:id=>"123",:error=>"wrong"
       redirect_to :controller=>"applications",:action=>"unitapp",:id=>appid,:tab=>"tab2",:error=>"wrong"
     end
@@ -102,18 +110,25 @@ class ApplicationsController < ApplicationController
       @newapp.space= @space.name
       @newapp.hascode="0"
       @newapp.save
+<<<<<<< HEAD
       log="用户成功创建应用"+@appname.to_s
       user=session[:useremail]
       createlog user,log
+=======
+      act="成功创建应用"+@appname.to_s
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
       redirect_to :controller => "applications", :action => "manage",:response=>"success"
         #createlog act
       #redirect_to :controller => "app", :action => "index"
     rescue Exception => e
       puts e
       puts '---------------------------------'
+<<<<<<< HEAD
       log="用户创建应用"+@appname.to_s+"失败"
       user=session[:useremail]
       createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
       redirect_to :controller => "applications", :action => "manage",:response=>"failure"
 
       #act="创建应用"+@appname.to_s+"失败"
@@ -138,7 +153,10 @@ class ApplicationsController < ApplicationController
     @account=Account.find_by_email curemail
     @locapp=App.find_by_id params[:appid]
     @cfapp=@userclient.app_by_name @locapp.appname
+<<<<<<< HEAD
     @appname=@locapp.appname
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     puts "-----------------"
     puts @cfapp.guid
     begin
@@ -159,6 +177,7 @@ class ApplicationsController < ApplicationController
     end
     @locapp.destroy
     @cfapp.delete!
+<<<<<<< HEAD
     log="用户删除应用"+@appname.to_s+"成功"
     user=session[:useremail]
     createlog user,log
@@ -166,6 +185,9 @@ class ApplicationsController < ApplicationController
       log="用户删除应用"+@appname.to_s+"失败"
       user=session[:useremail]
       createlog user,log
+=======
+    rescue
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     end
     redirect_to :controller=>"applications",:action=>"manage"
   end
@@ -194,6 +216,7 @@ class ApplicationsController < ApplicationController
     end
     if flag=1
       if params[:type]=="1"
+<<<<<<< HEAD
         log="用户绑定应用"+@locapp.appname.to_s+"与服务"+@locser.name+"成功"
         user=session[:useremail]
         createlog user,log
@@ -202,10 +225,15 @@ class ApplicationsController < ApplicationController
         log="用户绑定应用"+@locapp.appname.to_s+"与服务"+@locser.name+"成功"
         user=session[:useremail]
         createlog user,log
+=======
+        redirect_to :controller => "applications", :action => "unitapp",:id=>appid,:tab=>"tab4",:response=>"addsuccess"
+      else
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
         redirect_to :controller => "applications", :action => "service",:response=>"addsuccess"
       end
     else
       if params[:type]=="1"
+<<<<<<< HEAD
         log="用户绑定应用"+@locapp.appname.to_s+"与服务"+@locser.name+"失败"
         user=session[:useremail]
         createlog user,log
@@ -214,6 +242,10 @@ class ApplicationsController < ApplicationController
         log="用户绑定应用"+@locapp.appname.to_s+"与服务"+@locser.name+"失败"
         user=session[:useremail]
         createlog user,log
+=======
+        redirect_to :controller => "applications", :action => "unitapp",:id=>appid,:tab=>"tab4",:response=>"addfailure"
+      else
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
         redirect_to :controller => "applications", :action => "service",:response=>"addfailure"
       end
     end
@@ -239,6 +271,7 @@ class ApplicationsController < ApplicationController
     end
     if flag=1
       if params[:type]=="1"
+<<<<<<< HEAD
         log="用户解绑应用"+@locapp.appname.to_s+"与服务"+@locser.name+"成功"
         user=session[:useremail]
         createlog user,log
@@ -247,10 +280,15 @@ class ApplicationsController < ApplicationController
         log="用户解绑应用"+@locapp.appname.to_s+"与服务"+@locser.name+"成功"
         user=session[:useremail]
         createlog user,log
+=======
+        redirect_to :controller => "applications", :action => "unitapp",:id=>appid,:tab=>"tab4",:response=>"unbindsuccess"
+      else
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
         redirect_to :controller => "applications", :action => "service",:response=>"unbindsuccess"
       end
     else
       if params[:type]=="1"
+<<<<<<< HEAD
         log="用户解绑应用"+@locapp.appname.to_s+"与服务"+@locser.name+"失败"
         user=session[:useremail]
         createlog user,log
@@ -259,6 +297,10 @@ class ApplicationsController < ApplicationController
         log="用户解绑应用"+@locapp.appname.to_s+"与服务"+@locser.name+"失败"
         user=session[:useremail]
         createlog user,log
+=======
+        redirect_to :controller => "applications", :action => "unitapp",:id=>appid,:tab=>"tab4",:response=>"unbindfailure"
+      else
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
         redirect_to :controller => "applications", :action => "service",:response=>"unbindfailure"
       end
     end
@@ -279,13 +321,19 @@ class ApplicationsController < ApplicationController
     @host=@hostname.to_s
     @route=find_or_create_route @domain, @host, @space
     if @route=="sorry"
+<<<<<<< HEAD
       log="用户给应用"+@appname.to_s+"添加路由"+@route.name.to_s+"失败,"+"路由名称已被使用"
       user=session[:useremail]
       createlog user,log
+=======
+      act="给应用"+@appname.to_s+"添加路由"+@route.to_s+"失败,"+"路由名称已被使用"
+      #createlog act
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
       redirect_to :controller => "applications",:action => "unitapp", :id => @app.id, :type => "erradroure"
     else
       begin
         @cfapp.add_route @route
+<<<<<<< HEAD
         log="用户给应用"+@appname.to_s+"添加路由"+@route.name.to_s+"成功"
         user=session[:useremail]
         createlog user,log
@@ -294,6 +342,14 @@ class ApplicationsController < ApplicationController
         log="用户给应用"+@appname.to_s+"添加路由"+@route.name.to_s+"失败"
         user=session[:useremail]
         createlog user,log
+=======
+        act="成功给应用"+@appname.to_s+"添加路由"+@route.to_s
+       # createlog act
+        redirect_to :controller => "applications", :action => "unitapp", :id => @app.id
+      rescue Exception => e
+        act="给应用"+@appname.to_s+"添加路由"+@route.to_s+"失败"
+       # createlog act
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
         redirect_to :controller => "applications", :action => "unitapp", :id => @app.id,  :type => "erradrou"
       end
     end
@@ -311,6 +367,7 @@ class ApplicationsController < ApplicationController
     @routename=@route[0].name
     begin
       @route[0].delete!
+<<<<<<< HEAD
       log="用户成功删除应用*"+@appname.to_s+"的路由"+@routename
       user=session[:useremail]
       createlog user,log
@@ -319,6 +376,14 @@ class ApplicationsController < ApplicationController
       log="用户删除应用"+@appname.to_s+"的路由"+@routename+"失败"
       user=session[:useremail]
       createlog user,log
+=======
+      act="成功删除应用*"+@appname.to_s+"的路由"+@routename
+      #createlog act
+      redirect_to :controller => "applications", :action => "unitapp", :id => app.id
+    rescue Exception => e
+      act="删除应用"+@appname.to_s+"的路由"+@routename+"失败"
+      #createlog act
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
       redirect_to :controller => "applications", :action => "unitapp", :id => app.id, :type => "errderou"
     end
 
@@ -331,17 +396,27 @@ class ApplicationsController < ApplicationController
     @path="#{Rails.root}/public/userdata/"+session[:useremail].to_s+"/"+@nowappinf.zipname
     begin
       File.delete(@path.to_s)
+<<<<<<< HEAD
       log="用户成功删除应用"+@nowappinf.appname.to_s+"的代码包，版本号为："+@nowappinf.version
       user=session[:useremail]
       createlog user,log
+=======
+      act="成功删除应用"+@appname.to_s+"的代码包，版本号为："
+      #createlog act
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
       @nowappinf.destroy
       redirect_to :controller => "applications", :action => "unitapp", :id => @appid, :tab=>"tab2"
     rescue Exception => e
       puts   session[:useremail].to_s +@codeid.to_s
       puts "/////////////////////"+e.to_s
+<<<<<<< HEAD
       log="用户删除应用"+@nowappinf.appname.to_s+"的代码包失败，版本号为："+@nowappinf.version
       user=session[:useremail]
       createlog user,log
+=======
+      act="删除应用"+@appname.to_s+"的代码包失败，版本号为："
+      #createlog act
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
       redirect_to :controller => "applications", :action => "unitapp", :id => @appid, :tab=>"tab2", :type => "errdecode"
     end
   end
@@ -351,9 +426,12 @@ class ApplicationsController < ApplicationController
     @nowappinf=Appcode.find_by_id @codeid
     @path="#{Rails.root}/public/userdata/"+session[:useremail].to_s+"/"+@nowappinf.zipname
     send_file @path
+<<<<<<< HEAD
     log="用户下载应用"+@nowappinf.appname.to_s+"的代码包成功，版本号为："+@nowappinf.version
     user=session[:useremail]
     createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   end
 
   def stopcode
@@ -363,9 +441,14 @@ class ApplicationsController < ApplicationController
     @path="#{Rails.root}/public/userdata/"+session[:useremail].to_s+"/"+@nowappinf.zipname
     @nowappinf.active=false
     @nowappinf.save
+<<<<<<< HEAD
     log="用户停用应用"+@nowappinf.appname.to_s+"的代码包，版本号为："+@nowappinf.version
     user=session[:useremail]
     createlog user,log
+=======
+   # act="停用应用"+@appname.to_s+"的代码包，版本号为："+@codeversion
+   # createlog act
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     @nowapp=App.find_by_id @appid
     if @nowapp.active == true
       @appnow.stop!
@@ -416,9 +499,12 @@ class ApplicationsController < ApplicationController
       @nowapp.zipfilename=@nowappinf.zipname
       @nowapp.appframework=@nowappinf.appdetect
       @nowapp.save
+<<<<<<< HEAD
     log="用户启用应用"+@nowappinf.appname.to_s+"的代码包，版本号为："+@nowappinf.version
     user=session[:useremail]
     createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     redirect_to :controller => "applications", :action => "unitapp", :id => @appid, :tab=>"tab2"
   end
 
@@ -428,7 +514,10 @@ class ApplicationsController < ApplicationController
     appid=params[:appid]
     @app=App.find_by_id appid
     @cfapp=@userclient.app_by_name @app.appname
+<<<<<<< HEAD
     oldname=@cfapp.name
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     @cfapp.name=newname
     @cfapp.update!
     @app.appname=newname
@@ -438,9 +527,12 @@ class ApplicationsController < ApplicationController
         allappinf.appname=newname
         allappinf.save
     end
+<<<<<<< HEAD
     log="用户修改应用"+oldname+"的名称为："+newname
     user=session[:useremail]
     createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     redirect_to :controller => "applications", :action => "unitapp", :id => appid
   end
 
@@ -452,9 +544,12 @@ class ApplicationsController < ApplicationController
     @cfapp=@userclient.app_by_name @app.appname
     @cfapp.total_instances= @newnum.to_i
     @cfapp.update!
+<<<<<<< HEAD
     log="用户修改应用"+@app.appname+"的实例个数为："+@newnum
     user=session[:useremail]
     createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     redirect_to :controller => "applications", :action => "unitapp", :id => appid
   end
 
@@ -470,7 +565,11 @@ class ApplicationsController < ApplicationController
     @app.save
     t2=Thread.new do
       puts "app"+@app.appname.to_s
+<<<<<<< HEAD
       @app.delay.startheapp(@cfapp,@username,@userclient)
+=======
+      @app.delay.startheapp(@cfapp,@username)
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
       @app.active=true
       @app.save
     end
@@ -480,9 +579,12 @@ class ApplicationsController < ApplicationController
     #    @app.active=true
     #    @app.save
     #end
+<<<<<<< HEAD
     log="用户启动应用"+@app.appname
     user=session[:useremail]
     createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     redirect_to :controller => "applications", :action => "unitapp", :id => appid
   end
 
@@ -490,6 +592,7 @@ class ApplicationsController < ApplicationController
     @userclient=session[:userclient]
     appid=params[:id]
     @app=App.find_by_id appid
+<<<<<<< HEAD
     @username=session[:useremail]
     @cfapp=@userclient.app_by_name @app.appname
     #@cfapp.restart!
@@ -503,6 +606,10 @@ class ApplicationsController < ApplicationController
     log="用户重启应用"+@app.appname
     user=session[:useremail]
     createlog user,log
+=======
+    @cfapp=@userclient.app_by_name @app.appname
+    @cfapp.restart!
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     redirect_to :controller => "applications", :action => "unitapp", :id => appid
   end
 
@@ -514,9 +621,12 @@ class ApplicationsController < ApplicationController
       @cfapp.stop!
     @app.active=false
     @app.save
+<<<<<<< HEAD
     log="用户停止应用"+@app.appname
     user=session[:useremail]
     createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     redirect_to :controller => "applications", :action => "unitapp", :id => appid
   end
 
@@ -556,6 +666,7 @@ class ApplicationsController < ApplicationController
   def getinfo
    # t3=Thread.new do
     appid = params[:appid]
+<<<<<<< HEAD
     timetype=params[:timetype].to_s
     curemail=session[:useremail]
     app=App.find_by_id appid
@@ -565,10 +676,19 @@ class ApplicationsController < ApplicationController
       startime=app.startime
       appinfos=Appstartpro.where("created_at >= :start_date",{:start_date=>startime,:username=>curemail,:appid=>app.appguid}).all
     end
+=======
+    curemail=session[:useremail]
+    app=App.find_by_id appid
+    appinfos=Appstartpro.where({:username=>curemail,:appid=>app.appguid,:token=>"no"}).all
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     appinfos.each do |info|
       info.token="yes"
       info.save
     end
+<<<<<<< HEAD
+=======
+
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     ret=appinfos
 
     #jsonpcallback = params['jsonpcallback']

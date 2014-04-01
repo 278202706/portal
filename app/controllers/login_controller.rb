@@ -1,14 +1,20 @@
+<<<<<<< HEAD
 # encoding: utf-8
 class LoginController < ApplicationController
 	include LoginHelper
   include HomeHelper
   skip_before_action :require_login
+=======
+class LoginController < ApplicationController
+	include LoginHelper
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   def log
     @error=params[:error]
   end
   def index
     email=params[:email]
 	  password=params[:password]
+<<<<<<< HEAD
 
     flag=1
     if email=="admin"
@@ -71,6 +77,38 @@ class LoginController < ApplicationController
     session[:userclient]=nil
     log= "退出登陆"
     createlog user,log
+=======
+    session[:useremail]=email
+    flag=1
+    flag=0 if (email==""||email==nil)
+    acc=Account.where({:email=>email,:password=>password}).first
+    flag=0 if acc==[]
+    if flag==0
+      redirect_to :controller => "login", :action => "log",:error=>"wrong"  
+    else
+		client=target
+		credentials = {
+        :username => email,
+        :password => password
+		}
+		client.login(credentials)
+		#@client=login client,email,password
+		session[:userclient]=client
+		puts "----------------"
+		puts session[:userclient]
+    if email=="admin"
+		session[:currentuser]="admin"
+        redirect_to :controller => "adaccount", :action => "dashboard"  
+    else
+      session[:currentuser]=email
+        redirect_to :controller => "applications", :action => "dashboard"
+      end
+    end
+  end
+  def logout
+    session[:useremail]=nil
+    session[:userclient]=nil
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     redirect_to :controller => "home", :action => "index"
   end
   def profile
@@ -80,6 +118,7 @@ class LoginController < ApplicationController
     end
   end
   def setpwd
+<<<<<<< HEAD
 
   end
   def loglist
@@ -107,6 +146,11 @@ class LoginController < ApplicationController
     end
   end
 
+=======
+  end
+
+
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   def authented
     type = params[:type]
     value = params[:value]

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <div class="table-responsive">
   <div class="table-responsive">
@@ -33,4 +34,41 @@
       </table>
     </div>
   </div>
+=======
+
+<div class="table-responsive">
+  <div class="table-responsive">
+    <div class="dataTables_wrapper" role="grid">
+      <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="servicelist">
+        <thead>
+        <tr>
+          <th>主机名</th>
+          <th>端口号</th>
+          <th>启动时间</th>
+          <th>运行时间</th>
+          <th>内存使用(M)</th>
+          <th>CPU使用(%)</th>
+          <th>详情</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @uaainfos.each_value do |uaainfo| %>
+            <% ip, port = ip_port uaainfo["host"] %>
+            <tr>
+              <th><%= ip %></th>
+              <th><%= port %></th>
+              <th><%= uaainfo["start"]==nil ?uaainfo["start"]:"无" %></th>
+              <th><%= uaainfo["uptime"]==nil ?uaainfo["uptime"]:"无" %></th>
+              <th><%= uaainfo["varz"]?uaainfo["varz"]["mem"]:"无" %></th>
+              <th><%= uaainfo["varz"]?uaainfo["varz"]["cpu"]:"无" %></th>
+              <th>
+                无
+              </th>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 </div>

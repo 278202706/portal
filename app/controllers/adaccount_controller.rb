@@ -2,7 +2,10 @@
 class AdaccountController < ApplicationController
   include AdaccountHelper
   include LoginHelper
+<<<<<<< HEAD
   include HomeHelper
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   def dashboard
     @orgs=Orglocal.all
     @userclient=session[:userclient]
@@ -11,6 +14,7 @@ class AdaccountController < ApplicationController
   def manage
 	  @orgs=Orglocal.all
   end
+<<<<<<< HEAD
   def viewlogs
     id=params[:id]
     @thisorg=Orglocal.find_by_id id
@@ -18,6 +22,8 @@ class AdaccountController < ApplicationController
     user=@thisaccount.email
     @logs=get_user_logs user
   end
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 
   def unitaccount
     id=params[:id]
@@ -51,6 +57,7 @@ class AdaccountController < ApplicationController
         break
       end
     end
+<<<<<<< HEAD
     if @qrepeat==0
       begin
         @quota.create!
@@ -67,6 +74,24 @@ class AdaccountController < ApplicationController
       log = "管理员创建权限"+@name+"失败，权限名称已存在"
       user=session[:useremail]
       createlog user,log
+=======
+    puts "aa"+@name.to_s+@memory.to_s+@sernum.to_s
+    puts "----------------------------------ok"
+    if @qrepeat==0
+      begin
+        @quota.create!
+        puts "----------------------------------ok"
+          #act = "管理员创建权限"+@name+"成功"
+          #createlog act
+      rescue Exception => e
+        puts e
+          #act = "管理员创建权限"+@name+"失败"+e.to_s
+          #createlog act
+      end
+    else
+      #act = "管理员创建权限"+@name+"失败，权限名称已存在"
+      #createlog act
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     end
     @error=params[:error]
     @orgs=@userclient.organizations
@@ -91,6 +116,7 @@ class AdaccountController < ApplicationController
       #space.organization=org
       #space.name=@spacename
       #space.create!
+<<<<<<< HEAD
       log = "管理员创建组织"+@orgname+"成功"
       user=session[:useremail]
       createlog user,log
@@ -99,6 +125,14 @@ class AdaccountController < ApplicationController
       log = "管理员创建组织"+@orgname+"失败"
       user=session[:useremail]
       createlog user,log
+=======
+      act = "管理员创建组织"+@orgname+"成功"
+      #createlog act
+      redirect_to :controller => "adaccount", :action => "manage"
+    else
+      act = "管理员创建组织"+@orgname+"失败"
+      #createlog act
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
       redirect_to :controller => "adaccount", :action => "manage", :error => "namerecur"
     end
   end
@@ -128,6 +162,7 @@ class AdaccountController < ApplicationController
         @result.update!
         @org.users=[@result]
         create_space @admin, @result, @spacename.to_s
+<<<<<<< HEAD
         log="管理员成功创建组织"+@org.name+"的账号"+ @account.email
         user=session[:useremail]
         createlog user,log
@@ -137,6 +172,15 @@ class AdaccountController < ApplicationController
 				log="管理员创建组织"+@org.name+"的账号失败"
         user=session[:useremail]
         createlog user,log
+=======
+        #act="管理员成功创建组织"+@org.name+"的账号"
+       # createlog act
+        format.html { redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid] }
+        format.json
+			else
+				#act="管理员创建组织"+@org.name+"的账号失败"
+				#createlog act
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 				format.html { redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid] }
 				#format.html { redirect_to :controller=>"admin",:action=>"orgslist" }
 				format.json { render json: @account.errors, status: :unprocessable_entity }
@@ -149,9 +193,12 @@ class AdaccountController < ApplicationController
     account1=Account.find_by_id id
     account1.codenum=params[:codesize]
     account1.save
+<<<<<<< HEAD
     log="管理员修改账号"+account1.email+"的代码空间大小"
     user=session[:useremail]
     createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid]
 
 
@@ -167,6 +214,7 @@ class AdaccountController < ApplicationController
     @quotanow.memory_limit=@mem.to_i
     @quotanow.total_services=@tolser.to_i
     @quotanow.update!
+<<<<<<< HEAD
     log="管理员修改厂商"+@quotaname+"的权限"
     user=session[:useremail]
     createlog user,log
@@ -224,6 +272,11 @@ class AdaccountController < ApplicationController
     user=session[:useremail]
     createlog user,log
     redirect_to :controller => "adaccount", :action => "manage",:info=>"success"
+=======
+
+    redirect_to :controller => "adaccount", :action => "unitaccount", :id => params[:orgid]
+
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   end
 
 

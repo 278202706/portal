@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <SCRIPT LANGUAGE="JavaScript">
     function fresh() {
         if (location.href.indexOf("show=true") < 0) {
@@ -13,6 +14,26 @@
 <div class="container-fluid main-container">
 
   <div class="main-content clearfix" style="margin-left: 0px;">
+=======
+
+<SCRIPT   LANGUAGE="JavaScript">
+  function   fresh()
+  {
+    if(location.href.indexOf("?show=true")<0)
+    {
+      location.href+="?show=true";
+    }
+  }
+  fresh();
+</SCRIPT>
+<div class="container-fluid main-container">
+	<%if session[:useremail]=="admin"%>
+	<%= render(:partial => "/sidebar/adresource") %>
+	<% else %>
+  <%= render(:partial => "/sidebar/resource") %>
+  <% end %>
+  <div class="main-content clearfix">
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     <div class="breadcrumbs" id="breadcrumbs">
       <ul class="breadcrumb">
         <li>
@@ -28,6 +49,7 @@
       <!--.breadcrumb-->
     </div>
     <div id="content" class="page-content">
+<<<<<<< HEAD
       <div class="page-header position-relative">
         <h1>
           设置
@@ -94,6 +116,51 @@
       <% end %>
 
 
+=======
+    			<div class="page-header position-relative">
+						<h1>
+							设置
+							<small>
+								<i class="icon-double-angle-right"></i>
+								密码修改
+							</small>
+						</h1>
+					</div><!--/.page-header-->
+    <form class="form-horizontal" />
+         								<div id="edit-password" class="tab-pane">
+														<div class="space-10"></div>
+
+														<div class="control-group">
+															<label class="control-label" for="form-field-pass1">新密码</label>
+
+															<div class="controls">
+																<input type="password" id="form-field-pass1" />
+															</div>
+														</div>
+
+														<div class="control-group">
+															<label class="control-label" for="form-field-pass2">新密码确认</label>
+
+															<div class="controls">
+																<input type="password" id="form-field-pass2" />
+															</div>
+														</div>
+													</div>
+    <div class="form-actions">
+												<button class="btn btn-info btn-small" type="button">
+													<i class="icon-ok"></i>
+													确认修改
+												</button>
+
+												<button class="btn  btn-small" type="reset">
+													<i class="icon-undo"></i>
+													取消
+												</button>
+											</div>
+										</form>
+    
+    
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     </div>
   </div>
 </div>

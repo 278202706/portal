@@ -29,6 +29,7 @@
           </small>
         </h1>
       </div>
+<<<<<<< HEAD
 
       <% if @permisson=="no" %>
           <div class="alert alert-block">
@@ -41,17 +42,23 @@
       <% end %>
 
 
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     	  <div class="row-fluid">
 
           <div class="widget-box span6">
             <div class="widget-header widget-header-flat widget-header-small">
               <h5>MySQL</h5>
               <div class="widget-toolbar no-border">
+<<<<<<< HEAD
                 <% if @permisson=="no" %>
                     <%= link_to raw("&nbsp;&nbsp;无法申请&nbsp;&nbsp; "), {:controller => "service", :action => "apmysql"},:class=>"btn btn-minier btn-primary",:style=>"font-size:12px",:disabled=>"true" %>
                 <% else %>
                     <%= link_to raw("&nbsp;&nbsp;申请&nbsp;&nbsp; "), {:controller => "service", :action => "apmysql"},:class=>"btn btn-minier btn-primary",:style=>"font-size:12px" %>
                 <% end %>
+=======
+                <%= link_to raw("&nbsp;&nbsp;申请&nbsp;&nbsp; "), {:controller => "service", :action => "apmysql"},:class=>"btn btn-minier btn-primary",:style=>"font-size:12px" %>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
               </div>
             </div>
             <div class="widget-body">

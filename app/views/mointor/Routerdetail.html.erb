@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script>
     $('#nav_menu_admin_monit').addClass('active')
 </script>
@@ -229,3 +230,236 @@
     <!--/row-->
   </div>
 </div>
+=======
+<script>
+    $('#nav_menu_admin_monit').addClass('active')
+</script>
+<div class="container-fluid main-container">
+
+  <%= render(:partial => "/sidebar/admonit") %>
+  <div class="main-content clearfix">
+    <div class="breadcrumbs" id="breadcrumbs">
+      <ul class="breadcrumb">
+        <li>
+          <i class="icon-home"></i>
+          管理员
+
+			<span class="divider">
+				<i class="icon-angle-right"></i>
+			</span>
+        </li>
+        <li class="active">组件监控</li>
+      </ul>
+      <!--.breadcrumb-->
+    </div>
+    <div id="content" class="page-content">
+      <div class="row-fluid sortable">
+        <div class="box span12">
+          <div class="page-header position-relative">
+            <h1>
+              监控管理
+              <small>
+                <i class="icon-double-angle-right"></i>
+                <span>Router组件详情</span>
+              </small>
+            </h1>
+          </div>
+
+
+          <% ip, port = ip_port @routerinfo["host"] %>
+          <div class="box-content">
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 组件IP</div>
+
+              <div class="profile-info-value">
+                <span><%= ip %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 组件端口</div>
+
+              <div class="profile-info-value">
+                <span><%= port %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 创建时间</div>
+
+              <div class="profile-info-value">
+                <span><%= to_time(@routerinfo["start"]) %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 更新时间</div>
+
+              <div class="profile-info-value">
+                <span><%= to_time(@routerinfo["LastUpdateTime"]) %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 已使用内存空间</div>
+
+              <div class="profile-info-value">
+                <span><%= bit_to_Mb(@routerinfo["varz"]["mem_used_bytes"]) %>M</span>
+              </div>
+            </div>
+
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 剩余内存空间</div>
+
+              <div class="profile-info-value">
+                <span><%= bit_to_Mb(@routerinfo["varz"]["mem_free_bytes"]) %>M</span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> CPU平均负载</div>
+
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["cpu_load_avg"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> droplet个数</div>
+
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["droplets"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 请求数</div>
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["requests"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 每秒请求数</div>
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["requests_per_sec"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 响应码2XX</div>
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["responses_2xx"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 响应码3XX</div>
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["responses_3xx"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 响应码4XX</div>
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["responses_4xx"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 响应码5XX</div>
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["responses_5xx"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> 响应码XXX</div>
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["responses_xxx"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> url数</div>
+              <div class="profile-info-value">
+                <span> <%= @routerinfo["varz"]["urls"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> off日志数</div>
+              <div class="profile-info-value">
+                <span><%= @routerinfo["varz"]["log_counts"]["off"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> fatal日志数</div>
+              <div class="profile-info-value">
+                <span><%= @routerinfo["varz"]["log_counts"]["fatal"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> error日志数</div>
+              <div class="profile-info-value">
+                <span><%= @routerinfo["varz"]["log_counts"]["error"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> warn日志数</div>
+              <div class="profile-info-value">
+                <span><%= @routerinfo["varz"]["log_counts"]["warn"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> info日志数</div>
+              <div class="profile-info-value">
+                <span><%= @routerinfo["varz"]["log_counts"]["info"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> debug日志数</div>
+              <div class="profile-info-value">
+                <span><%= @routerinfo["varz"]["log_counts"]["debug"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> debug1日志数</div>
+              <div class="profile-info-value">
+                <span><%= @routerinfo["varz"]["log_counts"]["debug1"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> debug2日志数</div>
+              <div class="profile-info-value">
+                <span><%= @routerinfo["varz"]["log_counts"]["debug2"] %></span>
+              </div>
+            </div>
+
+            <div class="profile-info-row">
+              <div class="profile-info-name"> all日志数</div>
+              <div class="profile-info-value">
+                <span><%= @routerinfo["varz"]["log_counts"]["all"] %></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--/row-->
+
+
+    </div>
+    <!--/row-->
+  </div>
+</div>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb

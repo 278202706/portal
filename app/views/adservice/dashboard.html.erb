@@ -109,15 +109,19 @@
           <td><%= oklist.name%></td>
           <td><%= oklist.apply_at%></td>
           <td><%= oklist.approve_at%></td>
+<<<<<<< HEAD
           <% if oklist.isdelete=="yes" %>
               <td colspan="2">此服务已删除,无信息</td>
           <% else %>
           <td>
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
           <% @oksers=@userclient.service_instances_by_name oklist.name %>
           <% @account=Account.find_by_guid oklist.userguid %>
           <% @serinst=Serviceinst.where({:name=>oklist.name,:org=>@account.organization}).first %>
           <% @oksers.each do |okser| %>
               <% if okser.guid==@serinst.serviceguid %>
+<<<<<<< HEAD
 
                     <% okser.service_bindings.each do |bind|%>
                         <%= bind.app.name %> &nbsp;
@@ -126,12 +130,24 @@
               <% end %>
           <% end %>
           </td>
+=======
+                  <td>
+                    <% okser.service_bindings.each do |bind|%>
+                        <%= bind.app.name %> &nbsp;
+                    <% end %>
+                  </td>
+              <% end %>
+          <% end %>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
           <td>
    
             <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adservice", :action => "viewmysql",:id=>"123"}, :class => "btn btn-success btn-mini" %>
 
           </td>
+<<<<<<< HEAD
           <% end %>
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
         </tr>
         <% end %>
 

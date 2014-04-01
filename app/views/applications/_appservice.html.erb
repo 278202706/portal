@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="sortable">
   <div class="box">
     <div class="box-content">
@@ -57,3 +58,64 @@
     </div>
   </div>
 </div>
+=======
+<div class="sortable">
+  <div class="box">
+    <div class="box-content">
+      <div class="alert alert-block">
+        <button data-dismiss="alert" class="close" type="button"><i class="icon-remove"></i></button>
+        <strong>注意！</strong>
+        <p>每个应用需要根据需要选择同类型的服务，如绑定的同类型服务超出了需求，代码运行时则可能出错。</p>
+      </div>
+
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>服务名称</th>
+          <th>服务类型</th>
+          <th>提供方</th>
+          <th>与此应用关系</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @services.each do |ser| %>
+        <tr>
+          <td>
+            <%= ser.name %>
+          </td>
+          <td>
+            <%= ser.service_plan.service.label %>
+          </td>
+          <td>
+            <%= ser.service_plan.service.provider %>
+          </td>
+          <td>
+            <% @binds=ser.service_bindings %>
+            <% tip='未绑定' %>
+            <% @binds.each do |bind|%>
+            <%tip= '已绑定' if bind.app.name==@app.appname%>
+            <% end %>
+            <%= tip %>
+          </td>
+          <td>
+            <% @locser=Serviceinst.find_by_serviceguid ser.guid %>
+            <% if tip=='已绑定' %>
+                <%= link_to raw("<i class='icon-minus-sign icon-white'></i><h style='color:#FFF'>解绑</h>"), {:controller => "applications", :action => "unbind",:appid=>@app.id,:appname=>@app.appname,:sername=>ser.name,:id=>ser.guid,:type=>"1"}, :class => "btn btn-danger btn-mini" %>
+            <% else %>
+                <%= link_to raw("<i class='icon-plus-sign icon-white'></i><h style='color:#FFF'>绑定</h>"), {:controller => "applications", :action => "appbindser",:appid=>@app.id,:serid=>@locser.id,:type=>"1"}, :class => "btn btn-success btn-mini" %>
+            <% end %>
+            <%= link_to raw("<i class='icon-minus-sign icon-white'></i><h style='color:#FFF'>详情</h>"), {:controller => "service", :action => "viewmysql", :name => ser.name}, :class => "btn btn-info btn-mini" %>
+          </td>
+        </tr>
+
+        <% end %>
+
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb

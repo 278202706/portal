@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140401051535) do
+=======
+ActiveRecord::Schema.define(version: 20140321030937) do
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 
   create_table "accounts", force: true do |t|
     t.string   "email"
@@ -91,6 +95,7 @@ ActiveRecord::Schema.define(version: 20140401051535) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "rundata_machinecpus", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -106,6 +111,8 @@ ActiveRecord::Schema.define(version: 20140401051535) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   create_table "serviceinsts", force: true do |t|
     t.string   "userguid"
     t.string   "username"
@@ -148,6 +155,7 @@ ActiveRecord::Schema.define(version: 20140401051535) do
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
 
+<<<<<<< HEAD
   create_table "userlogs", force: true do |t|
     t.string   "username"
     t.string   "log"
@@ -155,4 +163,6 @@ ActiveRecord::Schema.define(version: 20140401051535) do
     t.datetime "updated_at"
   end
 
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 end

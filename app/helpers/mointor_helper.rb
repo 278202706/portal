@@ -1,7 +1,11 @@
 #encoding: utf-8
 module MointorHelper
   #require 'net/http'
+<<<<<<< HEAD
   BASEURI="http://10.1.29.124:18080"
+=======
+  BASEURI="http://192.168.0.92:18080"
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 
   def base_request url
     begin
@@ -91,6 +95,7 @@ module MointorHelper
           :limit => size,
           :select=> "collecttime, usage_cpu, usage_disk, usage_mem")
   end
+<<<<<<< HEAD
 
   def to_mdata s
     "#{s[0..3]}-#{s[4..5]}-#{s[6..7]} #{s[8..9]}:#{s[10..11]}:#{s[12..13]}"
@@ -168,4 +173,7 @@ module MointorHelper
     machinemem
   end
 
+=======
+  
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 end

@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 # encoding: utf-8
 class AdserviceController < ApplicationController
   include HomeHelper
+=======
+class AdserviceController < ApplicationController
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   def dashboard
     @userclient=session[:userclient]
     @oklists=Servicelist.where({:active=>true}).all
@@ -96,9 +100,12 @@ class AdserviceController < ApplicationController
     @serlist.reject_at= Time.now
     @serlist.isrej="yes"
     @serlist.save
+<<<<<<< HEAD
     log="管理员拒绝账号"+@serlist.username+"的服务申请，编号为"+@serlist.id.to_s
     user=session[:useremail]
     createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     redirect_to :controller=>"adservice",:action=>"dashboard"
   end
 

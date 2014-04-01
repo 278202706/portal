@@ -43,6 +43,7 @@
   <div class="container">
     <div class="row">
       <div class="login-form">
+<<<<<<< HEAD
         <% if @error=="notfound" %>
             <div class="alert alert-error">
               <button data-dismiss="alert" class="close" type="button">
@@ -57,6 +58,9 @@
               <br>
             </div>
         <% end %>
+=======
+
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
         <% if @error=="wrong" %>
           <div class="alert alert-error">
             <button data-dismiss="alert" class="close" type="button">
@@ -71,6 +75,7 @@
             <br>
           </div>
         <% end %>
+<<<<<<< HEAD
         <% if @error=="timeout" %>
             <div class="alert alert-error">
               <button data-dismiss="alert" class="close" type="button">
@@ -85,6 +90,8 @@
               <br>
             </div>
         <% end %>
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
         <div class="alert alert-info"><%= "请输入邮箱和登陆密码" %> </div>
         <%= form_tag url_for(:controller => 'login', :action => 'index'), :class => "center", :method => :post do %>
           <fieldset>

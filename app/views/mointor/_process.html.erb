@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% proc_stat = @machineinfo["proc_stat"] %>
 
 <div class="box-content">
@@ -59,4 +60,67 @@
       </span>
     </div>
   </div>
+=======
+<% proc_stat = @machineinfo["proc_stat"] %>
+
+<div class="box-content">
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 进程总数</div>
+    <div class="profile-info-value">
+      <span><%= proc_stat["total"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 正在运行进程数</div>
+    <div class="profile-info-value">
+      <span><%= proc_stat["running"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 睡眠进程数</div>
+    <div class="profile-info-value">
+      <span><%= proc_stat["sleeping"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 僵死进程数</div>
+    <div class="profile-info-value">
+      <span><%= proc_stat["zombie"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 已停止进程数</div>
+    <div class="profile-info-value">
+      <span><%= proc_stat["stopped"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 空闲进程数</div>
+    <div class="profile-info-value">
+      <span><%= proc_stat["idle"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 线程总数</div>
+    <div class="profile-info-value">
+      <span><%= proc_stat["threads"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 进程详情</div>
+    <div class="profile-info-value">
+      <span>
+         <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "mointor", :action => "processdetail", :id => @index }, :class => "btn btn-success btn-small" %>
+      </span>
+    </div>
+  </div>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 </div>

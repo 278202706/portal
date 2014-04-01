@@ -45,18 +45,27 @@ class App < ActiveRecord::Base
 
 
   APP_CHECK_LIMIT = 480
+<<<<<<< HEAD
   def startheapp(app,username,client)
+=======
+  def startheapp(app,username)
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     if app.started?
       logs="Application #{app.name} is already started."
       puts "Application #{app.name} is already started."
       addapplog app.guid,logs,username
     end
     log = start_app(app,username)
+<<<<<<< HEAD
     stream_start_log(log,client,app,username) if log
+=======
+    #stream_start_log(log) if log
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     check_application(app,username)
 
   end
 
+<<<<<<< HEAD
   def stream_start_log(log,client,app,username)
     offset = 0
     while true
@@ -72,6 +81,8 @@ class App < ActiveRecord::Base
     end
   rescue CFoundry::APIError
   end
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 
   def start_app(app,username)
     log = nil

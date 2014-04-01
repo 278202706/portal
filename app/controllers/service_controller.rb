@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # encoding: utf-8
 class ServiceController < ApplicationController
   include ServiceHelper
@@ -12,6 +13,11 @@ class ServiceController < ApplicationController
     else
       @permisson="no"
     end
+=======
+class ServiceController < ApplicationController
+  include ServiceHelper
+  def market
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   end
 
   def applylist
@@ -46,9 +52,12 @@ class ServiceController < ApplicationController
       @app.unbind @thisser
     end
     @thisser.delete!
+<<<<<<< HEAD
     log="用户删除服务"+@serinst.name+",服务类型为"+@serinst.sertype
     user=session[:useremail]
     createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     @serlist=Servicelist.where({:username=>@serinst.username,:name=>@serinst.name}).first
     @serlist.isdelete="yes"
     @serlist.save
@@ -102,6 +111,7 @@ class ServiceController < ApplicationController
       an_list.approve_at=an_inst.approvetime
       an_list.active=true
       an_list.save
+<<<<<<< HEAD
       log="用户申请服务"+@serint.name+",服务类型为"+an_inst.sertype+",等待管理员审核"
       user=session[:useremail]
       createlog user,log
@@ -111,6 +121,8 @@ class ServiceController < ApplicationController
       log="用户申请服务"+@serint.name+",服务类型为"+an_inst.sertype+",获得管理员批准"
       user=session[:useremail]
       createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     else
       @planid=1
       @service=@userclient.services[0]
@@ -124,9 +136,12 @@ class ServiceController < ApplicationController
           :active=>false,
           :isrej=>"no")
       an_list.save
+<<<<<<< HEAD
       log="用户申请服务"+@serint.name+",服务类型为"+@serint.sertype+",等待管理员审核"
       user=session[:useremail]
       createlog user,log
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     end
     redirect_to :controller=>"service",:action=>"applylist"
   end

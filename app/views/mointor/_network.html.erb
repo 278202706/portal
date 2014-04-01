@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% netinfo = @machineinfo["net_info"] %>
 
 <div class="box-content">
@@ -41,3 +42,48 @@
 
 </div>
 
+=======
+<% netinfo = @machineinfo["net_info"] %>
+
+<div class="box-content">
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 默认网关</div>
+    <div class="profile-info-value">
+      <span><%= netinfo["default_gateway"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 默认接口</div>
+    <div class="profile-info-value">
+      <span><%= netinfo["default_gateway_interface"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 首选DNS</div>
+    <div class="profile-info-value">
+      <span><%= netinfo["primary_dns"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 备选DNS</div>
+    <div class="profile-info-value">
+      <span><%= netinfo["secondary_dns"] %></span>
+    </div>
+  </div>
+
+  <div class="profile-info-row">
+    <div class="profile-info-name"> 网络接口</div>
+    <div class="profile-info-value">
+      <span>
+         <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "mointor", :action => "networkinterfacedetail", :id => @index }, :class => "btn btn-success btn-small" %>
+      </span>
+    </div>
+  </div>
+
+</div>
+
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb

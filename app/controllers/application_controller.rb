@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 # encoding: utf-8
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+<<<<<<< HEAD
   before_action :require_login
   protected
   def require_login
@@ -19,6 +23,8 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
   #before_action :require_login
   #
   #

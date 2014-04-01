@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% if instances == nil  %>
   no instance informations!!!
 <% else %>
@@ -42,3 +43,49 @@
   </div>
 </div>
 <% end  %>
+=======
+<% if instances == nil  %>
+  no instance informations!!!
+<% else %>
+<div class="table-responsive">
+  <div class="table-responsive">
+    <div class="dataTables_wrapper" role="grid">
+      <table class="table table-striped table-bordered bootstrap-datatable datatable table-hover" id="listlogs">
+        <thead>
+        <tr>
+          <th>主机名</th>
+          <th>端口号</th>
+          <th>启动时间</th>
+          <th>运行时间</th>
+          <th>内存使用(M)</th>
+          <th>CPU使用(%)</th>
+          <th>详情</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% instances.each_pair do |key, instance| %>
+            <% ip, port = ip_port instance["host"] %>
+            <tr>
+              <th><%= ip %></th>
+              <th><%= port %></th>
+              <th><%= instance["start"]!="" ?to_time(instance["start"]):"无" %></th>
+              <th><%= instance["uptime"]!="" ?to_date(instance["uptime"]):"无" %></th>
+              <th><%= instance["varz"]?instance["varz"]["mem"]:"无" %></th>
+              <th><%= instance["varz"]?instance["varz"]["cpu"]:"无" %></th>
+              <th>
+                <% if instance["varz"] %>
+                    <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "mointor", :action => "#{instance["type"]}detail", :id => key}, :class => "btn btn-success btn-small" %>
+                <% else %>
+                    无
+                <% end %>
+              </th>
+
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<% end  %>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb

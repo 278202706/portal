@@ -97,7 +97,11 @@
                 <% end %>
               </td>
               <td>
+<<<<<<< HEAD
                 <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "applications", :action => "unitapp", :id => app.id}, :class => "btn btn-info btn-mini",:'data-no-turbolink'=>'true' %>
+=======
+                <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "applications", :action => "unitapp", :id => app.id}, :class => "btn btn-info btn-mini" %>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
                 <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "applications", :action => "deleteapp", :appid => app.id}, :class => "btn btn-danger btn-mini" %>
               </td>
             </tr>

@@ -10,8 +10,17 @@
   fresh();
 </SCRIPT>
 <div class="container-fluid main-container">
+<<<<<<< HEAD
 
   <div class="main-content clearfix" style="margin-left: 0px;">
+=======
+	<%if session[:useremail]=="admin"%>
+	<%= render(:partial => "/sidebar/adresource") %>
+	<% else %>
+  <%= render(:partial => "/sidebar/resource") %>
+  <% end %>
+  <div class="main-content clearfix">
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
     <div class="breadcrumbs" id="breadcrumbs">
       <ul class="breadcrumb">
         <li>

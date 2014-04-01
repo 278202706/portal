@@ -41,12 +41,15 @@
             <p><%= tip %></p>
           </div>
       <% end %>
+<<<<<<< HEAD
       <% if params[:info]=="success" %>
           <div class="alert alert-info">
             <h4 class="alert-heading">注意！</h4>
             <p><%= "厂商删除成功"  %></p>
           </div>
       <% end %>
+=======
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
 		<%if @orgs.length==0 %>
 			<div class="alert alert-block">
             <h4 class="alert-heading">提示！</h4>
@@ -81,10 +84,14 @@
                   </td>
                   <td>
                     <%= link_to raw("<i class='icon-zoom-in icon-white'></i><h style='color:#FFF'>查看</h>"), {:controller => "adaccount", :action => "unitaccount",:id=>org.id}, :class => "btn btn-success btn-mini" %>
+<<<<<<< HEAD
                     <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adaccount", :action => "deleteorg",:id=>org.id}, :class => "btn btn-danger btn-mini" %>
                     <% if (@theacc!=nil) %>
                         <%= link_to raw("<i class='icon-table icon-white'></i><h style='color:#FFF'>操作记录</h>"), {:controller => "adaccount", :action => "viewlogs",:id=>org.id}, :class => "btn  btn-mini" %>
                   <% end %>
+=======
+                    <%= link_to raw("<i class='icon-trash icon-white'></i><h style='color:#FFF'>删除</h>"), {:controller => "adaccount", :action => "manage",:id=>org.id}, :class => "btn btn-danger btn-mini" %>
+>>>>>>> e582676e82b04eeed2cf6322a8b13e3b25c94fbb
                   </td>
                 </tr>
 				<%end%>
